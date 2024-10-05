@@ -5,6 +5,10 @@ A tiny collection of component made as Tailwind CSS plugins
 ## Table of Contents
 
 - [Button](#button)
+  - [Button Color](#button-color)
+  - [Button Size](#button-size)
+  - [Button Surface](#button-surface)
+  - [Button Space](#button-space)
 - [Button Group](#button-group)
 
 ## Button
