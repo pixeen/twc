@@ -28,8 +28,6 @@ export default {
 
 <details><summary>Color</summary>
 
-#### Button Color
-
 `primary` `secondary` `positive` `negative`
 
 ```html
@@ -39,8 +37,6 @@ export default {
 </details>
 
 <details><summary>Size</summary>
-
-#### Button Size
 
 `small` `medium` `large`
 
@@ -52,8 +48,6 @@ export default {
 
 <details><summary>Surface</summary>
 
-#### Button Surface
-
 `ghost` `fill`
 
 ```html
@@ -63,8 +57,6 @@ export default {
 </details>
 
 <details><summary>Space</summary>
-
-#### Button Space
 
 `full` `auto`
 
@@ -86,8 +78,6 @@ export default {
 
 <details><summary>Direction</summary>
 
-#### Button Group Direction
-
 `horizontal` `vertical`
 
 ```html
@@ -101,8 +91,6 @@ export default {
 </details>
 
 <details><summary>Space</summary>
-
-#### Button Group Space
 
 `auto` `full`
 
