@@ -26,7 +26,9 @@ export default {
 <button style-as="button">Click Me!</button>
 ```
 
-<details><summary>Button Color</summary>
+<details><summary>Color</summary>
+
+#### Button Color
 
 `primary` `secondary` `positive` `negative`
 
@@ -36,7 +38,9 @@ export default {
 
 </details>
 
-<details><summary>Button Size</summary>
+<details><summary>Size</summary>
+
+#### Button Size
 
 `small` `medium` `large`
 
@@ -46,7 +50,9 @@ export default {
 
 </details>
 
-<details><summary>Button Surface</summary>
+<details><summary>Surface</summary>
+
+#### Button Surface
 
 `ghost` `fill`
 
@@ -56,7 +62,9 @@ export default {
 
 </details>
 
-<details><summary>Button Space</summary>
+<details><summary>Space</summary>
+
+#### Button Space
 
 `full` `auto`
 
@@ -76,7 +84,9 @@ export default {
 </div>
 ```
 
-<details><summary>Button Group Direction</summary>
+<details><summary>Direction</summary>
+
+#### Button Group Direction
 
 `horizontal` `vertical`
 
@@ -90,7 +100,9 @@ export default {
 
 </details>
 
-<details><summary>Button Group Space</summary>
+<details><summary>Space</summary>
+
+#### Button Group Space
 
 `auto` `full`
 
