@@ -5,10 +5,6 @@ A tiny collection of component made as Tailwind CSS plugins
 ## Table of Contents
 
 - [Button](#button)
-  - [Color](#button-color)
-  - [Size](#button-size)
-  - [Surface](#button-surface)
-  - [Space](#button-space)
 - [Button Group](#button-group)
 
 ## Button
@@ -16,6 +12,11 @@ A tiny collection of component made as Tailwind CSS plugins
 ```html
 <button style-as="button">Click Me!</button>
 ```
+
+- [Color](#button-color)
+- [Size](#button-size)
+- [Surface](#button-surface)
+- [Space](#button-space)
 
 ### Button Color
 
