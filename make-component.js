@@ -1,11 +1,14 @@
+const COMPONENT_SELECTOR = 'style-as';
+const VARIANT_SELECTOR = 'with-'
+
 const createVariantSelector = (componentName, variantGroup, variantKey) =>
-    `[style-as="${componentName}"][with-${variantGroup}="${variantKey}"]`;
+    `[${COMPONENT_SELECTOR}="${componentName}"][${VARIANT_SELECTOR}-${variantGroup}="${variantKey}"]`;
 
 const createVariantClass = (componentName, variantGroup, variantKey) =>
     `.${componentName}--${variantGroup}-${variantKey}`;
 
 const applyBaseAndDefaultStyles = (acc, baseStyles, defaultStyles, componentName) => {
-    const baseSelector = `[style-as="${componentName}"]`;
+    const baseSelector = `[${COMPONENT_SELECTOR}="${componentName}"]`;
     const baseClass = `.${componentName}`;
 
     acc[baseSelector] = {...baseStyles, ...defaultStyles};
