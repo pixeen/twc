@@ -20,17 +20,17 @@ export default {
 - [Button Group](#button-group)
 - [Link](#link)
 
-## Button
+### Button
 
 ```html
 <button style-as="button">Click Me!</button>
 ```
 
-### Color
+<details><summary>Color</summary>
+
+#### Button Color
 
 `primary` `secondary` `positive` `negative`
-
-<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-color="positive">Click Me!</button>
@@ -38,11 +38,11 @@ export default {
 
 </details>
 
-### Size
+<details><summary>Size</summary>
+
+#### Button Size
 
 `small` `medium` `large`
-
-<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-size="small">Click Me!</button>
@@ -50,11 +50,11 @@ export default {
 
 </details>
 
-### Surface
+<details><summary>Surface</summary>
+
+#### Button Surface
 
 `ghost` `fill`
-
-<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-surface="ghost">Click Me!</button>
@@ -62,11 +62,11 @@ export default {
 
 </details>
 
-### Space
+<details><summary>Space</summary>
+
+#### Button Space
 
 `full` `auto`
-
-<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-space="full">Click Me!</button>
@@ -74,7 +74,7 @@ export default {
 
 </details>
 
-## Button Group
+### Button Group
 
 ```html
 <div style-as="button-group">
@@ -84,11 +84,11 @@ export default {
 </div>
 ```
 
-### Direction
+<details><summary>Direction</summary>
+
+#### Button Group Direction
 
 `horizontal` `vertical`
-
-<details><summary>Usage</summary>
 
 ```html
 <div style-as="button-group" with-direction="vertical">
@@ -100,11 +100,11 @@ export default {
 
 </details>
 
-### Space
+<details><summary>Space</summary>
+
+#### Button Group Space
 
 `auto` `full`
-
-<details><summary>Usage</summary>
 
 ```html
 <div style-as="button-group" with-space="fill">
@@ -116,7 +116,7 @@ export default {
 
 </details>
 
-## Link
+### Link
 
 ```html
 <a style-as="link" href="#">Click Me!</a>
