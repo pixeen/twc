@@ -18,6 +18,7 @@ export default {
 
 - [Button](#button)
 - [Button Group](#button-group)
+- [Link](#link)
 
 ## Button
 
