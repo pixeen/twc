@@ -1,4 +1,4 @@
-import {makeComponent} from "../utils/make-component.js";
+import { makeComponent } from "../utils/make-component.js";
 
 const name = "button";
 

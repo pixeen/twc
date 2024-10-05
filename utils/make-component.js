@@ -2,7 +2,7 @@ const COMPONENT_SELECTOR = "style-as";
 const VARIANT_SELECTOR = "with-";
 
 const createVariantSelector = (componentName, variantGroup, variantKey) =>
-  `[${COMPONENT_SELECTOR}="${componentName}"][${VARIANT_SELECTOR}-${variantGroup}="${variantKey}"]`;
+  `[${COMPONENT_SELECTOR}="${componentName}"][${VARIANT_SELECTOR}${variantGroup}="${variantKey}"]`;
 
 const createVariantClass = (componentName, variantGroup, variantKey) =>
   `.${componentName}--${variantGroup}-${variantKey}`;
