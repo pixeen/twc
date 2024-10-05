@@ -67,5 +67,32 @@ export default {
 </div>
 ```
 
-- @todo add button group variants
-- @todo add link component
+#### Button Group Direction
+
+`horizontal` `vertical`
+
+```html
+<div style-as="button-group" with-direction="vertical">
+  <button style-as="button">Click</button>
+  <button style-as="button">Click</button>
+  <button style-as="button">Click</button>
+</div>
+```
+
+#### Button Group Space
+
+`auto` `full`
+
+```html
+<div style-as="button-group" with-space="fill">
+  <button style-as="button">Click</button>
+  <button style-as="button">Click</button>
+  <button style-as="button">Click</button>
+</div>
+```
+
+## Link
+
+```html
+<a style-as="link" href="#">Click Me!</a>
+```

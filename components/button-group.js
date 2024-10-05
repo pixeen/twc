@@ -16,6 +16,7 @@ const variants = (theme) => ({
         flex: "1",
       },
     },
+    auto: {},
   },
   direction: {
     horizontal: {
