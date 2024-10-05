@@ -4,29 +4,14 @@ A tiny collection of component made as Tailwind CSS plugins
 
 ## Usage
 
-Extend the `tailwind.config.js` theme colors with semantic color values and add the components as Tailwind CSS plugin
+Add `twc` as a plugin to the `tailwind.config.js`
 
-```
-theme: {
-    extend: {
-        colors: {
-            primary: colors.zinc,
-            positive: colors.green,
-            negative: colors.red,
-            secondary: colors.blue,
-        },
-    }
-}
-```
-
-```
-plugins: [
-    plugin(({ addComponents, theme }) => {
-        addComponents(
-            twc(theme)
-        );
-    }),
-]
+```js
+export default {
+  // ...
+  plugins: [twc], // < add twc over here
+  // ...
+};
 ```
 
 ## Components
