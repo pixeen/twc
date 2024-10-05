@@ -13,12 +13,7 @@ A tiny collection of component made as Tailwind CSS plugins
 <button style-as="button">Click Me!</button>
 ```
 
-- [Color](#button-color)
-- [Size](#button-size)
-- [Surface](#button-surface)
-- [Space](#button-space)
-
-### Button Color
+#### Button Color
 
 `primary` `secondary` `positive` `negative`
 
@@ -26,7 +21,7 @@ A tiny collection of component made as Tailwind CSS plugins
 <button style-as="button" with-color="positive">Click Me!</button>
 ```
 
-### Button Size
+#### Button Size
 
 `small` `medium` `large`
 
@@ -34,7 +29,7 @@ A tiny collection of component made as Tailwind CSS plugins
 <button style-as="button" with-size="small">Click Me!</button>
 ```
 
-### Button Surface
+#### Button Surface
 
 `ghost` `fill`
 
@@ -42,7 +37,7 @@ A tiny collection of component made as Tailwind CSS plugins
 <button style-as="button" with-surface="ghost">Click Me!</button>
 ```
 
-### Button Space
+#### Button Space
 
 `full` `auto`
 
