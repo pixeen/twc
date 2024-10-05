@@ -1,6 +1,6 @@
-# Tailwind Components
+# Tailwind CSS Component Plugins
 
-A tiny collection of components made as Tailwind CSS plugins
+A tiny collection of component made as Tailwind CSS plugins
 
 ## Table of Contents
 
