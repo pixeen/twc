@@ -1,8 +1,8 @@
-const createVariantSelector = (name, variantGroup, variantKey) =>
-    `[style-as="${name}"][with-${variantGroup}="${variantKey}"]`;
+const createVariantSelector = (componentName, variantGroup, variantKey) =>
+    `[style-as="${componentName}"][with-${variantGroup}="${variantKey}"]`;
 
-const createVariantClass = (name, variantGroup, variantKey) =>
-    `.${name}--${variantGroup}-${variantKey}`;
+const createVariantClass = (componentName, variantGroup, variantKey) =>
+    `.${componentName}--${variantGroup}-${variantKey}`;
 
 const applyBaseAndDefaultStyles = (acc, baseStyles, defaultStyles, componentName) => {
     const baseSelector = `[style-as="${componentName}"]`;
