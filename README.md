@@ -26,37 +26,53 @@ export default {
 <button style-as="button">Click Me!</button>
 ```
 
-#### Button Color
+### Color
 
 `primary` `secondary` `positive` `negative`
+
+<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-color="positive">Click Me!</button>
 ```
 
-#### Button Size
+</details>
+
+### Size
 
 `small` `medium` `large`
+
+<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-size="small">Click Me!</button>
 ```
 
-#### Button Surface
+</details>
+
+### Surface
 
 `ghost` `fill`
+
+<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-surface="ghost">Click Me!</button>
 ```
 
-#### Button Space
+</details>
+
+### Space
 
 `full` `auto`
+
+<details><summary>Usage</summary>
 
 ```html
 <button style-as="button" with-space="full">Click Me!</button>
 ```
+
+</details>
 
 ## Button Group
 
@@ -68,9 +84,11 @@ export default {
 </div>
 ```
 
-#### Button Group Direction
+### Direction
 
 `horizontal` `vertical`
+
+<details><summary>Usage</summary>
 
 ```html
 <div style-as="button-group" with-direction="vertical">
@@ -80,9 +98,13 @@ export default {
 </div>
 ```
 
-#### Button Group Space
+</details>
+
+### Space
 
 `auto` `full`
+
+<details><summary>Usage</summary>
 
 ```html
 <div style-as="button-group" with-space="fill">
@@ -91,6 +113,8 @@ export default {
   <button style-as="button">Click</button>
 </div>
 ```
+
+</details>
 
 ## Link
 
