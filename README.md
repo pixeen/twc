@@ -1,4 +1,4 @@
-# Tailwind CSS Component Plugins
+# Tailwind CSS Components
 
 A tiny collection of component made as Tailwind CSS plugins
 
