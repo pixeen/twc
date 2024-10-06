@@ -9,12 +9,6 @@ const createSelector = {
     `[${compAttr}="${component}"][${varAttr}${group}="${key}"]`,
 };
 
-const applyStyles = (acc, component, base, defaults, compAttr) => ({
-  ...acc,
-  [createSelector.componentAttr(component, compAttr)]: { ...base, ...defaults },
-  [createSelector.componentClass(component)]: { ...base, ...defaults },
-});
-
 const accumulateStyles = (
   acc,
   [group, items],
@@ -27,6 +21,13 @@ const accumulateStyles = (
   const base = baseFn(theme),
     defaults = defaultFn(theme);
   Object.entries(items).forEach(([key, style]) => {
+    acc[
+      createSelector.componentAttr(
+        component,
+        attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
+      )
+    ] = { ...base, ...defaults };
+    acc[createSelector.componentClass(component)] = { ...base, ...defaults };
     if (attributes.enabled) {
       acc[
         createSelector.variantAttr(
@@ -44,13 +45,7 @@ const accumulateStyles = (
     }
   });
 
-  return applyStyles(
-    acc,
-    component,
-    base,
-    defaults,
-    attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
-  );
+  return acc;
 };
 
 export const makeComponent =
