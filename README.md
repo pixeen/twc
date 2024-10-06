@@ -16,13 +16,9 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 A customizable button component.
 
-<details><summary><strong>Default</strong></summary>
-
 ```html
 <button class="button">Click Me!</button>
 ```
-
-</details>
 
 #### Variants
 
@@ -77,8 +73,6 @@ Available space variants: `full`, `auto`
 
 A flexible container for grouping multiple buttons together.
 
-<details><summary><strong>Default</strong></summary>
-
 ```html
 <div class="button-group">
   <button class="button">Click</button>
@@ -86,8 +80,6 @@ A flexible container for grouping multiple buttons together.
   <button class="button">Click</button>
 </div>
 ```
-
-</details>
 
 #### Variants
 
@@ -133,13 +125,9 @@ Available space variants: `auto`, `full`
 
 A styled link component
 
-<details><summary><strong>Default</strong></summary>
-
 ```html
 <a class="link" href="#">Click Me!</a>
 ```
-
-</details>
 
 ## Custom Component
 
