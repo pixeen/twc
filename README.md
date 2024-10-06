@@ -16,8 +16,6 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 <details><summary>Color</summary>
 
-`primary` `secondary` `positive` `negative`
-
 ```html
 <button class="button button--secondary">Click Me!</button>
 <button class="button button--positive">Click Me!</button>
@@ -26,9 +24,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Size</summary>
+`primary` `secondary` `positive` `negative`
 
-`small` `medium` `large`
+<details><summary>Size</summary>
 
 ```html
 <button class="button button--small">Click Me!</button>
@@ -38,9 +36,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Surface</summary>
+`small` `medium` `large`
 
-`ghost` `fill`
+<details><summary>Surface</summary>
 
 ```html
 <button class="button button--fill">Click Me!</button>
@@ -49,9 +47,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Space</summary>
+`ghost` `fill`
 
-`full` `auto`
+<details><summary>Space</summary>
 
 ```html
 <button class="button button--full">Click Me!</button>
@@ -59,6 +57,8 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 ```
 
 </details>
+
+`full` `auto`
 
 ### Button Group
 
@@ -76,8 +76,6 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 <details><summary>Direction</summary>
 
-`horizontal` `vertical`
-
 ```html
 <div class="button-group button-group--vertical">
   <button class="button">Click</button>
@@ -87,9 +85,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Space</summary>
+`horizontal` `vertical`
 
-`auto` `full`
+<details><summary>Space</summary>
 
 ```html
 <div class="button-group button-group--fill">
@@ -100,6 +98,8 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 ```
 
 </details>
+
+`auto` `full`
 
 ### Link
 
