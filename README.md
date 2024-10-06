@@ -1,4 +1,4 @@
-# Tailwind CSS Components
+# Pixeen TWC
 
 A tiny collection of components designed as Tailwind CSS plugins.
 

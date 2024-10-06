@@ -73,10 +73,10 @@ const cases = [
           },
         },
         defaultVariants: { color: "primary", size: "large" },
-        compoundVariants: [
-          [{ color: "primary" }, { size: "large" }, { background: "purple" }],
-          [{ color: "secondary" }, { size: "small" }, { background: "green" }],
-        ],
+    compoundVariants: [
+      [{ color: "primary" }, { size: "large" }, { background: "purple" }],
+      [{ color: "secondary" }, { size: "small" }, { background: "green" }],
+    ],
       },
     ],
     expected: {
