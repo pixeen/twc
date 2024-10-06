@@ -31,7 +31,7 @@ Available color variants: `primary`, `secondary`, `positive`, `negative`
 <button class="button button--negative">Click Me!</button>
 ```
 
-</details>np
+</details>
 
 <details><summary><strong>Size</strong></summary>
 
