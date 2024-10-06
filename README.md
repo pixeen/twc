@@ -2,8 +2,6 @@
 
 A tiny collection of components designed as Tailwind CSS plugins.
 
-## Table of Contents
-
 - [Components](#components)
   - [Button](#button)
   - [Button Group](#button-group)
