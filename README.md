@@ -2,31 +2,12 @@
 
 A tiny collection of component made as Tailwind CSS plugins
 
-## Usage
-
-Add `twc` as a plugin to the `tailwind.config.js`
-
-```js
-export default {
-  // ...
-  plugins: [
-    twc({
-      pattern: {
-        component: '[style-as="${componentName}"]',
-        variant:
-          '[style-as="${componentName}"][with-${variantName}="${variantOption}"]',
-      },
-    }),
-  ],
-};
-```
-
 ## Components
 
 ### Button
 
 ```html
-<button style-as="button">Click Me!</button>
+<button class="button">Click Me!</button>
 ```
 
 #### Button Variants
@@ -38,7 +19,7 @@ export default {
 `primary` `secondary` `positive` `negative`
 
 ```html
-<button style-as="button" with-color="positive">Click Me!</button>
+<button class="button button--positive">Click Me!</button>
 ```
 
 </details>
@@ -50,7 +31,7 @@ export default {
 `small` `medium` `large`
 
 ```html
-<button style-as="button" with-size="small">Click Me!</button>
+<button class="button button--size">Click Me!</button>
 ```
 
 </details>
@@ -62,7 +43,7 @@ export default {
 `ghost` `fill`
 
 ```html
-<button style-as="button" with-surface="ghost">Click Me!</button>
+<button class="button button--ghost">Click Me!</button>
 ```
 
 </details>
@@ -74,7 +55,7 @@ export default {
 `full` `auto`
 
 ```html
-<button style-as="button" with-space="full">Click Me!</button>
+<button class="button button--full">Click Me!</button>
 ```
 
 </details>
@@ -82,10 +63,10 @@ export default {
 ### Button Group
 
 ```html
-<div style-as="button-group">
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
+<div class="button-group">
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+  <button class="button">Click</button>
 </div>
 ```
 
@@ -98,10 +79,10 @@ export default {
 `horizontal` `vertical`
 
 ```html
-<div style-as="button-group" with-direction="vertical">
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
+<div class="button-group button-group--vertical">
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+  <button class="button">Click</button>
 </div>
 ```
 
@@ -114,10 +95,10 @@ export default {
 `auto` `full`
 
 ```html
-<div style-as="button-group" with-space="fill">
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
-  <button style-as="button">Click</button>
+<div class="button-group button-group--fill">
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+  <button class="button">Click</button>
 </div>
 ```
 
@@ -126,5 +107,5 @@ export default {
 ### Link
 
 ```html
-<a style-as="link" href="#">Click Me!</a>
+<a class="link" href="#">Click Me!</a>
 ```

@@ -23,6 +23,10 @@ const base = (theme) => ({
   fontWeight: theme("fontWeight.medium"),
   lineHeight: theme("lineHeight.none"),
   outline: "none",
+  ...baseDisabled(theme),
+});
+
+const baseDisabled = (theme) => ({
   "&:disabled": {
     opacity: theme("opacity.50"),
     cursor: "not-allowed",
