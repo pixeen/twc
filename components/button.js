@@ -1,20 +1,17 @@
 import canDisable from "./shared/can-disable.js";
 import canFocus from "./shared/can-focus.js";
+import hasActionType from "./shared/has-action-type.js";
 
 export default (theme) => ({
   base: {
     ...canFocus(theme),
     ...canDisable(theme),
-    cursor: "pointer",
-    userSelect: "none",
+    ...hasActionType(theme),
     alignItems: "center",
     position: "relative",
-    whiteSpace: "nowrap",
     display: "inline-flex",
     justifyContent: "center",
     gap: theme("spacing.3"),
-    lineHeight: theme("lineHeight.none"),
-    fontWeight: theme("fontWeight.medium"),
     borderWidth: theme("borderWidth.DEFAULT"),
     borderRadius: theme("borderRadius.DEFAULT"),
   },
