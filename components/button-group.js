@@ -1,5 +1,7 @@
 export default (theme) => ({
-  base: {},
+  base: {
+    userSelect: "none",
+  },
   defaultVariants: {
     space: "auto",
     direction: "horizontal",
@@ -65,5 +67,5 @@ export default (theme) => ({
       },
     },
   },
-  compoundVariants: {},
+  compoundVariants: [],
 });

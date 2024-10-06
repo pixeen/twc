@@ -1,6 +1,10 @@
+import canDisable from "./shared/can-disable.js";
+import canFocus from "./shared/can-focus.js";
+
 export default (theme) => ({
   base: {
-    outline: "none",
+    ...canFocus(theme),
+    ...canDisable(theme),
     cursor: "pointer",
     userSelect: "none",
     alignItems: "center",
@@ -13,11 +17,6 @@ export default (theme) => ({
     fontWeight: theme("fontWeight.medium"),
     borderWidth: theme("borderWidth.DEFAULT"),
     borderRadius: theme("borderRadius.DEFAULT"),
-
-    "&:disabled": {
-      cursor: "not-allowed",
-      opacity: theme("opacity.50"),
-    },
   },
   defaultVariants: {
     color: "primary",
@@ -30,7 +29,7 @@ export default (theme) => ({
       small: {
         fontSize: theme("fontSize.sm"),
         paddingInline: theme("spacing.3"),
-        paddingBlock: theme("spacing[1]"),
+        paddingBlock: theme("spacing.1"),
       },
       medium: {
         fontSize: theme("fontSize.DEFAULT"),
@@ -75,7 +74,6 @@ export default (theme) => ({
         color: theme("colors.primary.800"),
         "&:focus": {
           outline: `${theme("spacing[0.5]")} solid ${theme("colors.primary.400")}`,
-          outlineOffset: theme("spacing[0.5]"),
         },
         "&:hover": {
           backgroundColor: theme("colors.primary.300"),
@@ -99,7 +97,6 @@ export default (theme) => ({
         color: theme("colors.secondary.800"),
         "&:focus": {
           outline: `${theme("spacing[0.5]")} solid ${theme("colors.secondary.400")}`,
-          outlineOffset: theme("spacing[0.5]"),
         },
         "&:hover": {
           backgroundColor: theme("colors.secondary.200"),
@@ -123,7 +120,6 @@ export default (theme) => ({
         color: theme("colors.positive.800"),
         "&:focus": {
           outline: `${theme("spacing[0.5]")} solid ${theme("colors.positive.400")}`,
-          outlineOffset: theme("spacing[0.5]"),
         },
         "&:hover": {
           backgroundColor: theme("colors.positive.200"),
@@ -147,7 +143,6 @@ export default (theme) => ({
         color: theme("colors.negative.800"),
         "&:focus": {
           outline: `${theme("spacing[0.5]")} solid ${theme("colors.negative.400")}`,
-          outlineOffset: theme("spacing[0.5]"),
         },
         "&:hover": {
           backgroundColor: theme("colors.negative.200"),
@@ -167,5 +162,7 @@ export default (theme) => ({
       },
     },
   },
-  compoundVariants: {},
+  compoundVariants: [
+    // [{color: "primary"}, {size: "medium"}, {padding: "100px"}],
+  ],
 });
