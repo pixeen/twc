@@ -171,26 +171,34 @@ These classes are automatically generated and can be used directly in your HTML:
 .button {
   /* base styles */
 }
+
 .button--primary {
   /* primary color variant */
 }
+
 .button--secondary {
   /* secondary color variant */
 }
+
 .button--positive {
   /* positive color variant */
 }
+
 .button--negative {
   /* negative color variant */
 }
+
 .button--small {
   /* small size variant */
 }
+
 .button--medium {
   /* medium size variant */
 }
+
 .button--large {
   /* large size variant */
 }
+
 /* More generated classes based on defined variants */
 ```

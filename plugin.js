@@ -3,6 +3,8 @@ import button from "./components/button";
 import link from "./components/link";
 import { defineComponent } from "./src/define-component.js";
 import buttonGroup from "./components/button-group.js";
+import checkbox from "./components/checkbox.js";
+import radio from "./components/radio.js";
 
 export default plugin.withOptions(
   (options) =>
@@ -11,6 +13,8 @@ export default plugin.withOptions(
         ...defineComponent("button", button(theme, options)),
         ...defineComponent("button-group", buttonGroup(theme, options)),
         ...defineComponent("link", link(theme, options)),
+        ...defineComponent("checkbox", checkbox(theme, options)),
+        ...defineComponent("radio", radio(theme, options)),
       }),
   (options) => ({
     theme: {
