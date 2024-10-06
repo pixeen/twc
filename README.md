@@ -6,13 +6,13 @@ A tiny collection of component made as Tailwind CSS plugins
 
 ### Button
 
-`button``button--primary` `button--secondary` `button--positive` `button--negative` `button--small` `button--medium` `button--large` `button--ghost` `button--fill`, `button--full`
-
 ```html
 <button class="button">Click Me!</button>
 ```
 
 #### Button Variants
+
+`button--primary` `button--secondary` `button--positive` `button--negative` `button--small` `button--medium` `button--large` `button--ghost` `button--fill`, `button--full`
 
 <details><summary>Color</summary>
 
