@@ -19,7 +19,10 @@ A tiny collection of component made as Tailwind CSS plugins
 `primary` `secondary` `positive` `negative`
 
 ```html
+<button class="button button--primary">Click Me!</button>
+<button class="button button--secondary">Click Me!</button>
 <button class="button button--positive">Click Me!</button>
+<button class="button button--negative">Click Me!</button>
 ```
 
 </details>
@@ -31,7 +34,9 @@ A tiny collection of component made as Tailwind CSS plugins
 `small` `medium` `large`
 
 ```html
-<button class="button button--size">Click Me!</button>
+<button class="button button--small">Click Me!</button>
+<button class="button button--medium">Click Me!</button>
+<button class="button button--large">Click Me!</button>
 ```
 
 </details>
@@ -43,6 +48,7 @@ A tiny collection of component made as Tailwind CSS plugins
 `ghost` `fill`
 
 ```html
+<button class="button button--fill">Click Me!</button>
 <button class="button button--ghost">Click Me!</button>
 ```
 
@@ -55,6 +61,7 @@ A tiny collection of component made as Tailwind CSS plugins
 `full` `auto`
 
 ```html
+<button class="button button--full">Click Me!</button>
 <button class="button button--full">Click Me!</button>
 ```
 
@@ -79,8 +86,11 @@ A tiny collection of component made as Tailwind CSS plugins
 `horizontal` `vertical`
 
 ```html
-<div class="button-group button-group--vertical">
+<div class="button-group button-group--horizontal">
   <button class="button">Click</button>
+  <button class="button">Click</button>
+</div>
+<div class="button-group button-group--vertical">
   <button class="button">Click</button>
   <button class="button">Click</button>
 </div>
