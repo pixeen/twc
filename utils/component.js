@@ -1,5 +1,5 @@
-import {memoize} from "./memoize.js";
-import {replace} from "./replace.js";
+import { memoize } from "./memoize.js";
+import { replace } from "./replace.js";
 
 /**
  * Generates component styles based on theme and variant options.
@@ -12,36 +12,37 @@ import {replace} from "./replace.js";
  * @returns {Function} A function that generates the component's styles based on the provided theme and options.
  */
 
-const component = (
+const component =
+  (
     componentName,
     baseStylesFn = () => ({}),
     variantStylesFn = () => ({}),
     defaultStylesFn = () => ({}),
-) =>
-    (theme, options = {}) => {
-        return Object.entries(variantStylesFn(theme)).reduce(
-            (acc, [group, items = {}]) => {
-                return Object.entries(items).reduce((result, [key, variantStyle]) => {
-                    const data = {
-                        componentName: componentName,
-                        variantName: group,
-                        variantOption: key,
-                    };
-                    const componentSelector = replace(options.pattern.component, data);
-                    const variantSelector = replace(options.pattern.variant, data);
-                    const baseStyle = {
-                        ...baseStylesFn(theme),
-                        ...defaultStylesFn(theme),
-                    };
-                    return {
-                        ...result,
-                        [componentSelector]: baseStyle,
-                        [variantSelector]: variantStyle,
-                    };
-                }, acc);
-            },
-            {},
-        );
-    };
+  ) =>
+  (theme, options = {}) => {
+    return Object.entries(variantStylesFn(theme)).reduce(
+      (acc, [group, items = {}]) => {
+        return Object.entries(items).reduce((result, [key, variantStyle]) => {
+          const data = {
+            componentName: componentName,
+            variantName: group,
+            variantOption: key,
+          };
+          const componentSelector = replace(options.pattern.component, data);
+          const variantSelector = replace(options.pattern.variant, data);
+          const baseStyle = {
+            ...baseStylesFn(theme),
+            ...defaultStylesFn(theme),
+          };
+          return {
+            ...result,
+            [componentSelector]: baseStyle,
+            [variantSelector]: variantStyle,
+          };
+        }, acc);
+      },
+      {},
+    );
+  };
 
 export default memoize(component);
