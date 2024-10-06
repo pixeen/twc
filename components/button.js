@@ -37,24 +37,18 @@ const variants = (theme) => ({
   size: {
     small: {
       fontSize: theme("fontSize.sm"),
-      paddingLeft: theme("spacing.3"),
-      paddingRight: theme("spacing.3"),
-      paddingTop: theme("spacing[1]"),
-      paddingBottom: theme("spacing[1]"),
+      paddingInline: theme("spacing.3"),
+      paddingBlock: theme("spacing[1]"),
     },
     medium: {
       fontSize: theme("fontSize.DEFAULT"),
-      paddingLeft: theme("spacing.4"),
-      paddingRight: theme("spacing.4"),
-      paddingTop: theme("spacing.2"),
-      paddingBottom: theme("spacing.2"),
+      paddingInline: theme("spacing.4"),
+      paddingBlock: theme("spacing.2"),
     },
     large: {
       fontSize: theme("fontSize.2xl"),
-      paddingLeft: theme("spacing.5"),
-      paddingRight: theme("spacing.5"),
-      paddingTop: theme("spacing.2"),
-      paddingBottom: theme("spacing.2"),
+      paddingInline: theme("spacing.5"),
+      paddingBlock: theme("spacing.2"),
     },
   },
   surface: {
