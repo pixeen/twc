@@ -2,18 +2,18 @@
 
 A tiny collection of defineComponent made as Tailwind CSS plugins
 
-## Definition
+## Create Component
 
 ```js
-export default (theme) => ({
+defineComponent("button", (theme, options) => ({
   base: {},
   variants: {},
   defaultVariants: {},
   compoundVariants: {},
-});
+}))
 ```
 
-## Components
+## Available Components
 
 ### Button
 
