@@ -20,8 +20,6 @@ A customizable button component.
 <button class="button">Click Me!</button>
 ```
 
-#### Variants
-
 <details><summary><strong>Color</strong></summary>
 
 Available color variants: `primary`, `secondary`, `positive`, `negative`
@@ -33,7 +31,7 @@ Available color variants: `primary`, `secondary`, `positive`, `negative`
 <button class="button button--negative">Click Me!</button>
 ```
 
-</details>
+</details>np
 
 <details><summary><strong>Size</strong></summary>
 
@@ -80,8 +78,6 @@ A flexible container for grouping multiple buttons together.
   <button class="button">Click</button>
 </div>
 ```
-
-#### Variants
 
 <details><summary><strong>Direction</strong></summary>
 
