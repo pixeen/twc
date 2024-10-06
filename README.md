@@ -2,31 +2,38 @@
 
 A tiny collection of defineComponent made as Tailwind CSS plugins
 
-## Create Component
+## Define Component
 
 ```js
-defineComponent("button", (theme, options) => ({
-  base: {
-    fontWeight: "bold",
-    // ...
-  },
-  defaultVariants: {
-    color: "primary",
-    // ...
-  },
+defineComponent("button", {
+  base: { fontWeight: "bold" },
   variants: {
     color: {
       primary: {
-        color: theme("colors.primary.800"),
+        backgroundColor: "red",
       },
       secondary: {
-        color: theme("colors.secondary.800"),
+        backgroundColor: "blue",
       },
     },
-    // ...
   },
-  compoundVariants: {},
-}));
+  defaultVariants: { color: "primary" },
+});
+```
+
+Output CSS
+
+```css
+.button {
+  font-weight: bold;
+  background-color: red;
+}
+.button--primary {
+  background-color: red;
+}
+.button--secondary {
+  background-color: blue;
+}
 ```
 
 ## Available Components

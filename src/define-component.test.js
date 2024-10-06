@@ -3,6 +3,24 @@ import { describe, it } from "node:test";
 import assert from "node:assert";
 
 describe("defineComponent", () => {
+  it("bla", function () {
+    const result = defineComponent("button", {
+      base: { fontWeight: "bold" },
+      variants: {
+        color: {
+          primary: {
+            color: "red",
+          },
+          secondary: {
+            color: "blue",
+          },
+        },
+      },
+      defaultVariants: { color: "primary" },
+    });
+
+    console.log(result);
+  });
   it("should return a defineComponent with applied styles and variants", () => {
     const name = "button";
     const base = { padding: "10px", color: "white" };
