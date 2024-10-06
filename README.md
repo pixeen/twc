@@ -10,9 +10,9 @@ A tiny collection of component made as Tailwind CSS plugins
 <button class="button">Click Me!</button>
 ```
 
-<details><summary>Color `primary` `secondary` `positive` `negative`</summary>
+<details><summary>Color</summary>
 
-
+`primary` `secondary` `positive` `negative`
 
 ```html
 <button class="button button--secondary">Click Me!</button>
