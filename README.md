@@ -26,7 +26,7 @@ export default {
 <button style-as="button">Click Me!</button>
 ```
 
-#### Variants
+#### Button Variants
 
 <details><summary>Color</summary>
 
@@ -86,7 +86,7 @@ export default {
 </div>
 ```
 
-#### Variants
+#### Button Group Variants
 
 <details><summary>Direction</summary>
 
