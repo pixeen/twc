@@ -9,20 +9,16 @@ Add `twc` as a plugin to the `tailwind.config.js`
 ```js
 export default {
   // ...
-  plugins: [twc], // < add twc over here
-  // ...
-};
-```
-
-## Options
-
-```
-{
-    pattern: {
+  plugins: [
+    twc({
+      pattern: {
         component: '[style-as="${componentName}"]',
-        variant: '[style-as="${componentName}"][with-${variantName}="${variantOption}"]'
-    }
-}
+        variant:
+          '[style-as="${componentName}"][with-${variantName}="${variantOption}"]',
+      },
+    }),
+  ],
+};
 ```
 
 ## Components
