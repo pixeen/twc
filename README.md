@@ -8,6 +8,8 @@ A tiny collection of components designed as Tailwind CSS plugins.
   - [Button](#button)
   - [Button Group](#button-group)
   - [Link](#link)
+  - [Radio](#radio)
+  - [Checkbox](#checkbox)
 - [Custom Component](#custom-component)
 
 ## Components
@@ -124,6 +126,22 @@ A styled link component
 ```html
 <a class="link" href="#">Click Me!</a>
 ```
+
+### Checkbox
+
+```html
+<input id="x" type="checkbox" class="checkbox" />
+```
+
+- @todo
+
+### Radio
+
+```html
+<input id="y" type="radio" class="radio" />
+```
+
+- @todo
 
 ## Custom Component
 
