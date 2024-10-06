@@ -19,7 +19,6 @@ A tiny collection of component made as Tailwind CSS plugins
 `primary` `secondary` `positive` `negative`
 
 ```html
-<button class="button button--primary">Click Me!</button>
 <button class="button button--secondary">Click Me!</button>
 <button class="button button--positive">Click Me!</button>
 <button class="button button--negative">Click Me!</button>
@@ -86,10 +85,6 @@ A tiny collection of component made as Tailwind CSS plugins
 `horizontal` `vertical`
 
 ```html
-<div class="button-group button-group--horizontal">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-</div>
 <div class="button-group button-group--vertical">
   <button class="button">Click</button>
   <button class="button">Click</button>

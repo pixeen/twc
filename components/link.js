@@ -1,8 +1,6 @@
-import { makeComponent } from "../utils/make-component.js";
+import component from "../utils/component.js";
 
-const name = "link";
-
-const base = (theme) => ({
+export default component("link", (theme) => ({
   color: theme("colors.secondary.700"),
   display: "inline-flex",
   paddingLeft: theme("spacing[0.5]"),
@@ -13,6 +11,4 @@ const base = (theme) => ({
     textDecoration: "underline",
     color: theme("colors.secondary.900"),
   },
-});
-
-export default makeComponent(name, base);
+}));
