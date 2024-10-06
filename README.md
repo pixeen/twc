@@ -1,12 +1,24 @@
 # Tailwind CSS Components
 
-A tiny collection of defineComponent made as Tailwind CSS plugins
+A tiny collection of components designed as Tailwind CSS plugins.
+
+## Table of Contents
+
+- [Components](#components)
+  - [Button](#button)
+  - [Button Group](#button-group)
+  - [Link](#link)
+- [Custom Component](#custom-component)
 
 ## Components
 
 ### Button
 
-<details><summary>Default</summary>
+A customizable button component with different variants for `color`, `size`, `surface`, and `space`.
+
+#### Button Variants
+
+<details><summary><strong>Default</strong></summary>
 
 ```html
 <button class="button">Click Me!</button>
@@ -14,11 +26,12 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Color</summary>
+<details><summary><strong>Color</strong></summary>
 
-`primary` `secondary` `positive` `negative`
+Available color variants: `primary`, `secondary`, `positive`, `negative`
 
 ```html
+<button class="button button--primary">Click Me!</button>
 <button class="button button--secondary">Click Me!</button>
 <button class="button button--positive">Click Me!</button>
 <button class="button button--negative">Click Me!</button>
@@ -26,9 +39,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Size</summary>
+<details><summary><strong>Size</strong></summary>
 
-`small` `medium` `large`
+Available size variants: `small`, `medium`, `large`
 
 ```html
 <button class="button button--small">Click Me!</button>
@@ -38,9 +51,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Surface</summary>
+<details><summary><strong>Surface</strong></summary>
 
-`ghost` `fill`
+Available surface variants: `fill`, `ghost`
 
 ```html
 <button class="button button--fill">Click Me!</button>
@@ -49,20 +62,24 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Space</summary>
+<details><summary><strong>Space</strong></summary>
 
-`full` `auto`
+Available space variants: `full`, `auto`
 
 ```html
 <button class="button button--full">Click Me!</button>
-<button class="button button--full">Click Me!</button>
+<button class="button button--auto">Click Me!</button>
 ```
 
 </details>
 
 ### Button Group
 
-<details><summary>Default</summary>
+A flexible container for grouping multiple buttons together, supporting horizontal and vertical `direction`.
+
+#### Button Group Variants
+
+<details><summary><strong>Default</strong></summary>
 
 ```html
 <div class="button-group">
@@ -74,11 +91,16 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Direction</summary>
+<details><summary><strong>Direction</strong></summary>
 
-`horizontal` `vertical`
+Available direction variants: `horizontal`, `vertical`
 
 ```html
+<div class="button-group button-group--horizontal">
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+</div>
+
 <div class="button-group button-group--vertical">
   <button class="button">Click</button>
   <button class="button">Click</button>
@@ -87,12 +109,18 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-<details><summary>Space</summary>
+<details><summary><strong>Space</strong></summary>
 
-`auto` `full`
+Available space variants: `auto`, `full`
 
 ```html
-<div class="button-group button-group--fill">
+<div class="button-group button-group--auto">
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+  <button class="button">Click</button>
+</div>
+
+<div class="button-group button-group--full">
   <button class="button">Click</button>
   <button class="button">Click</button>
   <button class="button">Click</button>
@@ -103,7 +131,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 ### Link
 
-<details><summary>Default</summary>
+A styled link component that integrates smoothly with the defined styles.
+
+<details><summary><strong>Default</strong></summary>
 
 ```html
 <a class="link" href="#">Click Me!</a>
@@ -111,7 +141,9 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 </details>
 
-## Define Component
+## Custom Component
+
+Easily define components using the `defineComponent` function, allowing for the creation of base styles and variants.
 
 ```js
 defineComponent("button", {
@@ -124,16 +156,57 @@ defineComponent("button", {
       secondary: {
         backgroundColor: "blue",
       },
+      positive: {
+        backgroundColor: "green",
+      },
+      negative: {
+        backgroundColor: "red",
+      },
+    },
+    size: {
+      small: {
+        padding: "0.5rem 1rem",
+      },
+      medium: {
+        padding: "1rem 2rem",
+      },
+      large: {
+        padding: "1.5rem 3rem",
+      },
     },
   },
-  defaultVariants: { color: "primary" },
+  defaultVariants: { color: "primary", size: "medium" },
 });
 ```
 
-Generate classes with corresponding values
+### Generated Classes
+
+These classes are automatically generated and can be used directly in your HTML:
 
 ```css
-.button
-.button--primary
-.button--secondary
+.button {
+  /* base styles */
+}
+.button--primary {
+  /* primary color variant */
+}
+.button--secondary {
+  /* secondary color variant */
+}
+.button--positive {
+  /* positive color variant */
+}
+.button--negative {
+  /* negative color variant */
+}
+.button--small {
+  /* small size variant */
+}
+.button--medium {
+  /* medium size variant */
+}
+.button--large {
+  /* large size variant */
+}
+/* More generated classes based on defined variants */
 ```
