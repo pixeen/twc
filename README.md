@@ -14,12 +14,6 @@ export default {
 };
 ```
 
-## Components
-
-- [Button](#button)
-- [Button Group](#button-group)
-- [Link](#link)
-
 ### Button
 
 ```html
