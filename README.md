@@ -6,11 +6,27 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 ```js
 defineComponent("button", (theme, options) => ({
-  base: {},
-  variants: {},
-  defaultVariants: {},
+  base: {
+    fontWeight: "bold",
+    // ...
+  },
+  defaultVariants: {
+    color: "primary",
+    // ...
+  },
+  variants: {
+    color: {
+      primary: {
+        color: theme("colors.primary.800"),
+      },
+      secondary: {
+        color: theme("colors.secondary.800"),
+      },
+    },
+    // ...
+  },
   compoundVariants: {},
-}))
+}));
 ```
 
 ## Available Components
