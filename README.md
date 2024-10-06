@@ -14,6 +14,17 @@ export default {
 };
 ```
 
+## Options
+
+```
+{
+    pattern: {
+        component: '[style-as="${componentName}"]',
+        variant: '[style-as="${componentName}"][with-${variantName}="${variantOption}"]'
+    }
+}
+```
+
 ## Components
 
 ### Button
