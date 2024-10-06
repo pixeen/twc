@@ -122,10 +122,8 @@ Available space variants: `auto`, `full`
 ### Checkbox
 
 ```html
-<input id="x" type="checkbox" class="checkbox" />
+<input type="checkbox" class="checkbox" />
 ```
-
-- @todo
 
 ### Link
 
@@ -138,10 +136,8 @@ A styled link component
 ### Radio
 
 ```html
-<input id="y" type="radio" class="radio" />
+<input type="radio" class="radio" />
 ```
-
-- @todo
 
 ## Custom Component
 
