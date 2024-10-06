@@ -27,7 +27,7 @@ const accumulateStyles = (
   const base = baseFn(theme),
     defaults = defaultFn(theme);
   Object.entries(items).forEach(([key, style]) => {
-    if (attributes.enabled)
+    if (attributes.enabled) {
       acc[
         createSelector.variantAttr(
           component,
@@ -37,9 +37,11 @@ const accumulateStyles = (
           attributes.variant ?? DEFAULT_VARIANT_ATTRIBUTE,
         )
       ] = style;
+    }
 
-    if (classes.enabled)
+    if (classes.enabled) {
       acc[createSelector.variantClass(component, group, key)] = style;
+    }
   });
 
   return applyStyles(
