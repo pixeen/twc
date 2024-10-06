@@ -1,9 +1,7 @@
-const componentFactory = (config) => {
+const twc = (config) => {
     return (variants = {}) => {
         // Initialize the base styles
         let styles = {...config};
-
-        // Apply default variants
         if (config.defaultVariants) {
             for (const [key, value] of Object.entries(config.defaultVariants)) {
                 if (config.variants[key] && config.variants[key][value]) {
@@ -11,15 +9,11 @@ const componentFactory = (config) => {
                 }
             }
         }
-
-        // Apply specified variants
         for (const [key, value] of Object.entries(variants)) {
             if (config.variants[key] && config.variants[key][value]) {
                 styles = {...styles, ...config.variants[key][value]};
             }
         }
-
-        // Apply compound variants
         if (config.compoundVariants) {
             config.compoundVariants.forEach(compoundVariant => {
                 const matches = Object.entries(compoundVariant).every(([key, value]) => {
@@ -30,8 +24,6 @@ const componentFactory = (config) => {
                 }
             });
         }
-
-        // Clean up variants and other non-style properties from the styles object
         delete styles.variants;
         delete styles.defaultVariants;
         delete styles.compoundVariants;
@@ -40,7 +32,8 @@ const componentFactory = (config) => {
     };
 };
 
-const button = componentFactory({
+
+const button = twc({
     color: "blue",
     backgroundColor: "red",
     variants: {
