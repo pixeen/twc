@@ -6,9 +6,13 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 ### Button
 
+<details><summary>Default</summary>
+
 ```html
 <button class="button">Click Me!</button>
 ```
+
+</details>
 
 <details><summary>Color</summary>
 
@@ -58,6 +62,8 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 ### Button Group
 
+<details><summary>Default</summary>
+
 ```html
 <div class="button-group">
   <button class="button">Click</button>
@@ -65,6 +71,8 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
   <button class="button">Click</button>
 </div>
 ```
+
+</details>
 
 <details><summary>Direction</summary>
 
@@ -95,9 +103,13 @@ A tiny collection of defineComponent made as Tailwind CSS plugins
 
 ### Link
 
+<details><summary>Default</summary>
+
 ```html
 <a class="link" href="#">Click Me!</a>
 ```
+
+</details>
 
 ## Define Component
 
@@ -117,7 +129,9 @@ defineComponent("button", {
   defaultVariants: { color: "primary" },
 });
 ```
+
 Generate classes with corresponding values
+
 ```css
 .button
 .button--primary
