@@ -73,7 +73,7 @@ Available space variants: `full`, `auto`
 
 ### Button Group
 
-A flexible container for grouping multiple buttons together, supporting horizontal and vertical `direction`.
+A flexible container for grouping multiple buttons together, supporting `direction` and `space`.
 
 <details><summary><strong>Default</strong></summary>
 
