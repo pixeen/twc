@@ -1,26 +1,21 @@
 import plugin from "tailwindcss/plugin";
 import button from "./components/button";
-import buttonGroup from "./components/button-group";
 import link from "./components/link";
-import colors from "tailwindcss/colors";
+import { defineComponent } from "./src/define-component.js";
+import buttonGroup from "./components/button-group.js";
 
 export default plugin.withOptions(
   (options) =>
     ({ addComponents, theme }) =>
       addComponents({
-        ...button(theme, options),
-        ...buttonGroup(theme, options),
-        ...link(theme, options),
+        ...defineComponent("button", button(theme, options)),
+        ...defineComponent("button-group", buttonGroup(theme, options)),
+        ...defineComponent("link", link(theme, options)),
       }),
   (options) => ({
     theme: {
       extend: {
-        colors: {
-          primary: colors.zinc,
-          positive: colors.green,
-          negative: colors.red,
-          secondary: colors.blue,
-        },
+        colors: options.colors,
       },
     },
   }),

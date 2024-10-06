@@ -1,6 +1,17 @@
 # Tailwind CSS Components
 
-A tiny collection of component made as Tailwind CSS plugins
+A tiny collection of defineComponent made as Tailwind CSS plugins
+
+## Definition
+
+```js
+export default (theme) => ({
+  base: {},
+  variants: {},
+  defaultVariants: {},
+  compoundVariants: {},
+});
+```
 
 ## Components
 

@@ -3,6 +3,7 @@
  *
  * This function searches for placeholders in the format `${key}` within the pattern string.
  * For each placeholder found, it replaces it with the value corresponding to the `key` in the provided `data` object.
+ * If no matching key is found, the original placeholder is retained.
  *
  * @param {string} pattern - The string containing placeholders to be replaced.
  * @param {Object} data - An object containing key-value pairs where the key matches the placeholder name in the pattern.
@@ -10,6 +11,6 @@
  */
 export const replace = (pattern, data) => {
   return pattern.replace(/\${(\w+)}/g, (_, match) => {
-    return data[match];
+    return match in data ? data[match] : `\${${match}}`;
   });
 };
