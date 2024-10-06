@@ -10,8 +10,6 @@ A tiny collection of component made as Tailwind CSS plugins
 <button class="button">Click Me!</button>
 ```
 
-#### Button Variants
-
 <details><summary>Color</summary>
 
 #### Button Color
@@ -75,8 +73,6 @@ A tiny collection of component made as Tailwind CSS plugins
   <button class="button">Click</button>
 </div>
 ```
-
-#### Button Group Variants
 
 <details><summary>Direction</summary>
 
