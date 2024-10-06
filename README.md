@@ -14,7 +14,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ### Button
 
-A customizable button component with different variants for `color`, `size`, `surface`, and `space`.
+A customizable button component.
 
 <details><summary><strong>Default</strong></summary>
 
@@ -23,6 +23,8 @@ A customizable button component with different variants for `color`, `size`, `su
 ```
 
 </details>
+
+#### Variants
 
 <details><summary><strong>Color</strong></summary>
 
@@ -73,7 +75,7 @@ Available space variants: `full`, `auto`
 
 ### Button Group
 
-A flexible container for grouping multiple buttons together, supporting `direction` and `space`.
+A flexible container for grouping multiple buttons together.
 
 <details><summary><strong>Default</strong></summary>
 
@@ -86,6 +88,8 @@ A flexible container for grouping multiple buttons together, supporting `directi
 ```
 
 </details>
+
+#### Variants
 
 <details><summary><strong>Direction</strong></summary>
 
@@ -127,7 +131,7 @@ Available space variants: `auto`, `full`
 
 ### Link
 
-A styled link component that integrates smoothly with the defined styles.
+A styled link component
 
 <details><summary><strong>Default</strong></summary>
 
