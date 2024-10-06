@@ -1,6 +1,5 @@
-// Constants for attribute selectors
-const COMPONENT_ATTRIBUTE = "style-as"; // Could be renamed to ATTRIBUTE_COMPONENT_IDENTIFIER
-const VARIANT_ATTRIBUTE = "with-"; // Could be renamed to ATTRIBUTE_VARIANT_PREFIX
+const DEFAULT_COMPONENT_ATTRIBUTE = "style-as";
+const DEFAULT_VARIANT_ATTRIBUTE = "with-";
 
 /**
  * Generates a CSS class selector.
@@ -113,8 +112,8 @@ const accumulateVariantStyles = (
         componentName,
         variantGroup,
         variantKey,
-        options.attributes.component ?? COMPONENT_ATTRIBUTE,
-        options.attributes.variant ?? VARIANT_ATTRIBUTE,
+        options.attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
+        options.attributes.variant ?? DEFAULT_VARIANT_ATTRIBUTE,
       );
       stylesAccumulator[variantAttrSelector] = variantStyle;
     }
@@ -132,7 +131,7 @@ const accumulateVariantStyles = (
     componentName,
     baseStylesFn(theme),
     defaultStylesFn(theme),
-    options.attributes.component ?? COMPONENT_ATTRIBUTE,
+    options.attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
   );
 };
 
