@@ -1,15 +1,10 @@
-import canDisable from "./shared/can-disable.js";
-import canFocus from "./shared/can-focus.js";
-import hasActionType from "./shared/has-action-type.js";
+import isAction from "./shared/is-action.js";
 
 export default (theme) => ({
   base: {
-    ...canFocus(theme),
-    ...canDisable(theme),
-    ...hasActionType(theme),
-    alignItems: "center",
-    position: "relative",
+    ...isAction(theme),
     display: "inline-flex",
+    alignItems: "center",
     justifyContent: "center",
     gap: theme("spacing.3"),
     borderWidth: theme("borderWidth.DEFAULT"),

@@ -1,15 +1,13 @@
 import canFocus from "./shared/can-focus.js";
-import hasActionType from "./shared/has-action-type.js";
+import isAction from "./shared/is-action.js";
 
 export default (theme) => ({
     base: {
-        ...canFocus(theme),
-        ...hasActionType(theme),
+        ...isAction(theme),
         color: theme("colors.secondary.700"),
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        borderRadius: theme("borderRadius.DEFAULT"),
         "&:focus": {
             outline: `${theme("spacing[0.5]")} solid ${theme("colors.secondary.500")}`,
         },
