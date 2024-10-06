@@ -1,4 +1,4 @@
-import { makeComponent } from "../utils/make-component.js";
+import component from "../utils/component.js";
 
 const name = "button-group";
 
@@ -70,4 +70,4 @@ const variants = (theme) => ({
   },
 });
 
-export default makeComponent(name, base, variants, defaultsVariants);
+export default component(name, base, variants, defaultsVariants);
