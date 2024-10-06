@@ -12,8 +12,6 @@ A tiny collection of component made as Tailwind CSS plugins
 
 <details><summary>Color</summary>
 
-#### Button Color
-
 `primary` `secondary` `positive` `negative`
 
 ```html
@@ -25,8 +23,6 @@ A tiny collection of component made as Tailwind CSS plugins
 </details>
 
 <details><summary>Size</summary>
-
-#### Button Size
 
 `small` `medium` `large`
 
@@ -40,8 +36,6 @@ A tiny collection of component made as Tailwind CSS plugins
 
 <details><summary>Surface</summary>
 
-#### Button Surface
-
 `ghost` `fill`
 
 ```html
@@ -52,8 +46,6 @@ A tiny collection of component made as Tailwind CSS plugins
 </details>
 
 <details><summary>Space</summary>
-
-#### Button Space
 
 `full` `auto`
 
@@ -76,8 +68,6 @@ A tiny collection of component made as Tailwind CSS plugins
 
 <details><summary>Direction</summary>
 
-#### Button Group Direction
-
 `horizontal` `vertical`
 
 ```html
@@ -90,8 +80,6 @@ A tiny collection of component made as Tailwind CSS plugins
 </details>
 
 <details><summary>Space</summary>
-
-#### Button Group Space
 
 `auto` `full`
 
