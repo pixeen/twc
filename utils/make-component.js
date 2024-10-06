@@ -1,161 +1,69 @@
 const DEFAULT_COMPONENT_ATTRIBUTE = "style-as";
 const DEFAULT_VARIANT_ATTRIBUTE = "with-";
 
-/**
- * Generates a CSS class selector.
- *
- * @param {string} componentName - The component name.
- * @returns {string} CSS class selector string.
- */
-const createComponentClassSelector = (componentName) => {
-  return `.${componentName}`;
+const createSelector = {
+  componentClass: (component) => `.${component}`,
+  componentAttr: (component, attr) => `[${attr}="${component}"]`,
+  variantClass: (component, group, key) => `.${component}--${group}-${key}`,
+  variantAttr: (component, group, key, compAttr, varAttr) =>
+    `[${compAttr}="${component}"][${varAttr}${group}="${key}"]`,
 };
 
-/**
- * Generates a CSS attribute selector.
- *
- * @param {string} componentName - The component name.
- * @param {string} attributeSelector - The attribute to target.
- * @returns {string} CSS attribute selector string.
- */
-const createComponentAttributeSelector = (componentName, attributeSelector) => {
-  return `[${attributeSelector}="${componentName}"]`;
-};
+const applyStyles = (acc, component, base, defaults, compAttr) => ({
+  ...acc,
+  [createSelector.componentAttr(component, compAttr)]: { ...base, ...defaults },
+  [createSelector.componentClass(component)]: { ...base, ...defaults },
+});
 
-/**
- * Generates a CSS class selector for a variant.
- *
- * @param {string} componentName - The component name.
- * @param {string} variantGroup - The variant group (e.g., size, color).
- * @param {string} variantKey - The variant key (e.g., small, red).
- * @returns {string} CSS class selector string.
- */
-const createVariantClassSelector = (
-  componentName,
-  variantGroup,
-  variantKey,
-) => {
-  return `.${componentName}--${variantGroup}-${variantKey}`;
-};
-
-/**
- * Generates a CSS attribute selector for a variant.
- *
- * @param {string} componentName - The component name.
- * @param {string} variantGroup - The variant group (e.g., size, color).
- * @param {string} variantKey - The variant key (e.g., small, red).
- * @param {string} componentAttributeSelector - The base component attribute selector.
- * @param {string} variantAttributePrefix - The prefix for the variant attribute selector.
- * @returns {string} Complete CSS attribute selector string.
- */
-const createVariantAttributeSelector = (
-  componentName,
-  variantGroup,
-  variantKey,
-  componentAttributeSelector,
-  variantAttributePrefix,
-) => {
-  return `[${componentAttributeSelector}="${componentName}"][${variantAttributePrefix}${variantGroup}="${variantKey}"]`;
-};
-
-/**
- * Applies base and default styles for a component.
- *
- * @param {Object} stylesAccumulator - The accumulator object for styles.
- * @param {string} componentName - The component name.
- * @param {Object} baseStyles - The base styles.
- * @param {Object} defaultStyles - The default styles.
- * @param {string} componentAttributeSelector - The attribute selector string.
- * @returns {Object} Updated accumulator object.
- */
-const applyBaseAndDefaultStyles = (
-  stylesAccumulator,
-  componentName,
-  baseStyles,
-  defaultStyles,
-  componentAttributeSelector,
-) => {
-  stylesAccumulator[
-    createComponentAttributeSelector(componentName, componentAttributeSelector)
-  ] = { ...baseStyles, ...defaultStyles };
-  stylesAccumulator[createComponentClassSelector(componentName)] = {
-    ...baseStyles,
-    ...defaultStyles,
-  };
-  return stylesAccumulator;
-};
-
-/**
- * Accumulates styles for variant groups and items.
- *
- * @param {Object} stylesAccumulator - The accumulator object for styles.
- * @param {Array} variantGroupTuple - The variant group and items.
- * @param {string} componentName - The component name.
- * @param {Object} theme - The theme object.
- * @param {Function} baseStylesFn - The function for base styles.
- * @param {Function} defaultStylesFn - The function for default styles.
- * @param {Object} options - Additional options for style generation.
- * @returns {Object} Updated accumulator object.
- */
-const accumulateVariantStyles = (
-  stylesAccumulator,
-  [variantGroup, variantGroupItems],
-  componentName,
+const accumulateStyles = (
+  acc,
+  [group, items],
+  component,
   theme,
-  baseStylesFn,
-  defaultStylesFn,
-  options,
+  baseFn,
+  defaultFn,
+  { attributes, classes },
 ) => {
-  Object.entries(variantGroupItems).forEach(([variantKey, variantStyle]) => {
-    if (options.attributes.enabled === true) {
-      const variantAttrSelector = createVariantAttributeSelector(
-        componentName,
-        variantGroup,
-        variantKey,
-        options.attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
-        options.attributes.variant ?? DEFAULT_VARIANT_ATTRIBUTE,
-      );
-      stylesAccumulator[variantAttrSelector] = variantStyle;
-    }
-    if (options.classes.enabled === true) {
-      const variantClassSelector = createVariantClassSelector(
-        componentName,
-        variantGroup,
-        variantKey,
-      );
-      stylesAccumulator[variantClassSelector] = variantStyle;
-    }
+  const base = baseFn(theme),
+    defaults = defaultFn(theme);
+  Object.entries(items).forEach(([key, style]) => {
+    if (attributes.enabled)
+      acc[
+        createSelector.variantAttr(
+          component,
+          group,
+          key,
+          attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
+          attributes.variant ?? DEFAULT_VARIANT_ATTRIBUTE,
+        )
+      ] = style;
+
+    if (classes.enabled)
+      acc[createSelector.variantClass(component, group, key)] = style;
   });
-  return applyBaseAndDefaultStyles(
-    stylesAccumulator,
-    componentName,
-    baseStylesFn(theme),
-    defaultStylesFn(theme),
-    options.attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
+
+  return applyStyles(
+    acc,
+    component,
+    base,
+    defaults,
+    attributes.component ?? DEFAULT_COMPONENT_ATTRIBUTE,
   );
 };
 
-/**
- * Generates a styled component.
- *
- * @param {string} componentName - The component name.
- * @param {Function} [baseStylesFn] - The function for base styles.
- * @param {Function} [variantStylesFn] - The function for variant styles.
- * @param {Function} [defaultStylesFn] - The function for default styles.
- * @returns {Function} Function to generate styles.
- */
-export const makeComponent = (
-  componentName,
-  baseStylesFn = (theme) => ({}),
-  variantStylesFn = (theme) => ({}),
-  defaultStylesFn = (theme) => ({}),
-) => {
-  return (theme, options) =>
+export const makeComponent =
+  (
+    componentName,
+    baseStylesFn = () => ({}),
+    variantStylesFn = () => ({}),
+    defaultStylesFn = () => ({}),
+  ) =>
+  (theme, options) =>
     Object.entries(variantStylesFn(theme)).reduce(
-      (stylesAccumulator, variantEntry) =>
-        accumulateVariantStyles(
-          stylesAccumulator,
-          variantEntry,
+      (acc, variant) =>
+        accumulateStyles(
+          acc,
+          variant,
           componentName,
           theme,
           baseStylesFn,
@@ -164,4 +72,3 @@ export const makeComponent = (
         ),
       {},
     );
-};
