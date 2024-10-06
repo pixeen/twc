@@ -14,6 +14,8 @@ export default {
 };
 ```
 
+## Components
+
 ### Button
 
 ```html
