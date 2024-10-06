@@ -1,46 +1,47 @@
-import { memoize } from "./memoize.js";
-import { replace } from "./replace.js";
+import {memoize} from "./memoize.js";
+import {replace} from "./replace.js";
 
 /**
- * Memorizes a given function by caching its computed results.
+ * Generates component styles based on theme and variant options.
  *
- * The `memoize` function takes another function `fn` as input and returns a new function
- * that caches the results of `fn`. When the memoized function is called again with
- * the same arguments, it returns the cached result instead of recomputing it.
+ * @param {string} componentName - The name of the component.
+ * @param {Function} [baseStylesFn=() => {}] - A function to generate base styles for the component.
+ * @param {Function} [variantStylesFn=() => {}] - A function to generate variant styles for the component.
+ * @param {Function} [defaultStylesFn=() => {}] - A function to generate default styles for the component.
  *
- * @param {Function} fn - The function to memoize.
- * @returns {Function} The memoized version of `fn`.
+ * @returns {Function} A function that generates the component's styles based on the provided theme and options.
  */
-export default memoize(
-  (
+
+const component = (
     componentName,
     baseStylesFn = () => ({}),
     variantStylesFn = () => ({}),
     defaultStylesFn = () => ({}),
-  ) =>
+) =>
     (theme, options = {}) => {
-      return Object.entries(variantStylesFn(theme)).reduce(
-        (acc, [group, items = {}]) => {
-          return Object.entries(items).reduce((result, [key, variantStyle]) => {
-            const data = {
-              componentName: componentName,
-              variantName: group,
-              variantOption: key,
-            };
-            const componentSelector = replace(options.pattern.component, data);
-            const variantSelector = replace(options.pattern.variant, data);
-            const baseStyle = {
-              ...baseStylesFn(theme),
-              ...defaultStylesFn(theme),
-            };
-            return {
-              ...result,
-              [componentSelector]: baseStyle,
-              [variantSelector]: variantStyle,
-            };
-          }, acc);
-        },
-        {},
-      );
-    },
-);
+        return Object.entries(variantStylesFn(theme)).reduce(
+            (acc, [group, items = {}]) => {
+                return Object.entries(items).reduce((result, [key, variantStyle]) => {
+                    const data = {
+                        componentName: componentName,
+                        variantName: group,
+                        variantOption: key,
+                    };
+                    const componentSelector = replace(options.pattern.component, data);
+                    const variantSelector = replace(options.pattern.variant, data);
+                    const baseStyle = {
+                        ...baseStylesFn(theme),
+                        ...defaultStylesFn(theme),
+                    };
+                    return {
+                        ...result,
+                        [componentSelector]: baseStyle,
+                        [variantSelector]: variantStyle,
+                    };
+                }, acc);
+            },
+            {},
+        );
+    };
+
+export default memoize(component);
