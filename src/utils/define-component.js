@@ -1,5 +1,6 @@
 import { hasProperty } from "./has-property.js";
 import { createBemClass } from "./create-bem-class.js";
+import { createAttributeClass } from "./create-attribute-class.js";
 
 /**
  * Creates a class selector.
@@ -38,9 +39,17 @@ const createAttributeSelector = (
   variantName = "",
   variantOption = "",
 ) => {
+  const attributeComponentClass = createAttributeClass({
+    name: attributeName,
+    value: componentName,
+  });
+  const attributeVariantClass = createAttributeClass({
+    name: `${variantAttributeName}${variantName}`,
+    value: variantOption,
+  });
   return variantName
-    ? `[${attributeName}="${componentName}"][${variantAttributeName}${variantName}="${variantOption}"]`
-    : `[${attributeName}="${componentName}"]`;
+    ? attributeComponentClass + attributeVariantClass
+    : attributeComponentClass;
 };
 
 /**
@@ -107,9 +116,6 @@ const mergeBaseWithDefaultVariants = (
   const baseAttributeSelector = createAttributeSelector(
     options.componentAttributeSelector,
     componentName,
-    "",
-    "",
-    "",
   );
   return Object.entries(defaultVariants).reduce(
     (accumulatedStyles, [variantName, variantValue]) => ({
