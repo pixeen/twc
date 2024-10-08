@@ -62,6 +62,10 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Divider
 
+-
+
+- **color**: `primary` `secondary` `positive` `negative`
+
 ```html
 <hr data-component="divider" />
 ```
@@ -77,6 +81,17 @@ You can apply the component styles either using a class or attribute selector, f
 </div>
 ```
 
+### Heading
+
+- **color**: `primary` `secondary` `positive` `negative`
+- **size**: `small` `medium` `large`
+
+```html
+<h1 data-component="heading">Some Title Wow</h1>
+<h1 data-component="heading" data-size="small">Some Title Wow</h1>
+<h1 data-component="heading" data-size="large">Some Title Wow</h1>
+```
+
 ### Label
 
 ```html
@@ -90,6 +105,9 @@ You can apply the component styles either using a class or attribute selector, f
 ```
 
 ### Paragraph
+
+- **color**: `primary` `secondary` `positive` `negative`
+- **size**: `small` `medium` `large`
 
 ```html
 <p data-component="paragraph">

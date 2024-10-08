@@ -1,15 +1,16 @@
 import plugin from 'tailwindcss/plugin'
-import createComponent from './src/utils/create-component.js'
-import button from './src/components/button.js'
-import buttonGroup from './src/components/button-group.js'
-import link from './src/components/link.js'
-import checkbox from './src/components/checkbox.js'
-import radio from './src/components/radio.js'
-import label from './src/components/label.js'
-import paragraph from './src/components/paragraph.js'
-import divider from './src/components/divider.js'
-import textInput from './src/components/text-input.js'
+import createComponent from './src/create-component.js'
+import button from './components/button.js'
+import buttonGroup from './components/button-group.js'
+import link from './components/link.js'
+import checkbox from './components/checkbox.js'
+import radio from './components/radio.js'
+import label from './components/label.js'
+import paragraph from './components/paragraph.js'
+import divider from './components/divider.js'
+import textInput from './components/text-input.js'
 import field from './components/field.js'
+import heading from './components/heading.js'
 
 export default plugin.withOptions(
   (options) =>
@@ -22,6 +23,7 @@ export default plugin.withOptions(
         ...createComponent('radio', radio(theme), options),
         ...createComponent('label', label(theme), options),
         ...createComponent('paragraph', paragraph(theme), options),
+        ...createComponent('heading', heading(theme), options),
         ...createComponent('divider', divider(theme), options),
         ...createComponent('text-input', textInput(theme), options),
         ...createComponent('field', field(theme), options)

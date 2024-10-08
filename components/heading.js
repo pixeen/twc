@@ -21,13 +21,16 @@ export default (theme) => ({
   variants: {
     size: {
       small: {
-        fontSize: theme('fontSize.sm')
+        fontSize: theme('fontSize.xl'),
+        fontWeight: theme('fontWeight.semibold')
       },
       medium: {
-        fontSize: theme('fontSize.DEFAULT')
+        fontSize: theme('fontSize.3xl'),
+        fontWeight: theme('fontWeight.DEFAULT')
       },
       large: {
-        fontSize: theme('fontSize.xl')
+        fontSize: theme('fontSize.5xl'),
+        fontWeight: theme('fontWeight.medium')
       }
     },
     color: {
@@ -46,7 +49,8 @@ export default (theme) => ({
     }
   },
   defaultVariants: {
-    size: 'medium'
+    size: 'medium',
+    color: 'primary'
   },
   compoundVariants: []
 })
