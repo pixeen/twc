@@ -6,9 +6,12 @@ A tiny collection of components designed as Tailwind CSS plugins.
   - [Button](#button)
   - [Button Group](#button-group)
   - [Checkbox](#checkbox)
+  - [Label](#label)
   - [Link](#link)
+  - [Paragraph](#paragraph)
   - [Radio](#radio)
 - [Custom Component](#custom-component)
+  - [Generated Classes](#generated-classes)
 
 ## Components
 
@@ -153,6 +156,8 @@ A styled paragraph component
 ```
 
 ### Radio
+
+A styled radio component
 
 ```html
 <input type="radio" class="radio" />
