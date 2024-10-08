@@ -39,19 +39,16 @@ const createAttributeSelector = (
   variantName = '',
   variantOption = ''
 ) => {
-  const attributeComponentClass = createAttributeClass({
+  const componentClass = createAttributeClass({
     name: attributeName,
     value: componentName
   })
-  const attributeVariantClass = createAttributeClass({
+  const variantClass = createAttributeClass({
     name: `${variantAttributeName}${variantName}`,
     value: variantOption
   })
-  return variantName
-    ? attributeComponentClass + attributeVariantClass
-    : attributeComponentClass
+  return variantName ? componentClass + variantClass : componentClass
 }
-
 /**
  * Generates styles for component variants.
  *

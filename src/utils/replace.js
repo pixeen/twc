@@ -1,16 +1,13 @@
+import _ from 'lodash'
+
 /**
- * Replaces placeholders within a given pattern string with corresponding values from a data object.
+ * Replaces placeholders in a template string with values.
  *
- * This function searches for placeholders in the format `${key}` within the pattern string.
- * For each placeholder found, it replaces it with the value corresponding to the `key` in the provided `data` object.
- * If no matching key is found, the original placeholder is retained.
- *
- * @param {string} pattern - The string containing placeholders to be replaced.
- * @param {Object} data - An object containing key-value pairs where the key matches the placeholder name in the pattern.
- * @returns {string} The resulting string with placeholders replaced by their corresponding values from the data object.
+ * @param {string} template - The template string.
+ * @param {Object} replacements - An object with replacement values.
+ * @returns {string} The processed string.
  */
-export default (pattern, data) => {
-  return pattern.replace(/\${(\w+)}/g, (_, match) => {
-    return match in data ? data[match] : `\${${match}}`
-  })
-}
+export default (template, replacements) =>
+  template.replace(/\${(\w+)}/g, (__, key) =>
+    _.has(replacements, key) ? _.get(replacements, key) : `\${${key}}`
+  )

@@ -11,7 +11,6 @@ describe('inspect function', () => {
       depth: null,
       colors: true
     })
-
     assert.equal(inspect(obj), expectedOutput)
   })
 
@@ -22,7 +21,6 @@ describe('inspect function', () => {
       depth: null,
       colors: true
     })
-
     assert.equal(inspect(nestedObj), expectedOutput)
   })
 
@@ -33,7 +31,6 @@ describe('inspect function', () => {
       depth: null,
       colors: true
     })
-
     assert.equal(inspect(array), expectedOutput)
   })
 
@@ -49,7 +46,6 @@ describe('inspect function', () => {
       depth: null,
       colors: true
     })
-
     assert.equal(inspect(objWithFn), expectedOutput)
   })
 
@@ -60,7 +56,61 @@ describe('inspect function', () => {
       depth: null,
       colors: true
     })
-
     assert.equal(inspect(specialObj), expectedOutput)
+  })
+
+  it('should throw a TypeError for non-object input', () => {
+    const nonObj = 'I am not an object'
+    assert.throws(() => inspect(nonObj), TypeError, 'Expected an object')
+  })
+
+  it('should handle complex objects with all primitive types', () => {
+    const complexObj = {
+      number: 123,
+      string: 'hello',
+      boolean: true,
+      nullValue: null,
+      undefinedValue: undefined,
+      symbol: Symbol('sym'),
+      bigInt: BigInt(12345678901234)
+    }
+    const expectedOutput = util.inspect(complexObj, {
+      showHidden: false,
+      depth: null,
+      colors: true
+    })
+    assert.equal(inspect(complexObj), expectedOutput)
+  })
+
+  it('should handle objects with circular references', () => {
+    const circularObj = { a: 1 }
+    circularObj.self = circularObj
+    const expectedOutput = util.inspect(circularObj, {
+      showHidden: false,
+      depth: null,
+      colors: true
+    })
+    assert.equal(inspect(circularObj), expectedOutput)
+  })
+
+  it('should handle objects with Map and Set', () => {
+    const map = new Map()
+    map.set('key1', 'value1')
+    map.set('key2', 'value2')
+    const set = new Set([1, 2, 3])
+
+    const objWithMapSet = { map, set }
+    const expectedOutput = util.inspect(objWithMapSet, {
+      showHidden: false,
+      depth: null,
+      colors: true
+    })
+    assert.equal(inspect(objWithMapSet), expectedOutput)
+  })
+
+  it('should throw a TypeError for non-object input', () => {
+    const nonObj = 'I am not an object'
+    const expectedError = new TypeError('Expected an object')
+    assert.throws(() => inspect(nonObj), expectedError)
   })
 })

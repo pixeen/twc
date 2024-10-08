@@ -1,4 +1,5 @@
 import util from 'util'
+import _ from 'lodash'
 
 /**
  * Inspects and formats an object.
@@ -11,5 +12,16 @@ import util from 'util'
  */
 
 export default (obj) => {
-  return util.inspect(obj, { showHidden: false, depth: null, colors: true })
+  if (!_.isObject(obj)) {
+    throw new TypeError('Expected an object')
+  }
+
+  // Create a deep clone of the object to avoid any mutations to the original object
+  const clonedObject = _.cloneDeep(obj)
+
+  return util.inspect(clonedObject, {
+    showHidden: false,
+    depth: null,
+    colors: true
+  })
 }
