@@ -12,8 +12,6 @@ A tiny collection of components designed as Tailwind CSS plugins.
   - [Paragraph](#paragraph)
   - [Radio](#radio)
   - [Text Input](#text-input)
-- [Custom Component](#custom-component)
-  - [Generated Classes](#generated-classes)
 
 ## Usage
 
@@ -35,18 +33,27 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Button
 
+#### Variants
+
+- **color**: `primary` `secondary` `positive` `negative`
+- **size**: `small` `medium` `large`
+- **surface**: `ghost` `fill`
+- **space**: `full` `auto`
+
+#### Example
+
 ```html
 <button data-component="button" data-color="positive">Click Me!</button>
 ```
 
-| Variant     | Values                                      |
-| ----------- | ------------------------------------------- |
-| **size**    | `small` `medium` `large`                    |
-| **surface** | `ghost` `fill`                              |
-| **space**   | `full` `auto`                               |
-| **color**   | `primary` `secondary` `positive` `negative` |
-
 ### Button Group
+
+#### Variants
+
+- **direction**: `horizontal`, `vertical`
+- **space**: `auto`, `full`
+
+#### Example
 
 ```html
 <div data-component="button-group">
@@ -56,12 +63,9 @@ You can apply the component styles either using a class or attribute selector, f
 </div>
 ```
 
-| Variant       | Value                    |
-| ------------- | ------------------------ |
-| **direction** | `horizontal`, `vertical` |
-| **space**     | `auto`, `full`           |
-
 ### Checkbox
+
+#### Example
 
 ```html
 <input type="checkbox" data-component="checkbox" />
@@ -69,17 +73,23 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Label
 
+#### Example
+
 ```html
 <label data-component="label">Some Label!</label>
 ```
 
 ### Link
 
+#### Example
+
 ```html
 <a data-component="link" href="#">Click Me!</a>
 ```
 
 ### Paragraph
+
+#### Example
 
 ```html
 <p data-component="paragraph">
@@ -92,96 +102,27 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Radio
 
+#### Example
+
 ```html
 <input type="radio" data-component="radio" />
 ```
 
 ### Text Input
 
+#### Variants
+
+- **size**: `small` `medium` `large`
+- **space**: `full` `auto`
+- **color**: `primary` `secondary` `positive` `negative`
+
+#### Example
+
 ```html
-<input type="text" data-component="text-input" />
-```
-
-| Variant   | Value                                       |
-| --------- | ------------------------------------------- |
-| **size**  | `small` `medium` `large`                    |
-| **space** | `full` `auto`                               |
-| **color** | `primary` `secondary` `positive` `negative` |
-
-## Custom Component
-
-Easily define components using the `defineComponent` function, allowing for the creation of base styles and variants.
-
-```js
-defineComponent("button", {
-  base: { fontWeight: "bold" },
-  variants: {
-    color: {
-      primary: {
-        backgroundColor: "red",
-      },
-      secondary: {
-        backgroundColor: "blue",
-      },
-      positive: {
-        backgroundColor: "green",
-      },
-      negative: {
-        backgroundColor: "red",
-      },
-    },
-    size: {
-      small: {
-        padding: "0.5rem 1rem",
-      },
-      medium: {
-        padding: "1rem 2rem",
-      },
-      large: {
-        padding: "1.5rem 3rem",
-      },
-    },
-  },
-  defaultVariants: { color: "primary", size: "medium" },
-});
-```
-
-### Generated Classes
-
-These classes are automatically generated and can be used directly in your HTML:
-
-```css
-.button {
-  /* base styles */
-}
-
-.button--primary {
-  /* primary color variant */
-}
-
-.button--secondary {
-  /* secondary color variant */
-}
-
-.button--positive {
-  /* positive color variant */
-}
-
-.button--negative {
-  /* negative color variant */
-}
-
-.button--small {
-  /* small size variant */
-}
-
-.button--medium {
-  /* medium size variant */
-}
-
-.button--large {
-  /* large size variant */
-}
-
-/* More generated classes based on defined variants */
+<input
+  type="text"
+  data-component="text-input"
+  data-size="medium"
+  data-color="primary"
+/>
 ```
