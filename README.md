@@ -95,7 +95,6 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Label
 
--
 - **color**: `primary` `secondary` `positive` `negative`
 
 ```html
