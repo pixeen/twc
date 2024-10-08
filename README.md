@@ -4,16 +4,16 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 - [Usage](#usage)
 - [Components](#components)
-    - [Button](#button)
-    - [Button Group](#button-group)
-    - [Checkbox](#checkbox)
-    - [Label](#label)
-    - [Link](#link)
-    - [Paragraph](#paragraph)
-    - [Radio](#radio)
-    - [Text Input](#text-input)
+  - [Button](#button)
+  - [Button Group](#button-group)
+  - [Checkbox](#checkbox)
+  - [Label](#label)
+  - [Link](#link)
+  - [Paragraph](#paragraph)
+  - [Radio](#radio)
+  - [Text Input](#text-input)
 - [Custom Component](#custom-component)
-    - [Generated Classes](#generated-classes)
+  - [Generated Classes](#generated-classes)
 
 ## Usage
 
@@ -22,12 +22,12 @@ You can apply the component styles either using a class or attribute selector, f
 ```html
 <!-- class selector -->
 <button class="button button--size-large button--color-secondary">
-    Click Me!
+  Click Me!
 </button>
 
 <!-- attribute selector -->
 <button data-component="button" data-size="large" data-color="secondary">
-    Click Me!
+  Click Me!
 </button>
 ```
 
@@ -36,37 +36,35 @@ You can apply the component styles either using a class or attribute selector, f
 ### Button
 
 ```html
-
 <button data-component="button" data-color="positive">Click Me!</button>
 ```
 
-| Variant     | Value                                       | Example                                                                    |
-|-------------|---------------------------------------------|----------------------------------------------------------------------------|
-| **size**    | `small` `medium` `large`                    | `<button data-component="button" data-size="small">Click Me!</button>`     |
-| **surface** | `ghost` `fill`                              | `<button data-component="button" data-surface="ghost">Click Me!</button>`  |
-| **space**   | `full` `auto`                               | `<button data-component="button" data-space="full">Click Me!</button>`     |
-| **color**   | `primary` `secondary` `positive` `negative` | `<button data-component="button" data-color="positive">Click Me!</button>` |
+| Variant     | Values                                      |
+| ----------- | ------------------------------------------- |
+| **size**    | `small` `medium` `large`                    |
+| **surface** | `ghost` `fill`                              |
+| **space**   | `full` `auto`                               |
+| **color**   | `primary` `secondary` `positive` `negative` |
 
 ### Button Group
 
 ```html
-
 <div data-component="button-group">
-    <button data-component="button">Click</button>
-    <button data-component="button">Click</button>
-    <button data-component="button">Click</button>
+  <button data-component="button">Click</button>
+  <button data-component="button">Click</button>
+  <button data-component="button">Click</button>
 </div>
 ```
 
 | Variant       | Value                    |
-|---------------|--------------------------|
+| ------------- | ------------------------ |
 | **direction** | `horizontal`, `vertical` |
 | **space**     | `auto`, `full`           |
 
 ### Checkbox
 
 ```html
-<input type="checkbox" data-component="checkbox"/>
+<input type="checkbox" data-component="checkbox" />
 ```
 
 ### Label
@@ -85,27 +83,27 @@ You can apply the component styles either using a class or attribute selector, f
 
 ```html
 <p data-component="paragraph">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid
-    atque beatae, cupiditate debitis distinctio fugit iste itaque laudantium natus
-    nemo nisi obcaecati officia porro praesentium quisquam sint voluptate
-    voluptatum?
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid
+  atque beatae, cupiditate debitis distinctio fugit iste itaque laudantium natus
+  nemo nisi obcaecati officia porro praesentium quisquam sint voluptate
+  voluptatum?
 </p>
 ```
 
 ### Radio
 
 ```html
-<input type="radio" data-component="radio"/>
+<input type="radio" data-component="radio" />
 ```
 
 ### Text Input
 
 ```html
-<input type="text" data-component="text-input"/>
+<input type="text" data-component="text-input" />
 ```
 
 | Variant   | Value                                       |
-|-----------|---------------------------------------------|
+| --------- | ------------------------------------------- |
 | **size**  | `small` `medium` `large`                    |
 | **space** | `full` `auto`                               |
 | **color** | `primary` `secondary` `positive` `negative` |
@@ -116,35 +114,35 @@ Easily define components using the `defineComponent` function, allowing for the 
 
 ```js
 defineComponent("button", {
-    base: {fontWeight: "bold"},
-    variants: {
-        color: {
-            primary: {
-                backgroundColor: "red",
-            },
-            secondary: {
-                backgroundColor: "blue",
-            },
-            positive: {
-                backgroundColor: "green",
-            },
-            negative: {
-                backgroundColor: "red",
-            },
-        },
-        size: {
-            small: {
-                padding: "0.5rem 1rem",
-            },
-            medium: {
-                padding: "1rem 2rem",
-            },
-            large: {
-                padding: "1.5rem 3rem",
-            },
-        },
+  base: { fontWeight: "bold" },
+  variants: {
+    color: {
+      primary: {
+        backgroundColor: "red",
+      },
+      secondary: {
+        backgroundColor: "blue",
+      },
+      positive: {
+        backgroundColor: "green",
+      },
+      negative: {
+        backgroundColor: "red",
+      },
     },
-    defaultVariants: {color: "primary", size: "medium"},
+    size: {
+      small: {
+        padding: "0.5rem 1rem",
+      },
+      medium: {
+        padding: "1rem 2rem",
+      },
+      large: {
+        padding: "1.5rem 3rem",
+      },
+    },
+  },
+  defaultVariants: { color: "primary", size: "medium" },
 });
 ```
 
@@ -154,35 +152,35 @@ These classes are automatically generated and can be used directly in your HTML:
 
 ```css
 .button {
-    /* base styles */
+  /* base styles */
 }
 
 .button--primary {
-    /* primary color variant */
+  /* primary color variant */
 }
 
 .button--secondary {
-    /* secondary color variant */
+  /* secondary color variant */
 }
 
 .button--positive {
-    /* positive color variant */
+  /* positive color variant */
 }
 
 .button--negative {
-    /* negative color variant */
+  /* negative color variant */
 }
 
 .button--small {
-    /* small size variant */
+  /* small size variant */
 }
 
 .button--medium {
-    /* medium size variant */
+  /* medium size variant */
 }
 
 .button--large {
-    /* large size variant */
+  /* large size variant */
 }
 
 /* More generated classes based on defined variants */
