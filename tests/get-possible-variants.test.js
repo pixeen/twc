@@ -2,15 +2,14 @@ import { describe, it } from 'node:test'
 import getPossibleVariants from '../src/get-possible-variants.js'
 import assert from 'node:assert'
 
-const testCases = [
-  {
-    description: 'should return a list of possible variants',
-    input: {
+describe('getPossibleVariants function', () => {
+  it('should return a list of possible variants', () => {
+    const input = {
       size: { large: 'x', small: 'x' },
       color: { primary: 'x', secondary: 'x', negative: 'x' },
       space: { large: 'x', small: 'x', medium: 'x' }
-    },
-    expected: [
+    }
+    const expected = [
       { size: 'large', color: 'primary', space: 'large' },
       { size: 'large', color: 'primary', space: 'small' },
       { size: 'large', color: 'primary', space: 'medium' },
@@ -30,38 +29,33 @@ const testCases = [
       { size: 'small', color: 'negative', space: 'small' },
       { size: 'small', color: 'negative', space: 'medium' }
     ]
-  },
-  {
-    description:
-      'should return a list of variants when only one option is provided',
-    input: { size: { large: 'x', small: 'x' } },
-    expected: [{ size: 'large' }, { size: 'small' }]
-  },
-  {
-    description: 'should return correct variants for mixed lengths',
-    input: {
+    assert.deepStrictEqual(getPossibleVariants(input), expected)
+  })
+
+  it('should return a list of variants when only one option is provided', () => {
+    const input = { size: { large: 'x', small: 'x' } }
+    const expected = [{ size: 'large' }, { size: 'small' }]
+    assert.deepStrictEqual(getPossibleVariants(input), expected)
+  })
+
+  it('should return correct variants for mixed lengths', () => {
+    const input = {
       size: { large: 'x' },
       color: { primary: 'x', secondary: 'x' }
-    },
-    expected: [
+    }
+    const expected = [
       { size: 'large', color: 'primary' },
       { size: 'large', color: 'secondary' }
     ]
-  },
-  {
-    description: 'should handle cases with single key-value pair correctly',
-    input: {
+    assert.deepStrictEqual(getPossibleVariants(input), expected)
+  })
+
+  it('should handle cases with single key-value pair correctly', () => {
+    const input = {
       size: { onlySize: 'x' },
       color: { onlyColor: 'x' }
-    },
-    expected: [{ size: 'onlySize', color: 'onlyColor' }]
-  }
-]
-
-describe('getPossibleVariants function', () => {
-  testCases.forEach(({ description, input, expected }) => {
-    it(description, () => {
-      assert.deepStrictEqual(getPossibleVariants(input), expected)
-    })
+    }
+    const expected = [{ size: 'onlySize', color: 'onlyColor' }]
+    assert.deepStrictEqual(getPossibleVariants(input), expected)
   })
 })

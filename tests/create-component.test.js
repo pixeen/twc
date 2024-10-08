@@ -8,10 +8,9 @@ const defaultOptions = {
   variantAttributeSelector: 'data-'
 }
 
-const testCases = [
-  {
-    scenario: 'should return a component with applied styles and variants',
-    input: [
+describe('Define Component Function', () => {
+  it('should return a component with applied styles and variants', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' },
@@ -24,8 +23,8 @@ const testCases = [
         defaultVariants: { color: 'primary' }
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { background: 'blue', color: 'white', padding: '10px' },
       '.button--color-primary': { background: 'blue' },
       '.button--color-secondary': { background: 'green' },
@@ -39,25 +38,26 @@ const testCases = [
         background: 'green'
       }
     }
-  },
-  {
-    scenario: 'should apply component base styles when no variants are defined',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should apply component base styles when no variants are defined', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' }
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { color: 'white', padding: '10px' },
       '[data-component="button"]': { color: 'white', padding: '10px' }
     }
-  },
-  {
-    scenario:
-      'should generate component variant styles when no default variants are defined',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should generate component variant styles when no default variants are defined', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' },
@@ -69,8 +69,8 @@ const testCases = [
         }
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { color: 'white', padding: '10px' },
       '.button--color-primary': { background: 'blue' },
       '.button--color-secondary': { background: 'green' },
@@ -80,10 +80,11 @@ const testCases = [
         background: 'green'
       }
     }
-  },
-  {
-    scenario: 'should apply component compound variants styles',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should apply component compound variants styles', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' },
@@ -103,15 +104,14 @@ const testCases = [
         ]
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { color: 'white', padding: '10px', background: 'blue' },
       '.button--size-large': { padding: '10px' },
       '.button--color-primary': { background: 'blue' },
       '.button--color-secondary': { background: 'green' },
       '.button--color-primary.button--size-large': { background: 'purple' },
       '.button--color-secondary.button--size-small': { background: 'green' },
-
       '[data-component="button"]': {
         color: 'white',
         padding: '10px',
@@ -127,24 +127,26 @@ const testCases = [
       '[data-component="button"][data-color="secondary"][data-component="button"][data-size="small"]':
         { background: 'green' }
     }
-  },
-  {
-    scenario: 'should handle the case when no variants are defined',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should handle the case when no variants are defined', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' }
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { padding: '10px', color: 'white' },
       '[data-component="button"]': { padding: '10px', color: 'white' }
     }
-  },
-  {
-    scenario: 'should handle the case when no default variants are provided',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should handle the case when no default variants are provided', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' },
@@ -156,8 +158,8 @@ const testCases = [
         }
       },
       defaultOptions
-    ],
-    expected: {
+    ]
+    const expected = {
       '.button': { padding: '10px', color: 'white' },
       '.button--size-small': { padding: '5px' },
       '.button--size-large': { padding: '15px' },
@@ -165,10 +167,11 @@ const testCases = [
       '[data-component="button"][data-size="small"]': { padding: '5px' },
       '[data-component="button"][data-size="large"]': { padding: '15px' }
     }
-  },
-  {
-    scenario: 'should handle the classPrefix correctly',
-    input: [
+    assert.deepEqual(createComponent(...input), expected)
+  })
+
+  it('should handle the classPrefix correctly', () => {
+    const input = [
       'button',
       {
         base: { padding: '10px', color: 'white' },
@@ -185,8 +188,8 @@ const testCases = [
         componentAttributeSelector: 'data-component',
         variantAttributeSelector: 'data-'
       }
-    ],
-    expected: {
+    ]
+    const expected = {
       '.tw-button': { background: 'blue', color: 'white', padding: '10px' },
       '.tw-button--color-primary': { background: 'blue' },
       '.tw-button--color-secondary': { background: 'green' },
@@ -200,17 +203,6 @@ const testCases = [
         background: 'green'
       }
     }
-  }
-]
-
-const runTestCase = (scenario, input, expected) => {
-  it(scenario, () => {
     assert.deepEqual(createComponent(...input), expected)
-  })
-}
-
-describe('Define Component Function', () => {
-  testCases.forEach(({ scenario, input, expected }) => {
-    runTestCase(scenario, input, expected)
   })
 })
