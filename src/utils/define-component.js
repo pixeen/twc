@@ -1,6 +1,6 @@
-import { hasProperty } from './has-property.js'
-import { createBemClass } from './create-bem-class.js'
-import { createAttributeClass } from './create-attribute-class.js'
+import hasProperty from './has-property.js'
+import createBemClass from './create-bem-class.js'
+import createAttributeClass from './create-attribute-class.js'
 
 /**
  * Creates a class selector.
@@ -241,7 +241,7 @@ const generateStyles = (
  * @param {Object} options
  * @returns {Object}
  */
-export const defineComponent = (componentName, styles, options) => {
+export default (componentName, styles, options) => {
   const {
     base: baseStyles = {},
     variants = {},

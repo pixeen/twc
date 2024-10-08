@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
-import { inspect } from './inspect.js'
+import inspect from './inspect.js'
 import util from 'util'
 
 describe('inspect function', () => {

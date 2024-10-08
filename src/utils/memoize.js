@@ -6,7 +6,7 @@
  * @param {Function} fn - The function to be memoized.
  * @returns {Function} A new function that wraps the original function and caches its results.
  */
-export const memoize = (fn) => {
+export default (fn) => {
   const cache = new Map()
   return (...args) => {
     const key = JSON.stringify(args)

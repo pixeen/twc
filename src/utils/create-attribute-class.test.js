@@ -1,6 +1,6 @@
 import assert from 'assert'
 import { describe } from 'node:test'
-import { createAttributeClass } from './create-attribute-class.js'
+import createAttributeClass from './create-attribute-class.js'
 
 const testCases = [
   { args: { name: 'id', value: 'content' }, expected: '[id="content"]' },

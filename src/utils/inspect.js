@@ -10,6 +10,6 @@ import util from 'util'
  * @returns {string} A string containing the formatted, human-readable representation of the object.
  */
 
-export const inspect = (obj) => {
+export default (obj) => {
   return util.inspect(obj, { showHidden: false, depth: null, colors: true })
 }

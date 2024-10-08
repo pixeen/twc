@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
-import { memoize } from './memoize.js'
+import memoize from './memoize.js'
 
 describe('Memoize function', () => {
   it('should return the same result as the original function', () => {

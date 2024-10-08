@@ -1,4 +1,4 @@
-import { defineComponent } from './src/utils/define-component.js'
+import defineComponent from './src/utils/define-component.js'
 import button from './src/components/button.js'
 import buttonGroup from './src/components/button-group.js'
 import link from './src/components/link.js'

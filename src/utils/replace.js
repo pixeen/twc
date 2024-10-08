@@ -9,7 +9,7 @@
  * @param {Object} data - An object containing key-value pairs where the key matches the placeholder name in the pattern.
  * @returns {string} The resulting string with placeholders replaced by their corresponding values from the data object.
  */
-export const replace = (pattern, data) => {
+export default (pattern, data) => {
   return pattern.replace(/\${(\w+)}/g, (_, match) => {
     return match in data ? data[match] : `\${${match}}`
   })
