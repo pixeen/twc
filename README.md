@@ -10,6 +10,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
   - [Link](#link)
   - [Paragraph](#paragraph)
   - [Radio](#radio)
+  - [Text Input](#text-input)
 - [Custom Component](#custom-component)
   - [Generated Classes](#generated-classes)
 
@@ -162,6 +163,50 @@ A styled radio component
 ```html
 <input type="radio" class="radio" />
 ```
+
+### Text Input
+
+A styled text input component
+
+```html
+<input type="text" class="text-input" />
+```
+
+<details><summary><strong>Color</strong></summary>
+
+Available color variants: `primary`, `secondary`, `positive`, `negative`
+
+```html
+<input type="text" class="text-input text-input--primary" />
+<input type="text" class="text-input text-input--secondary" />
+<input type="text" class="text-input text-input--positive" />
+<input type="text" class="text-input text-input--negative" />
+```
+
+</details>
+
+<details><summary><strong>Size</strong></summary>
+
+Available size variants: `small`, `medium`, `large`
+
+```html
+<input class="text-input text-input--small" />
+<input class="text-input text-input--medium" />
+<input class="text-input text-input--large" />
+```
+
+</details>
+
+<details><summary><strong>Space</strong></summary>
+
+Available space variants: `full`, `auto`
+
+```html
+<input class="text-input text-input--full" />
+<input class="text-input text-input--auto" />
+```
+
+</details>
 
 ## Custom Component
 

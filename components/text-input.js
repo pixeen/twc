@@ -10,6 +10,9 @@ export default (theme) => ({
       full: {
         width: "100%",
       },
+      auto: {
+        width: "auto",
+      },
     },
     size: {
       small: {
