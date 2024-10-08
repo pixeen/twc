@@ -2,31 +2,9 @@
 
 A tiny collection of components designed as Tailwind CSS plugins.
 
-- [Usage](#usage)
-- [Components](#components)
-  - [Button](#button)
-  - [Button Group](#button-group)
-  - [Checkbox](#checkbox)
-  - [Divider](#divider)
-  - [Field](#field)
-  - [Heading](#heading)
-  - [Label](#label)
-  - [Link](#link)
-  - [Paragraph](#paragraph)
-  - [Radio](#radio)
-  - [Text Input](#text-input)
-
 ## Usage
 
-You can apply the component styles either using a class or attribute selector, for example with the button component:
-
 ```html
-<!-- class selector -->
-<button class="button button--size-large button--color-secondary">
-  Click Me!
-</button>
-
-<!-- attribute selector -->
 <button data-component="button" data-size="large" data-color="secondary">
   Click Me!
 </button>
@@ -34,7 +12,7 @@ You can apply the component styles either using a class or attribute selector, f
 
 ## Components
 
-### Button
+### Button `button`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -45,7 +23,7 @@ You can apply the component styles either using a class or attribute selector, f
 <button data-component="button"></button>
 ```
 
-### Button Group
+### Button Group `button-group`
 
 - **direction**: `horizontal`, `vertical`
 - **space**: `auto`, `full`
@@ -54,13 +32,13 @@ You can apply the component styles either using a class or attribute selector, f
 <div data-component="button-group"></div>
 ```
 
-### Checkbox
+### Checkbox `checkbox`
 
 ```html
 <input type="checkbox" data-component="checkbox" />
 ```
 
-### Divider
+### Divider `divider`
 
 - **color**: `primary` `secondary` `positive` `negative`
 
@@ -68,7 +46,7 @@ You can apply the component styles either using a class or attribute selector, f
 <hr data-component="divider" />
 ```
 
-### Field
+### Field `field`
 
 - **direction**: `horizontal`, `vertical`
 
@@ -76,7 +54,7 @@ You can apply the component styles either using a class or attribute selector, f
 <div data-component="field"></div>
 ```
 
-### Heading
+### Heading `heading`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -85,7 +63,7 @@ You can apply the component styles either using a class or attribute selector, f
 <h1 data-component="heading"></h1>
 ```
 
-### Label
+### Label `label`
 
 - **color**: `primary` `secondary` `positive` `negative`
 
@@ -93,13 +71,13 @@ You can apply the component styles either using a class or attribute selector, f
 <label data-component="label"></label>
 ```
 
-### Link
+### Link `lnk`
 
 ```html
 <a data-component="link" href="#"></a>
 ```
 
-### Paragraph
+### Paragraph `paragraph`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -108,13 +86,13 @@ You can apply the component styles either using a class or attribute selector, f
 <p data-component="paragraph"></p>
 ```
 
-### Radio
+### Radio `radio`
 
 ```html
 <input type="radio" data-component="radio" />
 ```
 
-### Text Input
+### Text Input `text-input`
 
 - **size**: `small` `medium` `large`
 - **space**: `full` `auto`
