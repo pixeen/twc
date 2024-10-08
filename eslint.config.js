@@ -8,9 +8,10 @@ const compat = new FlatCompat({
 
 export default [
   ...compat.config({
-    extends: ['eslint-config-standard'],
+    extends: ['eslint-config-standard', 'prettier'],
     rules: {
       'no-template-curly-in-string': 'off'
+      // indent: ['error', 2]
     }
   })
 ]
