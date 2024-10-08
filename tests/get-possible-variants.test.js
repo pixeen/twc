@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import getPossibleVariants from './get-possible-variants.js'
+import getPossibleVariants from '../src/get-possible-variants.js'
 import assert from 'node:assert'
 
 describe('getPossibleVariants function', () => {

@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
-import createComponent from './create-component.js'
+import createComponent from '../src/create-component.js'
 
 const defaultOptions = {
   classPrefix: '',

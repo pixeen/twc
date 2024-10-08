@@ -1,6 +1,6 @@
 import assert from 'assert'
 
-import createBemClass from './create-bem-class.js'
+import createBemClass from '../src/create-bem-class.js'
 import { describe, it } from 'node:test'
 
 describe('createBemClass function', () => {

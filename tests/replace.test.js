@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
-import replace from './replace.js'
+import replace from '../src/replace.js'
 
 describe('Replace function', () => {
   it('Replaces placeholders with corresponding values from the data object', () => {
