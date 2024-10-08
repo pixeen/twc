@@ -12,7 +12,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ## Components
 
-### Button `button`
+### `button`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -23,7 +23,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <button data-component="button"></button>
 ```
 
-### Button Group `button-group`
+### `button-group`
 
 - **direction**: `horizontal`, `vertical`
 - **space**: `auto`, `full`
@@ -32,13 +32,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <div data-component="button-group"></div>
 ```
 
-### Checkbox `checkbox`
+### `checkbox`
 
 ```html
 <input type="checkbox" data-component="checkbox" />
 ```
 
-### Divider `divider`
+### `divider`
 
 - **color**: `primary` `secondary` `positive` `negative`
 
@@ -46,7 +46,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <hr data-component="divider" />
 ```
 
-### Field `field`
+### `field`
 
 - **direction**: `horizontal`, `vertical`
 
@@ -54,7 +54,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <div data-component="field"></div>
 ```
 
-### Heading `heading`
+### `heading`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -63,7 +63,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <h1 data-component="heading"></h1>
 ```
 
-### Label `label`
+### `label`
 
 - **color**: `primary` `secondary` `positive` `negative`
 
@@ -71,13 +71,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <label data-component="label"></label>
 ```
 
-### Link `lnk`
+### `lnk`
 
 ```html
 <a data-component="link" href="#"></a>
 ```
 
-### Paragraph `paragraph`
+### `paragraph`
 
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
@@ -86,13 +86,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 <p data-component="paragraph"></p>
 ```
 
-### Radio `radio`
+### `radio`
 
 ```html
 <input type="radio" data-component="radio" />
 ```
 
-### Text Input `text-input`
+### `text-input`
 
 - **size**: `small` `medium` `large`
 - **space**: `full` `auto`
