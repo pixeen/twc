@@ -33,14 +33,10 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Button
 
-#### Variants
-
 - **color**: `primary` `secondary` `positive` `negative`
 - **size**: `small` `medium` `large`
 - **surface**: `ghost` `fill`
 - **space**: `full` `auto`
-
-#### Example
 
 ```html
 <button data-component="button" data-color="positive">Click Me!</button>
@@ -48,12 +44,8 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Button Group
 
-#### Variants
-
 - **direction**: `horizontal`, `vertical`
 - **space**: `auto`, `full`
-
-#### Example
 
 ```html
 <div data-component="button-group">
@@ -65,15 +57,11 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Checkbox
 
-#### Example
-
 ```html
 <input type="checkbox" data-component="checkbox" />
 ```
 
 ### Label
-
-#### Example
 
 ```html
 <label data-component="label">Some Label!</label>
@@ -81,15 +69,11 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Link
 
-#### Example
-
 ```html
 <a data-component="link" href="#">Click Me!</a>
 ```
 
 ### Paragraph
-
-#### Example
 
 ```html
 <p data-component="paragraph">
@@ -102,21 +86,15 @@ You can apply the component styles either using a class or attribute selector, f
 
 ### Radio
 
-#### Example
-
 ```html
 <input type="radio" data-component="radio" />
 ```
 
 ### Text Input
 
-#### Variants
-
 - **size**: `small` `medium` `large`
 - **space**: `full` `auto`
 - **color**: `primary` `secondary` `positive` `negative`
-
-#### Example
 
 ```html
 <input
