@@ -1,5 +1,4 @@
 import plugin from "tailwindcss/plugin";
-import { defineComponent } from "./src/define-component.js";
 import buttonGroup from "./src/components/button-group.js";
 import checkbox from "./src/components/checkbox.js";
 import button from "./src/components/button.js";
@@ -9,6 +8,7 @@ import divider from "./src/components/divider.js";
 import textInput from "./src/components/text-input.js";
 import paragraph from "./src/components/paragraph.js";
 import label from "./src/components/label.js";
+import { defineComponent } from "./src/utils/define-component.js";
 
 export default plugin.withOptions(
   (options) =>
