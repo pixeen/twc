@@ -1,147 +1,250 @@
+import { hasProperty } from "./utils/has-property.js";
+import { createBemClass } from "./utils/create-bem-class.js";
+
 /**
- * Generates variant-specific styles for a given component based on provided variants and options.
+ * Creates a class selector.
  *
- * @param {string} componentName - The name of the component for which styles are being generated.
- * @param {Object} variants - An object representing different variants of the component, where keys are variant names and values are objects with options and corresponding styles.
- * @param {Object} [options] - Optional parameters to customize the generated styles.
- * @returns {Object} An object containing the generated CSS rules as key-value pairs.
+ * @param {string} prefix
+ * @param {string} componentName
+ * @param {string} [variantName]
+ * @param {string} [variantOption]
+ * @returns {string}
  */
-const generateVariantStyles = (componentName, variants, options) => {
-  const variantStyles = {};
-  Object.entries(variants).forEach(([variantName, options = {}]) => {
-    Object.entries(options).forEach(([option, styles]) => {
-      variantStyles[`.${componentName}--${variantName}-${option}`] = styles;
-      variantStyles[
-        `[data-component="${componentName}"][data-${variantName}="${option}"]`
-      ] = styles;
-    });
-  });
-  return variantStyles;
+const createClassSelector = (
+  prefix,
+  componentName,
+  variantName = "",
+  variantOption = "",
+) => {
+  const blockName = `${prefix}${componentName}`;
+  const modifierClass = variantName ? `${variantName}-${variantOption}` : "";
+  return createBemClass({ block: blockName, modifier: modifierClass });
 };
 
 /**
- * Merges base styles with default variant styles for a specific component.
+ * Creates an attribute selector.
  *
- * @param {string} componentName - The name of the component.
- * @param {Object} base - The base styles for the component.
- * @param {Object} defaultVariants - An object containing the default variant names and their values.
- * @param {Object} variants - An object containing the variant styles keyed by variant name and variant value.
- * @returns {Object} Merged styles including base and default variant styles.
+ * @param {string} attributeName
+ * @param {string} componentName
+ * @param {string} variantAttributeName
+ * @param {string} [variantName]
+ * @param {string} [variantOption]
+ * @returns {string}
+ */
+const createAttributeSelector = (
+  attributeName,
+  componentName,
+  variantAttributeName = "",
+  variantName = "",
+  variantOption = "",
+) => {
+  return variantName
+    ? `[${attributeName}="${componentName}"][${variantAttributeName}${variantName}="${variantOption}"]`
+    : `[${attributeName}="${componentName}"]`;
+};
+
+/**
+ * Generates styles for variants of a component.
+ *
+ * @param {string} componentName
+ * @param {Object} variants
+ * @param {Object} [options]
+ * @returns {Object}
+ */
+const generateVariantStyles = (componentName, variants, options) =>
+  Object.entries(variants).reduce(
+    (accumulatedStyles, [variantName, variantOptions = {}]) => {
+      return {
+        ...accumulatedStyles,
+        ...Object.entries(variantOptions).reduce(
+          (innerAccumulatedStyles, [variantOption, variantStyles]) => {
+            const attributeSelector = createAttributeSelector(
+              options.componentAttributeSelector,
+              componentName,
+              options.variantAttributeSelector,
+              variantName,
+              variantOption,
+            );
+            return {
+              ...innerAccumulatedStyles,
+              [createClassSelector(
+                options.classPrefix,
+                componentName,
+                variantName,
+                variantOption,
+              )]: variantStyles,
+              [attributeSelector]: variantStyles,
+            };
+          },
+          {},
+        ),
+      };
+    },
+    {},
+  );
+
+/**
+ * Merges base styles with default variant styles.
+ *
+ * @param {string} componentName
+ * @param {Object} baseStyles
+ * @param {Object} defaultVariants
+ * @param {Object} variants
+ * @param {Object} options
+ * @returns {Object}
  */
 const mergeBaseWithDefaultVariants = (
   componentName,
-  base,
+  baseStyles,
   defaultVariants,
   variants,
+  options,
 ) => {
-  const mergedStyles = {};
-  mergedStyles[`.${componentName}`] = base;
-  mergedStyles[`[data-component="${componentName}"]`] = base;
-  Object.entries(defaultVariants).forEach(([variantName, variantValue]) => {
-    mergedStyles[`.${componentName}`] = {
-      ...mergedStyles[`.${componentName}`],
-      ...variants[variantName][variantValue],
-    };
-    mergedStyles[`[data-component="${componentName}"]`] = {
-      ...mergedStyles[`[data-component="${componentName}"]`],
-      ...variants[variantName][variantValue],
-    };
-  });
-  return mergedStyles;
+  const baseClassSelector = createClassSelector(
+    options.classPrefix,
+    componentName,
+  );
+  const baseAttributeSelector = createAttributeSelector(
+    options.componentAttributeSelector,
+    componentName,
+    "",
+    "",
+    "",
+  );
+  return Object.entries(defaultVariants).reduce(
+    (accumulatedStyles, [variantName, variantValue]) => ({
+      ...accumulatedStyles,
+      [baseClassSelector]: {
+        ...accumulatedStyles[baseClassSelector],
+        ...variants[variantName][variantValue],
+      },
+      [baseAttributeSelector]: {
+        ...accumulatedStyles[baseAttributeSelector],
+        ...variants[variantName][variantValue],
+      },
+    }),
+    {
+      [baseClassSelector]: baseStyles,
+      [baseAttributeSelector]: baseStyles,
+    },
+  );
 };
 
 /**
- * Generates CSS styles for compound variants of a component based on the provided configurations.
+ * Generates styles for compound variants.
  *
- * @param {string} componentName - The name of the component for which styles are being generated.
- * @param {Object} variants - An object defining the possible variants and their values.
- * @param {Array<Object>} compoundVariants - An array of objects, each representing a compound variant.
- * @param {Object} options - Additional options that can be used during style generation.
- * @returns {Object} An object where the keys are class names or attribute selectors, and the values are the respective styles.
+ * @param {string} componentName
+ * @param {Object} variants
+ * @param {Array<Object>} compoundVariants
+ * @param {Object} options
+ * @returns {Object}
  */
 const generateCompoundVariantStyles = (
   componentName,
   variants,
   compoundVariants,
   options,
-) => {
-  const result = {};
-  compoundVariants.forEach((variant) => {
-    let classString = "";
-    const combined = Object.assign({}, ...variant);
-    const styles = { ...combined };
-    delete styles.color;
-    delete styles.size;
-    for (const key in combined) {
-      if (Object.prototype.hasOwnProperty.call(variants, key)) {
-        classString += `.${componentName}--${key}-${combined[key]}`;
-      }
-    }
-    result[classString] = styles;
-  });
-  compoundVariants.forEach((variant) => {
-    let classString = "";
-    const combined = Object.assign({}, ...variant);
-    const styles = { ...combined };
-    delete styles.color;
-    delete styles.size;
-    for (const key in combined) {
-      if (Object.prototype.hasOwnProperty.call(variants, key)) {
-        classString += `[data-component="${componentName}"][data-${key}="${combined[key]}"]`;
-      }
-    }
-    result[classString] = styles;
-  });
-  return result;
-};
+) =>
+  compoundVariants.reduce((accumulatedStyles, compoundVariant) => {
+    const [combinedVariantsArray, initialStyles] = Array.isArray(
+      compoundVariant[0],
+    )
+      ? compoundVariant
+      : [compoundVariant, {}];
+    const combinedVariants = Object.assign({}, ...combinedVariantsArray);
+    let styles = { ...initialStyles, ...combinedVariants };
+    combinedVariantsArray.forEach((variant) => {
+      Object.keys(variant).forEach((key) => {
+        if (styles[key]) delete styles[key];
+      });
+    });
+    const classString = Object.keys(combinedVariants)
+      .filter((key) => hasProperty(variants, key))
+      .map((key) =>
+        createClassSelector(
+          options.classPrefix,
+          componentName,
+          key,
+          combinedVariants[key],
+        ),
+      )
+      .join("");
+    const attributeString = Object.keys(combinedVariants)
+      .filter((key) => hasProperty(variants, key))
+      .map((key) =>
+        createAttributeSelector(
+          options.componentAttributeSelector,
+          componentName,
+          options.variantAttributeSelector,
+          key,
+          combinedVariants[key],
+        ),
+      )
+      .join("");
+    return {
+      ...accumulatedStyles,
+      [classString]: styles,
+      [attributeString]: styles,
+    };
+  }, {});
 
 /**
- * Generates styles based on the given parameters, including base styles,
- * variants, compound variants, and default variants.
+ * Generates combined styles.
  *
- * @param {string} name - The name of the style component.
- * @param {Object} base - The base styles that apply by default.
- * @param {Object} variants - The variant styles that can be applied conditionally.
- * @param {Array<Object>} compoundVariants - An array of compound variant style objects.
- * @param {Object} defaultVariants - The default variant styles to apply if applicable.
- * @param {Object} options - Additional options to customize style generation.
- * @returns {Object} The generated styles object that combines base, variant, and compound variant styles.
+ * @param {string} componentName
+ * @param {Object} baseStyles
+ * @param {Object} variants
+ * @param {Array<Object>} compoundVariants
+ * @param {Object} defaultVariants
+ * @param {Object} options
+ * @returns {Object}
  */
 const generateStyles = (
-  name,
-  base,
+  componentName,
+  baseStyles,
   variants,
   compoundVariants,
   defaultVariants,
   options,
 ) => ({
-  ...mergeBaseWithDefaultVariants(name, base, defaultVariants, variants),
-  ...generateVariantStyles(name, variants, options),
-  ...generateCompoundVariantStyles(name, variants, compoundVariants, options),
+  ...mergeBaseWithDefaultVariants(
+    componentName,
+    baseStyles,
+    defaultVariants,
+    variants,
+    options,
+  ),
+  ...generateVariantStyles(componentName, variants, options),
+  ...generateCompoundVariantStyles(
+    componentName,
+    variants,
+    compoundVariants,
+    options,
+  ),
 });
 
 /**
- * Defines a UI component with specified styles and options.
+ * Defines a component with specified styles.
  *
- * @param {string} name - The name of the component.
- * @param {object} styles - Style definitions for the component.
- * @param {object} styles.base - The base styles for the component.
- * @param {object} [styles.variants] - Optional style variants for the component.
- * @param {object} [styles.defaultVariants] - Default style variants for the component.
- * @param {Array} [styles.compoundVariants] - Compound style variants for the component.
- * @param {object} options - Additional options for style generation.
- * @returns {object} Generated styles.
+ * @param {string} componentName
+ * @param {Object} styles
+ * @param {Object} [styles.base]
+ * @param {Object} [styles.variants]
+ * @param {Object} [styles.defaultVariants]
+ * @param {Array} [styles.compoundVariants]
+ * @param {Object} options
+ * @returns {Object}
  */
-export const defineComponent = (name, styles, options) => {
+export const defineComponent = (componentName, styles, options) => {
   const {
-    base,
+    base: baseStyles = {},
     variants = {},
     defaultVariants = {},
     compoundVariants = [],
   } = styles;
   return generateStyles(
-    name,
-    base,
+    componentName,
+    baseStyles,
     variants,
     compoundVariants,
     defaultVariants,

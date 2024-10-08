@@ -2,6 +2,12 @@ import { defineComponent } from "./define-component.js";
 import { describe, it } from "node:test";
 import assert from "node:assert";
 
+const defaultOptions = {
+  classPrefix: "",
+  componentAttributeSelector: "data-component",
+  variantAttributeSelector: "data-",
+};
+
 const cases = [
   {
     scenario: "should return a component with applied styles and variants",
@@ -17,6 +23,7 @@ const cases = [
         },
         defaultVariants: { color: "primary" },
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { background: "blue", color: "white", padding: "10px" },
@@ -40,6 +47,7 @@ const cases = [
       {
         base: { padding: "10px", color: "white" },
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { color: "white", padding: "10px" },
@@ -60,6 +68,7 @@ const cases = [
           },
         },
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { color: "white", padding: "10px" },
@@ -89,10 +98,14 @@ const cases = [
         },
         defaultVariants: { color: "primary", size: "large" },
         compoundVariants: [
-          [{ color: "primary" }, { size: "large" }, { background: "purple" }],
-          [{ color: "secondary" }, { size: "small" }, { background: "green" }],
+          [[{ color: "primary" }, { size: "large" }], { background: "purple" }],
+          [
+            [{ color: "secondary" }, { size: "small" }],
+            { background: "green" },
+          ],
         ],
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { color: "white", padding: "10px", background: "blue" },
@@ -125,6 +138,7 @@ const cases = [
       {
         base: { padding: "10px", color: "white" },
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { padding: "10px", color: "white" },
@@ -144,6 +158,7 @@ const cases = [
           },
         },
       },
+      defaultOptions,
     ],
     expected: {
       ".button": { padding: "10px", color: "white" },
@@ -152,6 +167,41 @@ const cases = [
       '[data-component="button"]': { padding: "10px", color: "white" },
       '[data-component="button"][data-size="small"]': { padding: "5px" },
       '[data-component="button"][data-size="large"]': { padding: "15px" },
+    },
+  },
+  {
+    scenario: "should handle the classPrefix correctly",
+    input: [
+      "button",
+      {
+        base: { padding: "10px", color: "white" },
+        variants: {
+          color: {
+            primary: { background: "blue" },
+            secondary: { background: "green" },
+          },
+        },
+        defaultVariants: { color: "primary" },
+      },
+      {
+        classPrefix: "tw-",
+        componentAttributeSelector: "data-component",
+        variantAttributeSelector: "data-",
+      },
+    ],
+    expected: {
+      ".tw-button": { background: "blue", color: "white", padding: "10px" },
+      ".tw-button--color-primary": { background: "blue" },
+      ".tw-button--color-secondary": { background: "green" },
+      '[data-component="button"]': {
+        background: "blue",
+        color: "white",
+        padding: "10px",
+      },
+      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="secondary"]': {
+        background: "green",
+      },
     },
   },
 ];
