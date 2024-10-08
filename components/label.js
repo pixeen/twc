@@ -12,6 +12,7 @@
  */
 
 import colors from 'tailwindcss/colors'
+import textColor from './shared/variant/text-color.js'
 
 export default (theme) => ({
   base: {
@@ -22,7 +23,9 @@ export default (theme) => ({
     fontSize: theme('fontSize.DEFAULT'),
     cursor: 'pointer'
   },
-  variants: {},
+  variants: {
+    color: textColor(theme)
+  },
   defaultVariants: {},
   compoundVariants: []
 })
