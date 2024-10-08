@@ -42,7 +42,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **space**: `full` `auto`
 
 ```html
-<button data-component="button">Click Me!</button>
+<button data-component="button"></button>
 ```
 
 ### Button Group
@@ -51,10 +51,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **space**: `auto`, `full`
 
 ```html
-<div data-component="button-group">
-  <button />
-  <button />
-</div>
+<div data-component="button-group"></div>
 ```
 
 ### Checkbox
@@ -64,8 +61,6 @@ You can apply the component styles either using a class or attribute selector, f
 ```
 
 ### Divider
-
--
 
 - **color**: `primary` `secondary` `positive` `negative`
 
@@ -78,10 +73,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **direction**: `horizontal`, `vertical`
 
 ```html
-<div data-component="field">
-  <label />
-  <input />
-</div>
+<div data-component="field"></div>
 ```
 
 ### Heading
@@ -90,7 +82,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **size**: `small` `medium` `large`
 
 ```html
-<h1 data-component="heading">Some Title Wow</h1>
+<h1 data-component="heading"></h1>
 ```
 
 ### Label
@@ -98,13 +90,13 @@ You can apply the component styles either using a class or attribute selector, f
 - **color**: `primary` `secondary` `positive` `negative`
 
 ```html
-<label data-component="label">Some Label!</label>
+<label data-component="label"></label>
 ```
 
 ### Link
 
 ```html
-<a data-component="link" href="#">Click Me!</a>
+<a data-component="link" href="#"></a>
 ```
 
 ### Paragraph
@@ -113,12 +105,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **size**: `small` `medium` `large`
 
 ```html
-<p data-component="paragraph">
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid
-  atque beatae, cupiditate debitis distinctio fugit iste itaque laudantium natus
-  nemo nisi obcaecati officia porro praesentium quisquam sint voluptate
-  voluptatum?
-</p>
+<p data-component="paragraph"></p>
 ```
 
 ### Radio

@@ -6,11 +6,6 @@
  * Variants:
  * - ...
  *
- * Usage example:
- * ```html
- * <a href="#" data-component="link">Click Me!</a>
- * ```
- *
  * Changelog:
  * - 0.0.1-dev: Initial version
  *
