@@ -9,6 +9,7 @@ import label from './src/components/label.js'
 import paragraph from './src/components/paragraph.js'
 import divider from './src/components/divider.js'
 import textInput from './src/components/text-input.js'
+import field from './components/field.js'
 
 export default plugin.withOptions(
   (options) =>
@@ -22,7 +23,8 @@ export default plugin.withOptions(
         ...createComponent('label', label(theme), options),
         ...createComponent('paragraph', paragraph(theme), options),
         ...createComponent('divider', divider(theme), options),
-        ...createComponent('text-input', textInput(theme), options)
+        ...createComponent('text-input', textInput(theme), options),
+        ...createComponent('field', field(theme), options)
       }),
   (options) => ({
     theme: {

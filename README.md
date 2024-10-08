@@ -49,9 +49,8 @@ You can apply the component styles either using a class or attribute selector, f
 
 ```html
 <div data-component="button-group">
-  <button data-component="button">Click</button>
-  <button data-component="button">Click</button>
-  <button data-component="button">Click</button>
+  <button />
+  <button />
 </div>
 ```
 
@@ -59,6 +58,23 @@ You can apply the component styles either using a class or attribute selector, f
 
 ```html
 <input type="checkbox" data-component="checkbox" />
+```
+
+### Divider
+
+```html
+<hr data-component="divider" />
+```
+
+### Field
+
+- **direction**: `horizontal`, `vertical`
+
+```html
+<div data-component="field">
+  <label />
+  <input />
+</div>
 ```
 
 ### Label
