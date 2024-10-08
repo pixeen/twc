@@ -1,5 +1,5 @@
-import { hasProperty } from "./utils/has-property.js";
-import { createBemClass } from "./utils/create-bem-class.js";
+import { hasProperty } from "./has-property.js";
+import { createBemClass } from "./create-bem-class.js";
 
 /**
  * Creates a class selector.

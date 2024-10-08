@@ -1,6 +1,6 @@
-import { defineComponent } from "./define-component.js";
 import { describe, it } from "node:test";
 import assert from "node:assert";
+import { defineComponent } from "./define-component.js";
 
 const defaultOptions = {
   classPrefix: "",
