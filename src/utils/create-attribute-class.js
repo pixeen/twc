@@ -7,5 +7,5 @@
  * @returns {string} A string representing a CSS attribute selector.
  */
 export const createAttributeClass = ({ name, value }) => {
-  return `[${name}="${value}"]`;
-};
+  return `[${name}="${value}"]`
+}

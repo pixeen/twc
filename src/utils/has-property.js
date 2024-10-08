@@ -10,5 +10,5 @@
  * @returns {boolean} - True if the object has the specified property, false otherwise.
  */
 export const hasProperty = (obj, key) => {
-  return Object.prototype.hasOwnProperty.call(obj, key);
-};
+  return Object.prototype.hasOwnProperty.call(obj, key)
+}

@@ -1,219 +1,216 @@
-import { describe, it } from "node:test";
-import assert from "node:assert";
-import { defineComponent } from "./define-component.js";
+import { describe, it } from 'node:test'
+import assert from 'node:assert'
+import { defineComponent } from './define-component.js'
 
 const defaultOptions = {
-  classPrefix: "",
-  componentAttributeSelector: "data-component",
-  variantAttributeSelector: "data-",
-};
+  classPrefix: '',
+  componentAttributeSelector: 'data-component',
+  variantAttributeSelector: 'data-'
+}
 
 const cases = [
   {
-    scenario: "should return a component with applied styles and variants",
+    scenario: 'should return a component with applied styles and variants',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' },
         variants: {
           color: {
-            primary: { background: "blue" },
-            secondary: { background: "green" },
-          },
+            primary: { background: 'blue' },
+            secondary: { background: 'green' }
+          }
         },
-        defaultVariants: { color: "primary" },
+        defaultVariants: { color: 'primary' }
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { background: "blue", color: "white", padding: "10px" },
-      ".button--color-primary": { background: "blue" },
-      ".button--color-secondary": { background: "green" },
+      '.button': { background: 'blue', color: 'white', padding: '10px' },
+      '.button--color-primary': { background: 'blue' },
+      '.button--color-secondary': { background: 'green' },
       '[data-component="button"]': {
-        background: "blue",
-        color: "white",
-        padding: "10px",
+        background: 'blue',
+        color: 'white',
+        padding: '10px'
       },
-      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="primary"]': { background: 'blue' },
       '[data-component="button"][data-color="secondary"]': {
-        background: "green",
-      },
-    },
+        background: 'green'
+      }
+    }
   },
   {
-    scenario: "should apply component base styles when no variants are defined",
+    scenario: 'should apply component base styles when no variants are defined',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' }
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { color: "white", padding: "10px" },
-      '[data-component="button"]': { color: "white", padding: "10px" },
-    },
+      '.button': { color: 'white', padding: '10px' },
+      '[data-component="button"]': { color: 'white', padding: '10px' }
+    }
   },
   {
     scenario:
-      "should generate component variant styles when no default variants are defined",
+      'should generate component variant styles when no default variants are defined',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' },
         variants: {
           color: {
-            primary: { background: "blue" },
-            secondary: { background: "green" },
-          },
-        },
+            primary: { background: 'blue' },
+            secondary: { background: 'green' }
+          }
+        }
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { color: "white", padding: "10px" },
-      ".button--color-primary": { background: "blue" },
-      ".button--color-secondary": { background: "green" },
-      '[data-component="button"]': { color: "white", padding: "10px" },
-      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '.button': { color: 'white', padding: '10px' },
+      '.button--color-primary': { background: 'blue' },
+      '.button--color-secondary': { background: 'green' },
+      '[data-component="button"]': { color: 'white', padding: '10px' },
+      '[data-component="button"][data-color="primary"]': { background: 'blue' },
       '[data-component="button"][data-color="secondary"]': {
-        background: "green",
-      },
-    },
+        background: 'green'
+      }
+    }
   },
   {
-    scenario: "should apply component compound variants styles",
+    scenario: 'should apply component compound variants styles',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' },
         variants: {
           color: {
-            primary: { background: "blue" },
-            secondary: { background: "green" },
+            primary: { background: 'blue' },
+            secondary: { background: 'green' }
           },
           size: {
-            large: { padding: "10px" },
-          },
+            large: { padding: '10px' }
+          }
         },
-        defaultVariants: { color: "primary", size: "large" },
+        defaultVariants: { color: 'primary', size: 'large' },
         compoundVariants: [
-          [[{ color: "primary" }, { size: "large" }], { background: "purple" }],
-          [
-            [{ color: "secondary" }, { size: "small" }],
-            { background: "green" },
-          ],
-        ],
+          [[{ color: 'primary' }, { size: 'large' }], { background: 'purple' }],
+          [[{ color: 'secondary' }, { size: 'small' }], { background: 'green' }]
+        ]
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { color: "white", padding: "10px", background: "blue" },
-      ".button--size-large": { padding: "10px" },
-      ".button--color-primary": { background: "blue" },
-      ".button--color-secondary": { background: "green" },
-      ".button--color-primary.button--size-large": { background: "purple" },
-      ".button--color-secondary.button--size-small": { background: "green" },
+      '.button': { color: 'white', padding: '10px', background: 'blue' },
+      '.button--size-large': { padding: '10px' },
+      '.button--color-primary': { background: 'blue' },
+      '.button--color-secondary': { background: 'green' },
+      '.button--color-primary.button--size-large': { background: 'purple' },
+      '.button--color-secondary.button--size-small': { background: 'green' },
 
       '[data-component="button"]': {
-        color: "white",
-        padding: "10px",
-        background: "blue",
+        color: 'white',
+        padding: '10px',
+        background: 'blue'
       },
-      '[data-component="button"][data-size="large"]': { padding: "10px" },
-      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-size="large"]': { padding: '10px' },
+      '[data-component="button"][data-color="primary"]': { background: 'blue' },
       '[data-component="button"][data-color="secondary"]': {
-        background: "green",
+        background: 'green'
       },
       '[data-component="button"][data-color="primary"][data-component="button"][data-size="large"]':
-        { background: "purple" },
+        { background: 'purple' },
       '[data-component="button"][data-color="secondary"][data-component="button"][data-size="small"]':
-        { background: "green" },
-    },
+        { background: 'green' }
+    }
   },
   {
-    scenario: "should handle the case when no variants are defined",
+    scenario: 'should handle the case when no variants are defined',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' }
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { padding: "10px", color: "white" },
-      '[data-component="button"]': { padding: "10px", color: "white" },
-    },
+      '.button': { padding: '10px', color: 'white' },
+      '[data-component="button"]': { padding: '10px', color: 'white' }
+    }
   },
   {
-    scenario: "should handle the case when no default variants are provided",
+    scenario: 'should handle the case when no default variants are provided',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' },
         variants: {
           size: {
-            small: { padding: "5px" },
-            large: { padding: "15px" },
-          },
-        },
+            small: { padding: '5px' },
+            large: { padding: '15px' }
+          }
+        }
       },
-      defaultOptions,
+      defaultOptions
     ],
     expected: {
-      ".button": { padding: "10px", color: "white" },
-      ".button--size-small": { padding: "5px" },
-      ".button--size-large": { padding: "15px" },
-      '[data-component="button"]': { padding: "10px", color: "white" },
-      '[data-component="button"][data-size="small"]': { padding: "5px" },
-      '[data-component="button"][data-size="large"]': { padding: "15px" },
-    },
+      '.button': { padding: '10px', color: 'white' },
+      '.button--size-small': { padding: '5px' },
+      '.button--size-large': { padding: '15px' },
+      '[data-component="button"]': { padding: '10px', color: 'white' },
+      '[data-component="button"][data-size="small"]': { padding: '5px' },
+      '[data-component="button"][data-size="large"]': { padding: '15px' }
+    }
   },
   {
-    scenario: "should handle the classPrefix correctly",
+    scenario: 'should handle the classPrefix correctly',
     input: [
-      "button",
+      'button',
       {
-        base: { padding: "10px", color: "white" },
+        base: { padding: '10px', color: 'white' },
         variants: {
           color: {
-            primary: { background: "blue" },
-            secondary: { background: "green" },
-          },
+            primary: { background: 'blue' },
+            secondary: { background: 'green' }
+          }
         },
-        defaultVariants: { color: "primary" },
+        defaultVariants: { color: 'primary' }
       },
       {
-        classPrefix: "tw-",
-        componentAttributeSelector: "data-component",
-        variantAttributeSelector: "data-",
-      },
+        classPrefix: 'tw-',
+        componentAttributeSelector: 'data-component',
+        variantAttributeSelector: 'data-'
+      }
     ],
     expected: {
-      ".tw-button": { background: "blue", color: "white", padding: "10px" },
-      ".tw-button--color-primary": { background: "blue" },
-      ".tw-button--color-secondary": { background: "green" },
+      '.tw-button': { background: 'blue', color: 'white', padding: '10px' },
+      '.tw-button--color-primary': { background: 'blue' },
+      '.tw-button--color-secondary': { background: 'green' },
       '[data-component="button"]': {
-        background: "blue",
-        color: "white",
-        padding: "10px",
+        background: 'blue',
+        color: 'white',
+        padding: '10px'
       },
-      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="primary"]': { background: 'blue' },
       '[data-component="button"][data-color="secondary"]': {
-        background: "green",
-      },
-    },
-  },
-];
+        background: 'green'
+      }
+    }
+  }
+]
 
 const runTestCase = (scenario, input, expected) => {
   it(scenario, () => {
-    assert.deepEqual(defineComponent(...input), expected);
-  });
-};
+    assert.deepEqual(defineComponent(...input), expected)
+  })
+}
 
-describe("Define Component Function", () => {
+describe('Define Component Function', () => {
   cases.forEach(({ scenario, input, expected }) => {
-    runTestCase(scenario, input, expected);
-  });
-});
+    runTestCase(scenario, input, expected)
+  })
+})

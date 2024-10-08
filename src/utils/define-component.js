@@ -1,6 +1,6 @@
-import { hasProperty } from "./has-property.js";
-import { createBemClass } from "./create-bem-class.js";
-import { createAttributeClass } from "./create-attribute-class.js";
+import { hasProperty } from './has-property.js'
+import { createBemClass } from './create-bem-class.js'
+import { createAttributeClass } from './create-attribute-class.js'
 
 /**
  * Creates a class selector.
@@ -14,13 +14,13 @@ import { createAttributeClass } from "./create-attribute-class.js";
 const createClassSelector = (
   prefix,
   componentName,
-  variantName = "",
-  variantOption = "",
+  variantName = '',
+  variantOption = ''
 ) => {
-  const blockName = `${prefix}${componentName}`;
-  const modifierClass = variantName ? `${variantName}-${variantOption}` : "";
-  return createBemClass({ block: blockName, modifier: modifierClass });
-};
+  const blockName = `${prefix}${componentName}`
+  const modifierClass = variantName ? `${variantName}-${variantOption}` : ''
+  return createBemClass({ block: blockName, modifier: modifierClass })
+}
 
 /**
  * Creates an attribute selector.
@@ -35,22 +35,22 @@ const createClassSelector = (
 const createAttributeSelector = (
   attributeName,
   componentName,
-  variantAttributeName = "",
-  variantName = "",
-  variantOption = "",
+  variantAttributeName = '',
+  variantName = '',
+  variantOption = ''
 ) => {
   const attributeComponentClass = createAttributeClass({
     name: attributeName,
-    value: componentName,
-  });
+    value: componentName
+  })
   const attributeVariantClass = createAttributeClass({
     name: `${variantAttributeName}${variantName}`,
-    value: variantOption,
-  });
+    value: variantOption
+  })
   return variantName
     ? attributeComponentClass + attributeVariantClass
-    : attributeComponentClass;
-};
+    : attributeComponentClass
+}
 
 /**
  * Generates styles for variants of a component.
@@ -72,25 +72,25 @@ const generateVariantStyles = (componentName, variants, options) =>
               componentName,
               options.variantAttributeSelector,
               variantName,
-              variantOption,
-            );
+              variantOption
+            )
             return {
               ...innerAccumulatedStyles,
               [createClassSelector(
                 options.classPrefix,
                 componentName,
                 variantName,
-                variantOption,
+                variantOption
               )]: variantStyles,
-              [attributeSelector]: variantStyles,
-            };
+              [attributeSelector]: variantStyles
+            }
           },
-          {},
-        ),
-      };
+          {}
+        )
+      }
     },
-    {},
-  );
+    {}
+  )
 
 /**
  * Merges base styles with default variant styles.
@@ -107,34 +107,34 @@ const mergeBaseWithDefaultVariants = (
   baseStyles,
   defaultVariants,
   variants,
-  options,
+  options
 ) => {
   const baseClassSelector = createClassSelector(
     options.classPrefix,
-    componentName,
-  );
+    componentName
+  )
   const baseAttributeSelector = createAttributeSelector(
     options.componentAttributeSelector,
-    componentName,
-  );
+    componentName
+  )
   return Object.entries(defaultVariants).reduce(
     (accumulatedStyles, [variantName, variantValue]) => ({
       ...accumulatedStyles,
       [baseClassSelector]: {
         ...accumulatedStyles[baseClassSelector],
-        ...variants[variantName][variantValue],
+        ...variants[variantName][variantValue]
       },
       [baseAttributeSelector]: {
         ...accumulatedStyles[baseAttributeSelector],
-        ...variants[variantName][variantValue],
-      },
+        ...variants[variantName][variantValue]
+      }
     }),
     {
       [baseClassSelector]: baseStyles,
-      [baseAttributeSelector]: baseStyles,
-    },
-  );
-};
+      [baseAttributeSelector]: baseStyles
+    }
+  )
+}
 
 /**
  * Generates styles for compound variants.
@@ -149,21 +149,21 @@ const generateCompoundVariantStyles = (
   componentName,
   variants,
   compoundVariants,
-  options,
+  options
 ) =>
   compoundVariants.reduce((accumulatedStyles, compoundVariant) => {
     const [combinedVariantsArray, initialStyles] = Array.isArray(
-      compoundVariant[0],
+      compoundVariant[0]
     )
       ? compoundVariant
-      : [compoundVariant, {}];
-    const combinedVariants = Object.assign({}, ...combinedVariantsArray);
-    let styles = { ...initialStyles, ...combinedVariants };
+      : [compoundVariant, {}]
+    const combinedVariants = Object.assign({}, ...combinedVariantsArray)
+    const styles = { ...initialStyles, ...combinedVariants }
     combinedVariantsArray.forEach((variant) => {
       Object.keys(variant).forEach((key) => {
-        if (styles[key]) delete styles[key];
-      });
-    });
+        if (styles[key]) delete styles[key]
+      })
+    })
     const classString = Object.keys(combinedVariants)
       .filter((key) => hasProperty(variants, key))
       .map((key) =>
@@ -171,10 +171,10 @@ const generateCompoundVariantStyles = (
           options.classPrefix,
           componentName,
           key,
-          combinedVariants[key],
-        ),
+          combinedVariants[key]
+        )
       )
-      .join("");
+      .join('')
     const attributeString = Object.keys(combinedVariants)
       .filter((key) => hasProperty(variants, key))
       .map((key) =>
@@ -183,16 +183,16 @@ const generateCompoundVariantStyles = (
           componentName,
           options.variantAttributeSelector,
           key,
-          combinedVariants[key],
-        ),
+          combinedVariants[key]
+        )
       )
-      .join("");
+      .join('')
     return {
       ...accumulatedStyles,
       [classString]: styles,
-      [attributeString]: styles,
-    };
-  }, {});
+      [attributeString]: styles
+    }
+  }, {})
 
 /**
  * Generates combined styles.
@@ -211,23 +211,23 @@ const generateStyles = (
   variants,
   compoundVariants,
   defaultVariants,
-  options,
+  options
 ) => ({
   ...mergeBaseWithDefaultVariants(
     componentName,
     baseStyles,
     defaultVariants,
     variants,
-    options,
+    options
   ),
   ...generateVariantStyles(componentName, variants, options),
   ...generateCompoundVariantStyles(
     componentName,
     variants,
     compoundVariants,
-    options,
-  ),
-});
+    options
+  )
+})
 
 /**
  * Defines a component with specified styles.
@@ -246,14 +246,14 @@ export const defineComponent = (componentName, styles, options) => {
     base: baseStyles = {},
     variants = {},
     defaultVariants = {},
-    compoundVariants = [],
-  } = styles;
+    compoundVariants = []
+  } = styles
   return generateStyles(
     componentName,
     baseStyles,
     variants,
     compoundVariants,
     defaultVariants,
-    options,
-  );
-};
+    options
+  )
+}

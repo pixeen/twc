@@ -1,6 +1,6 @@
 export default (theme) => ({
-  "&:disabled": {
-    cursor: "not-allowed",
-    opacity: theme("opacity.50"),
-  },
-});
+  '&:disabled': {
+    cursor: 'not-allowed',
+    opacity: theme('opacity.50')
+  }
+})

@@ -1,5 +1,5 @@
-import plugin from "tailwindcss/plugin";
-import components from "./src/components.js";
+import plugin from 'tailwindcss/plugin'
+import components from './src/components.js'
 
 export default plugin.withOptions(
   (options) =>
@@ -8,8 +8,8 @@ export default plugin.withOptions(
   (options) => ({
     theme: {
       extend: {
-        colors: options.colors,
-      },
-    },
-  }),
-);
+        colors: options.colors
+      }
+    }
+  })
+)

@@ -11,6 +11,6 @@
  */
 export const replace = (pattern, data) => {
   return pattern.replace(/\${(\w+)}/g, (_, match) => {
-    return match in data ? data[match] : `\${${match}}`;
-  });
-};
+    return match in data ? data[match] : `\${${match}}`
+  })
+}
