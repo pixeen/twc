@@ -30,7 +30,7 @@ export default (theme) => ({
         paddingBlock: theme("spacing.2"),
       },
       large: {
-        fontSize: theme("fontSize.2xl"),
+        fontSize: theme("fontSize.xl"),
         paddingInline: theme("spacing.5"),
         paddingBlock: theme("spacing.2"),
       },

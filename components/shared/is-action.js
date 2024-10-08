@@ -9,4 +9,5 @@ export default (theme) => ({
   lineHeight: theme("lineHeight.none"),
   fontWeight: theme("fontWeight.medium"),
   borderRadius: theme("borderRadius.DEFAULT"),
+  borderWidth: theme("borderWidth.DEFAULT"),
 });

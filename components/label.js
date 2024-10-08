@@ -7,6 +7,7 @@ export default (theme) => ({
     alignItems: "center",
     justifyContent: "center",
     fontSize: theme("fontSize.DEFAULT"),
+    cursor: "pointer",
   },
   variants: {},
   defaultVariants: {},
