@@ -39,7 +39,7 @@ You can apply the component styles either using a class or attribute selector, f
 - **space**: `full` `auto`
 
 ```html
-<button data-component="button" data-color="positive">Click Me!</button>
+<button data-component="button">Click Me!</button>
 ```
 
 ### Button Group
