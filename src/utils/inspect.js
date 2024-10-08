@@ -11,5 +11,5 @@ import util from "util";
  */
 
 export const inspect = (obj) => {
-  return util.inspect(obj, { showHidden: false, depth: null, colors: true });
+    return util.inspect(obj, {showHidden: false, depth: null, colors: true});
 };

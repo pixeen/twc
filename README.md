@@ -3,11 +3,11 @@
 A tiny collection of components designed as Tailwind CSS plugins.
 
 - [Components](#components)
-  - [Button](#button)
-  - [Button Group](#button-group)
-  - [Checkbox](#checkbox)
-  - [Link](#link)
-  - [Radio](#radio)
+    - [Button](#button)
+    - [Button Group](#button-group)
+    - [Checkbox](#checkbox)
+    - [Link](#link)
+    - [Radio](#radio)
 - [Custom Component](#custom-component)
 
 ## Components
@@ -17,6 +17,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 A customizable button component.
 
 ```html
+
 <button class="button">Click Me!</button>
 ```
 
@@ -25,6 +26,7 @@ A customizable button component.
 Available color variants: `primary`, `secondary`, `positive`, `negative`
 
 ```html
+
 <button class="button button--primary">Click Me!</button>
 <button class="button button--secondary">Click Me!</button>
 <button class="button button--positive">Click Me!</button>
@@ -38,6 +40,7 @@ Available color variants: `primary`, `secondary`, `positive`, `negative`
 Available size variants: `small`, `medium`, `large`
 
 ```html
+
 <button class="button button--small">Click Me!</button>
 <button class="button button--medium">Click Me!</button>
 <button class="button button--large">Click Me!</button>
@@ -50,6 +53,7 @@ Available size variants: `small`, `medium`, `large`
 Available surface variants: `fill`, `ghost`
 
 ```html
+
 <button class="button button--fill">Click Me!</button>
 <button class="button button--ghost">Click Me!</button>
 ```
@@ -61,6 +65,7 @@ Available surface variants: `fill`, `ghost`
 Available space variants: `full`, `auto`
 
 ```html
+
 <button class="button button--full">Click Me!</button>
 <button class="button button--auto">Click Me!</button>
 ```
@@ -72,10 +77,11 @@ Available space variants: `full`, `auto`
 A flexible container for grouping multiple buttons together.
 
 ```html
+
 <div class="button-group">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
 </div>
 ```
 
@@ -84,14 +90,15 @@ A flexible container for grouping multiple buttons together.
 Available direction variants: `horizontal`, `vertical`
 
 ```html
+
 <div class="button-group button-group--horizontal">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
 </div>
 
 <div class="button-group button-group--vertical">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
 </div>
 ```
 
@@ -102,16 +109,17 @@ Available direction variants: `horizontal`, `vertical`
 Available space variants: `auto`, `full`
 
 ```html
+
 <div class="button-group button-group--auto">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
 </div>
 
 <div class="button-group button-group--full">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
+    <button class="button">Click</button>
 </div>
 ```
 
@@ -120,7 +128,15 @@ Available space variants: `auto`, `full`
 ### Checkbox
 
 ```html
-<input type="checkbox" class="checkbox" />
+<input type="checkbox" class="checkbox"/>
+```
+
+### Label
+
+A styled label component
+
+```html
+<label class="label">Some Label!</label>
 ```
 
 ### Link
@@ -131,10 +147,23 @@ A styled link component
 <a class="link" href="#">Click Me!</a>
 ```
 
+### Paragraph
+
+A styled paragraph component
+
+```html
+<p class="paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid
+    atque beatae, cupiditate debitis distinctio fugit iste itaque laudantium natus
+    nemo nisi obcaecati officia porro praesentium quisquam sint voluptate
+    voluptatum?
+</p>
+```
+
 ### Radio
 
 ```html
-<input type="radio" class="radio" />
+<input type="radio" class="radio"/>
 ```
 
 ## Custom Component
@@ -143,35 +172,35 @@ Easily define components using the `defineComponent` function, allowing for the 
 
 ```js
 defineComponent("button", {
-  base: { fontWeight: "bold" },
-  variants: {
-    color: {
-      primary: {
-        backgroundColor: "red",
-      },
-      secondary: {
-        backgroundColor: "blue",
-      },
-      positive: {
-        backgroundColor: "green",
-      },
-      negative: {
-        backgroundColor: "red",
-      },
+    base: {fontWeight: "bold"},
+    variants: {
+        color: {
+            primary: {
+                backgroundColor: "red",
+            },
+            secondary: {
+                backgroundColor: "blue",
+            },
+            positive: {
+                backgroundColor: "green",
+            },
+            negative: {
+                backgroundColor: "red",
+            },
+        },
+        size: {
+            small: {
+                padding: "0.5rem 1rem",
+            },
+            medium: {
+                padding: "1rem 2rem",
+            },
+            large: {
+                padding: "1.5rem 3rem",
+            },
+        },
     },
-    size: {
-      small: {
-        padding: "0.5rem 1rem",
-      },
-      medium: {
-        padding: "1rem 2rem",
-      },
-      large: {
-        padding: "1.5rem 3rem",
-      },
-    },
-  },
-  defaultVariants: { color: "primary", size: "medium" },
+    defaultVariants: {color: "primary", size: "medium"},
 });
 ```
 
@@ -181,35 +210,35 @@ These classes are automatically generated and can be used directly in your HTML:
 
 ```css
 .button {
-  /* base styles */
+    /* base styles */
 }
 
 .button--primary {
-  /* primary color variant */
+    /* primary color variant */
 }
 
 .button--secondary {
-  /* secondary color variant */
+    /* secondary color variant */
 }
 
 .button--positive {
-  /* positive color variant */
+    /* positive color variant */
 }
 
 .button--negative {
-  /* negative color variant */
+    /* negative color variant */
 }
 
 .button--small {
-  /* small size variant */
+    /* small size variant */
 }
 
 .button--medium {
-  /* medium size variant */
+    /* medium size variant */
 }
 
 .button--large {
-  /* large size variant */
+    /* large size variant */
 }
 
 /* More generated classes based on defined variants */

@@ -1,160 +1,161 @@
 import isAction from "./shared/is-action.js";
+import colors from "tailwindcss/colors";
 
 export default (theme) => ({
-  base: {
-    ...isAction(theme),
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: theme("spacing.3"),
-    borderWidth: theme("borderWidth.DEFAULT"),
-    borderRadius: theme("borderRadius.DEFAULT"),
-  },
-  defaultVariants: {
-    color: "primary",
-    size: "medium",
-    surface: "fill",
-    space: "auto",
-  },
-  variants: {
-    size: {
-      small: {
-        fontSize: theme("fontSize.sm"),
-        paddingInline: theme("spacing.3"),
-        paddingBlock: theme("spacing.1"),
-      },
-      medium: {
-        fontSize: theme("fontSize.DEFAULT"),
-        paddingInline: theme("spacing.4"),
-        paddingBlock: theme("spacing.2"),
-      },
-      large: {
-        fontSize: theme("fontSize.2xl"),
-        paddingInline: theme("spacing.5"),
-        paddingBlock: theme("spacing.2"),
-      },
+    base: {
+        ...isAction(theme),
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: theme("spacing.3"),
+        borderWidth: theme("borderWidth.DEFAULT"),
+        borderRadius: theme("borderRadius.DEFAULT"),
     },
-    surface: {
-      ghost: {
-        borderColor: "transparent !important",
-        backgroundColor: "transparent !important",
-        "&:hover, &:active": {
-          borderColor: "transparent !important",
-          backgroundColor: "transparent !important",
-          textDecoration: "underline",
-        },
-      },
-      fill: {
-        "&:hover, &:active": {
-          textDecoration: "none",
-        },
-      },
+    defaultVariants: {
+        color: "primary",
+        size: "medium",
+        surface: "fill",
+        space: "auto",
     },
-    space: {
-      full: {
-        flex: "1",
-        width: "100%",
-      },
-      auto: {
-        width: "auto",
-      },
+    variants: {
+        size: {
+            small: {
+                fontSize: theme("fontSize.sm"),
+                paddingInline: theme("spacing.3"),
+                paddingBlock: theme("spacing.1"),
+            },
+            medium: {
+                fontSize: theme("fontSize.DEFAULT"),
+                paddingInline: theme("spacing.4"),
+                paddingBlock: theme("spacing.2"),
+            },
+            large: {
+                fontSize: theme("fontSize.2xl"),
+                paddingInline: theme("spacing.5"),
+                paddingBlock: theme("spacing.2"),
+            },
+        },
+        surface: {
+            ghost: {
+                borderColor: "transparent !important",
+                backgroundColor: "transparent !important",
+                "&:hover, &:active": {
+                    borderColor: "transparent !important",
+                    backgroundColor: "transparent !important",
+                    textDecoration: "underline",
+                },
+            },
+            fill: {
+                "&:hover, &:active": {
+                    textDecoration: "none",
+                },
+            },
+        },
+        space: {
+            full: {
+                flex: "1",
+                width: "100%",
+            },
+            auto: {
+                width: "auto",
+            },
+        },
+        color: {
+            primary: {
+                backgroundColor: theme("colors.primary.200", colors.slate["200"]),
+                borderColor: theme("colors.primary.400", colors.slate["400"]),
+                color: theme("colors.primary.800", colors.slate["800"]),
+                "&:focus": {
+                    outline: `${theme("spacing[0.5]")} solid ${theme("colors.primary.400", colors.slate["400"])}`,
+                },
+                "&:hover": {
+                    backgroundColor: theme("colors.primary.300", colors.slate["300"]),
+                    borderColor: theme("colors.primary.500", colors.slate["500"]),
+                    color: theme("colors.primary.900", colors.slate["900"]),
+                },
+                "&:active": {
+                    backgroundColor: theme("colors.primary.100", colors.slate["100"]),
+                    borderColor: theme("colors.primary.600", colors.slate["600"]),
+                    color: theme("colors.primary.900", colors.slate["900"]),
+                },
+                "&:disabled:active, &:disabled:hover": {
+                    color: theme("colors.primary.800", colors.slate["800"]),
+                    borderColor: theme("colors.primary.500", colors.slate["500"]),
+                    backgroundColor: theme("colors.primary.200", colors.slate["200"]),
+                },
+            },
+            secondary: {
+                backgroundColor: theme("colors.secondary.100", colors.blue["100"]),
+                borderColor: theme("colors.secondary.300", colors.blue["300"]),
+                color: theme("colors.secondary.800", colors.blue["800"]),
+                "&:focus": {
+                    outline: `${theme("spacing[0.5]")} solid ${theme("colors.secondary.400")}`,
+                },
+                "&:hover": {
+                    backgroundColor: theme("colors.secondary.200", colors.blue["200"]),
+                    borderColor: theme("colors.secondary.400", colors.blue["400"]),
+                    color: theme("colors.secondary.800", colors.blue["800"]),
+                },
+                "&:active": {
+                    backgroundColor: theme("colors.secondary.100", colors.blue["100"]),
+                    borderColor: theme("colors.secondary.500", colors.blue["500"]),
+                    color: theme("colors.secondary.800", colors.blue["800"]),
+                },
+                "&:disabled:active, &:disabled:hover": {
+                    backgroundColor: theme("colors.secondary.100", colors.blue["100"]),
+                    borderColor: theme("colors.secondary.400", colors.blue["400"]),
+                    color: theme("colors.secondary.700", colors.blue["700"]),
+                },
+            },
+            positive: {
+                backgroundColor: theme("colors.positive.100", colors.green["100"]),
+                borderColor: theme("colors.positive.300", colors.green["300"]),
+                color: theme("colors.positive.800", colors.green["800"]),
+                "&:focus": {
+                    outline: `${theme("spacing[0.5]")} solid ${theme("colors.positive.400")}`,
+                },
+                "&:hover": {
+                    backgroundColor: theme("colors.positive.200", colors.green["200"]),
+                    borderColor: theme("colors.positive.400", colors.green["400"]),
+                    color: theme("colors.positive.800", colors.green["800"]),
+                },
+                "&:active": {
+                    backgroundColor: theme("colors.positive.100", colors.green["100"]),
+                    borderColor: theme("colors.positive.500", colors.green["500"]),
+                    color: theme("colors.positive.800", colors.green["800"]),
+                },
+                "&:disabled:active, &:disabled:hover": {
+                    backgroundColor: theme("colors.positive.100", colors.green["100"]),
+                    borderColor: theme("colors.positive.400", colors.green["400"]),
+                    color: theme("colors.positive.700", colors.green["700"]),
+                },
+            },
+            negative: {
+                backgroundColor: theme("colors.negative.100", colors.red["100"]),
+                borderColor: theme("colors.negative.300", colors.red["300"]),
+                color: theme("colors.negative.800", colors.red["800"]),
+                "&:focus": {
+                    outline: `${theme("spacing[0.5]")} solid ${theme("colors.negative.400")}`,
+                },
+                "&:hover": {
+                    backgroundColor: theme("colors.negative.200", colors.red["200"]),
+                    borderColor: theme("colors.negative.400", colors.red["400"]),
+                    color: theme("colors.negative.800", colors.red["800"]),
+                },
+                "&:active": {
+                    backgroundColor: theme("colors.negative.100", colors.red["100"]),
+                    borderColor: theme("colors.negative.500", colors.red["500"]),
+                    color: theme("colors.negative.800", colors.red["800"]),
+                },
+                "&:disabled:active, &:disabled:hover": {
+                    backgroundColor: theme("colors.negative.100", colors.red["100"]),
+                    borderColor: theme("colors.negative.400", colors.red["400"]),
+                    color: theme("colors.negative.700", colors.red["700"]),
+                },
+            },
+        },
     },
-    color: {
-      primary: {
-        backgroundColor: theme("colors.primary.200"),
-        borderColor: theme("colors.primary.400"),
-        color: theme("colors.primary.800"),
-        "&:focus": {
-          outline: `${theme("spacing[0.5]")} solid ${theme("colors.primary.400")}`,
-        },
-        "&:hover": {
-          backgroundColor: theme("colors.primary.300"),
-          borderColor: theme("colors.primary.500"),
-          color: theme("colors.primary.900"),
-        },
-        "&:active": {
-          backgroundColor: theme("colors.primary.100"),
-          borderColor: theme("colors.primary.600"),
-          color: theme("colors.primary.900"),
-        },
-        "&:disabled:active, &:disabled:hover": {
-          color: theme("colors.primary.800"),
-          borderColor: theme("colors.primary.500"),
-          backgroundColor: theme("colors.primary.200"),
-        },
-      },
-      secondary: {
-        backgroundColor: theme("colors.secondary.100"),
-        borderColor: theme("colors.secondary.300"),
-        color: theme("colors.secondary.800"),
-        "&:focus": {
-          outline: `${theme("spacing[0.5]")} solid ${theme("colors.secondary.400")}`,
-        },
-        "&:hover": {
-          backgroundColor: theme("colors.secondary.200"),
-          borderColor: theme("colors.secondary.400"),
-          color: theme("colors.secondary.800"),
-        },
-        "&:active": {
-          backgroundColor: theme("colors.secondary.100"),
-          borderColor: theme("colors.secondary.500"),
-          color: theme("colors.secondary.800"),
-        },
-        "&:disabled:active, &:disabled:hover": {
-          backgroundColor: theme("colors.secondary.100"),
-          borderColor: theme("colors.secondary.400"),
-          color: theme("colors.secondary.700"),
-        },
-      },
-      positive: {
-        backgroundColor: theme("colors.positive.100"),
-        borderColor: theme("colors.positive.300"),
-        color: theme("colors.positive.800"),
-        "&:focus": {
-          outline: `${theme("spacing[0.5]")} solid ${theme("colors.positive.400")}`,
-        },
-        "&:hover": {
-          backgroundColor: theme("colors.positive.200"),
-          borderColor: theme("colors.positive.400"),
-          color: theme("colors.positive.800"),
-        },
-        "&:active": {
-          backgroundColor: theme("colors.positive.100"),
-          borderColor: theme("colors.positive.500"),
-          color: theme("colors.positive.800"),
-        },
-        "&:disabled:active, &:disabled:hover": {
-          backgroundColor: theme("colors.positive.100"),
-          borderColor: theme("colors.positive.400"),
-          color: theme("colors.positive.700"),
-        },
-      },
-      negative: {
-        backgroundColor: theme("colors.negative.100"),
-        borderColor: theme("colors.negative.300"),
-        color: theme("colors.negative.800"),
-        "&:focus": {
-          outline: `${theme("spacing[0.5]")} solid ${theme("colors.negative.400")}`,
-        },
-        "&:hover": {
-          backgroundColor: theme("colors.negative.200"),
-          borderColor: theme("colors.negative.400"),
-          color: theme("colors.negative.800"),
-        },
-        "&:active": {
-          backgroundColor: theme("colors.negative.100"),
-          borderColor: theme("colors.negative.500"),
-          color: theme("colors.negative.800"),
-        },
-        "&:disabled:active, &:disabled:hover": {
-          backgroundColor: theme("colors.negative.100"),
-          borderColor: theme("colors.negative.400"),
-          color: theme("colors.negative.700"),
-        },
-      },
-    },
-  },
-  compoundVariants: [
-    // [{color: "primary"}, {size: "medium"}, {padding: "100px"}],
-  ],
+    compoundVariants: [
+        // [{color: "primary"}, {size: "medium"}, {padding: "100px"}],
+    ],
 });
