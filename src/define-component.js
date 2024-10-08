@@ -6,13 +6,13 @@
  * @returns {Object} CSS class names with corresponding styles.
  */
 const generateVariantStyles = (componentName, variants) => {
-    const variantStyles = {};
-    Object.entries(variants).forEach(([variantName, options = {}]) => {
-        Object.entries(options).forEach(([option, styles]) => {
-            variantStyles[`.${componentName}--${option}`] = styles;
-        });
+  const variantStyles = {};
+  Object.entries(variants).forEach(([variantName, options = {}]) => {
+    Object.entries(options).forEach(([option, styles]) => {
+      variantStyles[`.${componentName}--${option}`] = styles;
     });
-    return variantStyles;
+  });
+  return variantStyles;
 };
 
 /**
@@ -25,20 +25,20 @@ const generateVariantStyles = (componentName, variants) => {
  * @returns {object} Combined styles under the class name key.
  */
 const mergeBaseWithDefaultVariants = (
-    componentName,
-    base,
-    defaultVariants,
-    variants,
+  componentName,
+  base,
+  defaultVariants,
+  variants,
 ) => {
-    const mergedStyles = {};
-    mergedStyles[`.${componentName}`] = base;
-    Object.entries(defaultVariants).forEach(([variantName, variantValue]) => {
-        mergedStyles[`.${componentName}`] = {
-            ...mergedStyles[`.${componentName}`],
-            ...variants[variantName][variantValue],
-        };
-    });
-    return mergedStyles;
+  const mergedStyles = {};
+  mergedStyles[`.${componentName}`] = base;
+  Object.entries(defaultVariants).forEach(([variantName, variantValue]) => {
+    mergedStyles[`.${componentName}`] = {
+      ...mergedStyles[`.${componentName}`],
+      ...variants[variantName][variantValue],
+    };
+  });
+  return mergedStyles;
 };
 
 /**
@@ -50,25 +50,25 @@ const mergeBaseWithDefaultVariants = (
  * @returns {object} Combined styles under the class name key.
  */
 const generateCompoundVariantStyles = (
-    componentName,
-    variants,
-    compoundVariants,
+  componentName,
+  variants,
+  compoundVariants,
 ) => {
-    const result = {};
-    compoundVariants.forEach((variant) => {
-        let classString = "";
-        const combined = Object.assign({}, ...variant);
-        const styles = {...combined};
-        delete styles.color;
-        delete styles.size;
-        for (const key in combined) {
-            if (Object.prototype.hasOwnProperty.call(variants, key)) {
-                classString += `.${componentName}--${combined[key]}`;
-            }
-        }
-        result[classString] = styles;
-    });
-    return result;
+  const result = {};
+  compoundVariants.forEach((variant) => {
+    let classString = "";
+    const combined = Object.assign({}, ...variant);
+    const styles = { ...combined };
+    delete styles.color;
+    delete styles.size;
+    for (const key in combined) {
+      if (Object.prototype.hasOwnProperty.call(variants, key)) {
+        classString += `.${componentName}--${combined[key]}`;
+      }
+    }
+    result[classString] = styles;
+  });
+  return result;
 };
 
 /**
@@ -83,15 +83,15 @@ const generateCompoundVariantStyles = (
  * @return {Object} Combined styles and variants.
  */
 export const defineComponent = (
-    componentName,
-    {base, variants = {}, defaultVariants = {}, compoundVariants = []},
+  componentName,
+  { base, variants = {}, defaultVariants = {}, compoundVariants = [] },
 ) => ({
-    ...mergeBaseWithDefaultVariants(
-        componentName,
-        base,
-        defaultVariants,
-        variants,
-    ),
-    ...generateVariantStyles(componentName, variants),
-    ...generateCompoundVariantStyles(componentName, variants, compoundVariants),
+  ...mergeBaseWithDefaultVariants(
+    componentName,
+    base,
+    defaultVariants,
+    variants,
+  ),
+  ...generateVariantStyles(componentName, variants),
+  ...generateCompoundVariantStyles(componentName, variants, compoundVariants),
 });
