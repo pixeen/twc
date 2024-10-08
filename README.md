@@ -2,6 +2,7 @@
 
 A tiny collection of components designed as Tailwind CSS plugins.
 
+- [Usage](#usage)
 - [Components](#components)
   - [Button](#button)
   - [Button Group](#button-group)
@@ -14,141 +15,74 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - [Custom Component](#custom-component)
   - [Generated Classes](#generated-classes)
 
+## Usage
+
+You can apply the component styles either using a class or attribute selector, for example with the button component:
+
+```html
+<!-- class selector -->
+<button class="button button--size-large button--color-secondary">
+  Click Me!
+</button>
+
+<!-- attribute selector -->
+<button data-component="button" data-size="large" data-color="secondary">
+  Click Me!
+</button>
+```
+
 ## Components
 
 ### Button
 
-A customizable button component.
-
 ```html
-<button class="button">Click Me!</button>
+<button data-component="button" data-color="positive">Click Me!</button>
 ```
 
-<details><summary><strong>Color</strong></summary>
-
-Available color variants: `primary`, `secondary`, `positive`, `negative`
-
-```html
-<button class="button button--color-primary">Click Me!</button>
-<button class="button button--color-secondary">Click Me!</button>
-<button class="button button--color-positive">Click Me!</button>
-<button class="button button--color-negative">Click Me!</button>
-```
-
-</details>
-
-<details><summary><strong>Size</strong></summary>
-
-Available size variants: `small`, `medium`, `large`
-
-```html
-<button class="button button--size-small">Click Me!</button>
-<button class="button button--size-medium">Click Me!</button>
-<button class="button button--size-large">Click Me!</button>
-```
-
-</details>
-
-<details><summary><strong>Surface</strong></summary>
-
-Available surface variants: `fill`, `ghost`
-
-```html
-<button class="button button--surface-fill">Click Me!</button>
-<button class="button button--surface-ghost">Click Me!</button>
-```
-
-</details>
-
-<details><summary><strong>Space</strong></summary>
-
-Available space variants: `full`, `auto`
-
-```html
-<button class="button button--space-full">Click Me!</button>
-<button class="button button--space-auto">Click Me!</button>
-```
-
-</details>
+| Variant     | Value                                       |
+|-------------|---------------------------------------------|
+| **size**    | `small` `medium` `large`                    |
+| **surface** | `ghost` `fill`                              |
+| **space**   | `full` `auto`                               |
+| **color**   | `primary` `secondary` `positive` `negative` |
 
 ### Button Group
 
-A flexible container for grouping multiple buttons together.
-
 ```html
-<div class="button-group">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
+<div data-component="button-group">
+  <button data-component="button">Click</button>
+  <button data-component="button">Click</button>
+  <button data-component="button">Click</button>
 </div>
 ```
 
-<details><summary><strong>Direction</strong></summary>
-
-Available direction variants: `horizontal`, `vertical`
-
-```html
-<div class="button-group button-group--direction-horizontal">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-</div>
-
-<div class="button-group button-group--direction-vertical">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-</div>
-```
-
-</details>
-
-<details><summary><strong>Space</strong></summary>
-
-Available space variants: `auto`, `full`
-
-```html
-<div class="button-group button-group--space-auto">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-</div>
-
-<div class="button-group button-group--space-full">
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-  <button class="button">Click</button>
-</div>
-```
-
-</details>
+| Variant       | Value                    |
+|---------------|--------------------------|
+| **direction** | `horizontal`, `vertical` |
+| **space**     | `auto`, `full`           |
 
 ### Checkbox
 
 ```html
-<input type="checkbox" class="checkbox" />
+<input type="checkbox" data-component="checkbox" />
 ```
 
 ### Label
 
-A styled label component
-
 ```html
-<label class="label">Some Label!</label>
+<label data-component="label">Some Label!</label>
 ```
 
 ### Link
 
-A styled link component
-
 ```html
-<a class="link" href="#">Click Me!</a>
+<a data-component="link" href="#">Click Me!</a>
 ```
 
 ### Paragraph
 
-A styled paragraph component
-
 ```html
-<p class="paragraph">
+<p data-component="paragraph">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus aliquid
   atque beatae, cupiditate debitis distinctio fugit iste itaque laudantium natus
   nemo nisi obcaecati officia porro praesentium quisquam sint voluptate
@@ -158,55 +92,21 @@ A styled paragraph component
 
 ### Radio
 
-A styled radio component
-
 ```html
-<input type="radio" class="radio" />
+<input type="radio" data-component="radio" />
 ```
 
 ### Text Input
 
-A styled text input component
-
 ```html
-<input type="text" class="text-input" />
+<input type="text" data-component="text-input" />
 ```
 
-<details><summary><strong>Color</strong></summary>
-
-Available color variants: `primary`, `secondary`, `positive`, `negative`
-
-```html
-<input type="text" class="text-input text-input--color-primary" />
-<input type="text" class="text-input text-input--color-secondary" />
-<input type="text" class="text-input text-input--color-positive" />
-<input type="text" class="text-input text-input--color-negative" />
-```
-
-</details>
-
-<details><summary><strong>Size</strong></summary>
-
-Available size variants: `small`, `medium`, `large`
-
-```html
-<input class="text-input text-input--size-small" />
-<input class="text-input text-input--size-medium" />
-<input class="text-input text-input--size-large" />
-```
-
-</details>
-
-<details><summary><strong>Space</strong></summary>
-
-Available space variants: `full`, `auto`
-
-```html
-<input class="text-input text-input--space-full" />
-<input class="text-input text-input--space-auto" />
-```
-
-</details>
+| Variant   | Value                                       |
+|-----------|---------------------------------------------|
+| **size**  | `small` `medium` `large`                    |
+| **space** | `full` `auto`                               |
+| **color** | `primary` `secondary` `positive` `negative` |
 
 ## Custom Component
 

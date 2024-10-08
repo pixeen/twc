@@ -17,6 +17,7 @@ import colors from "tailwindcss/colors";
 export default (theme) => ({
   base: {
     ...isAction(theme),
+    borderColor: "transparent",
     color: theme("colors.secondary.700", colors.blue["700"]),
     display: "inline-flex",
     alignItems: "center",
