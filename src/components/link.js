@@ -1,4 +1,17 @@
-import isAction from "./shared/is-action.js";
+/**
+ * Link
+ *
+ * @version 0.0.1-dev
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
+ *
+ * Variants:
+ * - ...
+ *
+ */
+
+import isAction from "../shared/is-action.js";
 import colors from "tailwindcss/colors";
 
 export default (theme) => ({

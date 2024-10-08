@@ -1,3 +1,16 @@
+/**
+ * Paragraph
+ *
+ * @version 0.0.1-dev
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
+ *
+ * Variants:
+ * - ...
+ *
+ */
+
 import colors from "tailwindcss/colors";
 
 export default (theme) => ({

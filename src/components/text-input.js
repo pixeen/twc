@@ -1,5 +1,20 @@
-import isAction from "./shared/is-action.js";
+/**
+ * Text Input
+ *
+ * @version 0.0.1-dev
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
+ *
+ * Variants:
+ * - size: `small`, `medium`, `large`
+ * - space: `full`, `auto`
+ * - color: `primary`, `secondary`, `positive`, `negative`
+ *
+ */
+
 import colors from "tailwindcss/colors";
+import isAction from "../shared/is-action.js";
 
 export default (theme) => ({
   base: {
@@ -51,6 +66,7 @@ export default (theme) => ({
   defaultVariants: {
     color: "primary",
     size: "medium",
+    space: "auto",
   },
   compoundVariants: [],
 });

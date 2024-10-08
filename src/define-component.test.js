@@ -22,6 +22,15 @@ const cases = [
       ".button": { background: "blue", color: "white", padding: "10px" },
       ".button--color-primary": { background: "blue" },
       ".button--color-secondary": { background: "green" },
+      '[data-component="button"]': {
+        background: "blue",
+        color: "white",
+        padding: "10px",
+      },
+      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="secondary"]': {
+        background: "green",
+      },
     },
   },
   {
@@ -34,6 +43,7 @@ const cases = [
     ],
     expected: {
       ".button": { color: "white", padding: "10px" },
+      '[data-component="button"]': { color: "white", padding: "10px" },
     },
   },
   {
@@ -55,6 +65,11 @@ const cases = [
       ".button": { color: "white", padding: "10px" },
       ".button--color-primary": { background: "blue" },
       ".button--color-secondary": { background: "green" },
+      '[data-component="button"]': { color: "white", padding: "10px" },
+      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="secondary"]': {
+        background: "green",
+      },
     },
   },
   {
@@ -86,6 +101,57 @@ const cases = [
       ".button--color-secondary": { background: "green" },
       ".button--color-primary.button--size-large": { background: "purple" },
       ".button--color-secondary.button--size-small": { background: "green" },
+
+      '[data-component="button"]': {
+        color: "white",
+        padding: "10px",
+        background: "blue",
+      },
+      '[data-component="button"][data-size="large"]': { padding: "10px" },
+      '[data-component="button"][data-color="primary"]': { background: "blue" },
+      '[data-component="button"][data-color="secondary"]': {
+        background: "green",
+      },
+      '[data-component="button"][data-color="primary"][data-component="button"][data-size="large"]':
+        { background: "purple" },
+      '[data-component="button"][data-color="secondary"][data-component="button"][data-size="small"]':
+        { background: "green" },
+    },
+  },
+  {
+    scenario: "should handle the case when no variants are defined",
+    input: [
+      "button",
+      {
+        base: { padding: "10px", color: "white" },
+      },
+    ],
+    expected: {
+      ".button": { padding: "10px", color: "white" },
+      '[data-component="button"]': { padding: "10px", color: "white" },
+    },
+  },
+  {
+    scenario: "should handle the case when no default variants are provided",
+    input: [
+      "button",
+      {
+        base: { padding: "10px", color: "white" },
+        variants: {
+          size: {
+            small: { padding: "5px" },
+            large: { padding: "15px" },
+          },
+        },
+      },
+    ],
+    expected: {
+      ".button": { padding: "10px", color: "white" },
+      ".button--size-small": { padding: "5px" },
+      ".button--size-large": { padding: "15px" },
+      '[data-component="button"]': { padding: "10px", color: "white" },
+      '[data-component="button"][data-size="small"]': { padding: "5px" },
+      '[data-component="button"][data-size="large"]': { padding: "15px" },
     },
   },
 ];
