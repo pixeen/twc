@@ -29,10 +29,10 @@ A customizable button component.
 Available color variants: `primary`, `secondary`, `positive`, `negative`
 
 ```html
-<button class="button button--primary">Click Me!</button>
-<button class="button button--secondary">Click Me!</button>
-<button class="button button--positive">Click Me!</button>
-<button class="button button--negative">Click Me!</button>
+<button class="button button--color-primary">Click Me!</button>
+<button class="button button--color-secondary">Click Me!</button>
+<button class="button button--color-positive">Click Me!</button>
+<button class="button button--color-negative">Click Me!</button>
 ```
 
 </details>
@@ -42,9 +42,9 @@ Available color variants: `primary`, `secondary`, `positive`, `negative`
 Available size variants: `small`, `medium`, `large`
 
 ```html
-<button class="button button--small">Click Me!</button>
-<button class="button button--medium">Click Me!</button>
-<button class="button button--large">Click Me!</button>
+<button class="button button--size-small">Click Me!</button>
+<button class="button button--size-medium">Click Me!</button>
+<button class="button button--size-large">Click Me!</button>
 ```
 
 </details>
@@ -54,8 +54,8 @@ Available size variants: `small`, `medium`, `large`
 Available surface variants: `fill`, `ghost`
 
 ```html
-<button class="button button--fill">Click Me!</button>
-<button class="button button--ghost">Click Me!</button>
+<button class="button button--surface-fill">Click Me!</button>
+<button class="button button--surface-ghost">Click Me!</button>
 ```
 
 </details>
@@ -65,8 +65,8 @@ Available surface variants: `fill`, `ghost`
 Available space variants: `full`, `auto`
 
 ```html
-<button class="button button--full">Click Me!</button>
-<button class="button button--auto">Click Me!</button>
+<button class="button button--space-full">Click Me!</button>
+<button class="button button--space-auto">Click Me!</button>
 ```
 
 </details>
@@ -88,12 +88,12 @@ A flexible container for grouping multiple buttons together.
 Available direction variants: `horizontal`, `vertical`
 
 ```html
-<div class="button-group button-group--horizontal">
+<div class="button-group button-group--direction-horizontal">
   <button class="button">Click</button>
   <button class="button">Click</button>
 </div>
 
-<div class="button-group button-group--vertical">
+<div class="button-group button-group--direction-vertical">
   <button class="button">Click</button>
   <button class="button">Click</button>
 </div>
@@ -106,13 +106,13 @@ Available direction variants: `horizontal`, `vertical`
 Available space variants: `auto`, `full`
 
 ```html
-<div class="button-group button-group--auto">
+<div class="button-group button-group--space-auto">
   <button class="button">Click</button>
   <button class="button">Click</button>
   <button class="button">Click</button>
 </div>
 
-<div class="button-group button-group--full">
+<div class="button-group button-group--space-full">
   <button class="button">Click</button>
   <button class="button">Click</button>
   <button class="button">Click</button>
@@ -177,10 +177,10 @@ A styled text input component
 Available color variants: `primary`, `secondary`, `positive`, `negative`
 
 ```html
-<input type="text" class="text-input text-input--primary" />
-<input type="text" class="text-input text-input--secondary" />
-<input type="text" class="text-input text-input--positive" />
-<input type="text" class="text-input text-input--negative" />
+<input type="text" class="text-input text-input--color-primary" />
+<input type="text" class="text-input text-input--color-secondary" />
+<input type="text" class="text-input text-input--color-positive" />
+<input type="text" class="text-input text-input--color-negative" />
 ```
 
 </details>
@@ -190,9 +190,9 @@ Available color variants: `primary`, `secondary`, `positive`, `negative`
 Available size variants: `small`, `medium`, `large`
 
 ```html
-<input class="text-input text-input--small" />
-<input class="text-input text-input--medium" />
-<input class="text-input text-input--large" />
+<input class="text-input text-input--size-small" />
+<input class="text-input text-input--size-medium" />
+<input class="text-input text-input--size-large" />
 ```
 
 </details>
@@ -202,8 +202,8 @@ Available size variants: `small`, `medium`, `large`
 Available space variants: `full`, `auto`
 
 ```html
-<input class="text-input text-input--full" />
-<input class="text-input text-input--auto" />
+<input class="text-input text-input--space-full" />
+<input class="text-input text-input--space-auto" />
 ```
 
 </details>

@@ -156,6 +156,6 @@ export default (theme) => ({
     },
   },
   compoundVariants: [
-    // [{color: "primary"}, {size: "medium"}, {padding: "100px"}],
+    // [{color: "primary"}, {size: "small"}, {padding: "100px"}],
   ],
 });

@@ -20,8 +20,8 @@ const cases = [
     ],
     expected: {
       ".button": { background: "blue", color: "white", padding: "10px" },
-      ".button--primary": { background: "blue" },
-      ".button--secondary": { background: "green" },
+      ".button--color-primary": { background: "blue" },
+      ".button--color-secondary": { background: "green" },
     },
   },
   {
@@ -53,8 +53,8 @@ const cases = [
     ],
     expected: {
       ".button": { color: "white", padding: "10px" },
-      ".button--primary": { background: "blue" },
-      ".button--secondary": { background: "green" },
+      ".button--color-primary": { background: "blue" },
+      ".button--color-secondary": { background: "green" },
     },
   },
   {
@@ -81,11 +81,11 @@ const cases = [
     ],
     expected: {
       ".button": { color: "white", padding: "10px", background: "blue" },
-      ".button--large": { padding: "10px" },
-      ".button--primary": { background: "blue" },
-      ".button--secondary": { background: "green" },
-      ".button--primary.button--large": { background: "purple" },
-      ".button--secondary.button--small": { background: "green" },
+      ".button--size-large": { padding: "10px" },
+      ".button--color-primary": { background: "blue" },
+      ".button--color-secondary": { background: "green" },
+      ".button--color-primary.button--size-large": { background: "purple" },
+      ".button--color-secondary.button--size-small": { background: "green" },
     },
   },
 ];

@@ -9,7 +9,7 @@ const generateVariantStyles = (componentName, variants) => {
   const variantStyles = {};
   Object.entries(variants).forEach(([variantName, options = {}]) => {
     Object.entries(options).forEach(([option, styles]) => {
-      variantStyles[`.${componentName}--${option}`] = styles;
+      variantStyles[`.${componentName}--${variantName}-${option}`] = styles;
     });
   });
   return variantStyles;
@@ -63,7 +63,7 @@ const generateCompoundVariantStyles = (
     delete styles.size;
     for (const key in combined) {
       if (Object.prototype.hasOwnProperty.call(variants, key)) {
-        classString += `.${componentName}--${combined[key]}`;
+        classString += `.${componentName}--${key}-${combined[key]}`;
       }
     }
     result[classString] = styles;
