@@ -3,12 +3,12 @@
  *
  * @version 0.0.1-dev
  *
- * Changelog:
- * - 0.0.1-dev: Initial version
- *
  * Variants:
  * - space: `full`, `auto`
  * - direction: `vertical`, `horizontal`
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
  *
  */
 

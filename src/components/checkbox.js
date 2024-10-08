@@ -3,11 +3,11 @@
  *
  * @version 0.0.1-dev
  *
- * Changelog:
- * - 0.0.1-dev: Initial version
- *
  * Variants:
  * - ...
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
  *
  */
 

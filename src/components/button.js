@@ -3,14 +3,14 @@
  *
  * @version 0.0.1-dev
  *
- * Changelog:
- * - 0.0.1-dev: Initial version
- *
  * Variants:
  * - size: `small`, `medium`, `large`
  * - surface: `ghost`, `fill`
  * - space: `full`, `auto`
  * - color: `primary`, `secondary`, `positive`, `negative`
+ *
+ * Changelog:
+ * - 0.0.1-dev: Initial version
  *
  */
 
