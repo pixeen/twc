@@ -17,9 +17,9 @@ const createClassSelector = (
   variantName = '',
   variantOption = ''
 ) => {
-  const blockName = `${prefix}${componentName}`
-  const modifierClass = variantName ? `${variantName}-${variantOption}` : ''
-  return createBemClass({ block: blockName, modifier: modifierClass })
+  const block = `${prefix}${componentName}`
+  const modifier = variantName ? `${variantName}-${variantOption}` : ''
+  return createBemClass({ block, modifier })
 }
 
 /**
