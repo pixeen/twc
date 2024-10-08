@@ -23,9 +23,7 @@ export default (theme) => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: theme('spacing.3'),
-    borderWidth: theme('borderWidth.DEFAULT'),
-    borderRadius: theme('borderRadius.DEFAULT')
+    gap: theme('spacing.3')
   },
   defaultVariants: {
     color: 'primary',

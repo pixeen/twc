@@ -1,5 +1,6 @@
 import canFocus from './can-focus.js'
 import canDisable from './can-disable.js'
+import colors from 'tailwindcss/colors'
 
 export default (theme) => ({
   ...canFocus(theme),
@@ -8,5 +9,6 @@ export default (theme) => ({
   lineHeight: theme('lineHeight.none'),
   fontWeight: theme('fontWeight.medium'),
   borderRadius: theme('borderRadius.DEFAULT'),
-  borderWidth: theme('borderWidth.DEFAULT')
+  borderWidth: theme('borderWidth.DEFAULT'),
+  borderColor: theme('colors.primary.400', colors.slate['400'])
 })
