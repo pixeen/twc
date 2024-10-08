@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test'
 import assert from 'node:assert'
-import defineComponent from './define-component.js'
+import createComponent from './create-component.js'
 
 const defaultOptions = {
   classPrefix: '',
@@ -205,7 +205,7 @@ const cases = [
 
 const runTestCase = (scenario, input, expected) => {
   it(scenario, () => {
-    assert.deepEqual(defineComponent(...input), expected)
+    assert.deepEqual(createComponent(...input), expected)
   })
 }
 

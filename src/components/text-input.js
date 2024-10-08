@@ -14,7 +14,7 @@
  */
 
 import colors from 'tailwindcss/colors'
-import isAction from '../shared/is-action.js'
+import isAction from './shared/is-action.js'
 
 export default (theme) => ({
   base: {
