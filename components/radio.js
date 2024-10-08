@@ -12,7 +12,6 @@
  */
 
 import isAction from './shared/is-action.js'
-import colors from 'tailwindcss/colors'
 
 export default (theme) => ({
   base: {

@@ -8,7 +8,7 @@ const defaultOptions = {
   variantAttributeSelector: 'data-'
 }
 
-const cases = [
+const testCases = [
   {
     scenario: 'should return a component with applied styles and variants',
     input: [
@@ -210,7 +210,7 @@ const runTestCase = (scenario, input, expected) => {
 }
 
 describe('Define Component Function', () => {
-  cases.forEach(({ scenario, input, expected }) => {
+  testCases.forEach(({ scenario, input, expected }) => {
     runTestCase(scenario, input, expected)
   })
 })
