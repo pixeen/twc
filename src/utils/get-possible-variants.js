@@ -1,46 +1,19 @@
-/**
- * Converts an object into an array of key-value pair objects.
- *
- * @param {Object} obj - The input object.
- * @returns {Object[]} - An array of key-value pair objects.
- */
-const convertObjectToKeyValuePairs = (obj) =>
-  Object.entries(obj).map(([outerKey, innerObj = {}]) =>
-    Object.keys(innerObj).map((innerKey) => ({ [outerKey]: innerKey }))
-  )
+import _ from 'lodash'
 
 /**
- * Generates combinations from arrays using a recursive approach.
+ * This function produces all the permutations of the options provided in the variants object, with each combination represented as an object.
  *
- * @param {Object[]} arrays - Arrays to combine.
- * @param {Array} prefix - Internal use for building combinations.
- * @returns {Array[]} - All possible combinations.
+ * @param {Object} variants - The options object.
+ * @returns {Array} - The combinations of options.
  */
-const generateCombinations = (arrays, prefix = []) =>
-  arrays.length === 0
-    ? [prefix]
-    : arrays[0].flatMap((value) =>
-        generateCombinations(arrays.slice(1), [...prefix, value])
-      )
-
-/**
- * Combines key-value pairs into an object.
- *
- * @param {Array} combination - Array of key-value pairs.
- * @returns {Object} - Combined object.
- */
-const combineKeyValuePairs = (combination) =>
-  combination.reduce((acc, pair) => ({ ...acc, ...pair }), {})
-
-/**
- * Generates key-value pair combinations from an object.
- *
- * @param {Object} inputObject - Input object.
- * @returns {Object[]} - Variants of key-value pairs.
- */
-export const getPossibleVariants = (inputObject) =>
-  Object.values(inputObject).length === 0
-    ? []
-    : generateCombinations(convertObjectToKeyValuePairs(inputObject)).map(
-        combineKeyValuePairs
-      )
+export default (variants) =>
+  _.keys(variants)
+    .map((key) => _.keys(variants[key]))
+    .reduce(
+      (accumulatedCombinations, currentArray) =>
+        _.flatMap(accumulatedCombinations, (previousCombination) =>
+          _.map(currentArray, (value) => [...previousCombination, value])
+        ),
+      [[]]
+    )
+    .map((combination) => _.zipObject(_.keys(variants), combination))

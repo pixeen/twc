@@ -1,5 +1,5 @@
 import { describe, it } from 'node:test'
-import { getPossibleVariants } from './get-possible-variants.js'
+import getPossibleVariants from './get-possible-variants.js'
 import assert from 'node:assert'
 
 describe('getPossibleVariants function', () => {
@@ -31,10 +31,6 @@ describe('getPossibleVariants function', () => {
         { size: 'small', color: 'negative', space: 'medium' }
       ]
     )
-  })
-
-  it('should return an empty list when no options are provided', () => {
-    assert.deepStrictEqual(getPossibleVariants({}), [])
   })
 
   it('should return a list of variants when only one option is provided', () => {

@@ -1,6 +1,6 @@
-import hasProperty from './has-property.js'
 import createBemClass from './create-bem-class.js'
 import createAttributeClass from './create-attribute-class.js'
+import _ from 'lodash'
 
 /**
  * Creates a class selector.
@@ -53,7 +53,7 @@ const createAttributeSelector = (
 }
 
 /**
- * Generates styles for variants of a component.
+ * Generates styles for component variants.
  *
  * @param {string} componentName
  * @param {Object} variants
@@ -61,11 +61,13 @@ const createAttributeSelector = (
  * @returns {Object}
  */
 const generateVariantStyles = (componentName, variants, options) =>
-  Object.entries(variants).reduce(
+  _.reduce(
+    _.entries(variants),
     (accumulatedStyles, [variantName, variantOptions = {}]) => {
-      return {
-        ...accumulatedStyles,
-        ...Object.entries(variantOptions).reduce(
+      return _.assign(
+        accumulatedStyles,
+        _.reduce(
+          _.entries(variantOptions),
           (innerAccumulatedStyles, [variantOption, variantStyles]) => {
             const attributeSelector = createAttributeSelector(
               options.componentAttributeSelector,
@@ -74,8 +76,7 @@ const generateVariantStyles = (componentName, variants, options) =>
               variantName,
               variantOption
             )
-            return {
-              ...innerAccumulatedStyles,
+            return _.assign(innerAccumulatedStyles, {
               [createClassSelector(
                 options.classPrefix,
                 componentName,
@@ -83,17 +84,17 @@ const generateVariantStyles = (componentName, variants, options) =>
                 variantOption
               )]: variantStyles,
               [attributeSelector]: variantStyles
-            }
+            })
           },
           {}
         )
-      }
+      )
     },
     {}
   )
 
 /**
- * Merges base styles with default variant styles.
+ * Merges base styles and default variant styles.
  *
  * @param {string} componentName
  * @param {Object} baseStyles
@@ -117,7 +118,8 @@ const mergeBaseWithDefaultVariants = (
     options.componentAttributeSelector,
     componentName
   )
-  return Object.entries(defaultVariants).reduce(
+  return _.reduce(
+    _.entries(defaultVariants),
     (accumulatedStyles, [variantName, variantValue]) => ({
       ...accumulatedStyles,
       [baseClassSelector]: {
@@ -151,48 +153,49 @@ const generateCompoundVariantStyles = (
   compoundVariants,
   options
 ) =>
-  compoundVariants.reduce((accumulatedStyles, compoundVariant) => {
-    const [combinedVariantsArray, initialStyles] = Array.isArray(
-      compoundVariant[0]
-    )
-      ? compoundVariant
-      : [compoundVariant, {}]
-    const combinedVariants = Object.assign({}, ...combinedVariantsArray)
-    const styles = { ...initialStyles, ...combinedVariants }
-    combinedVariantsArray.forEach((variant) => {
-      Object.keys(variant).forEach((key) => {
-        if (styles[key]) delete styles[key]
+  _.reduce(
+    compoundVariants,
+    (accumulatedStyles, compoundVariant) => {
+      const [combinedVariantsArray, initialStyles] = _.isArray(
+        compoundVariant[0]
+      )
+        ? compoundVariant
+        : [compoundVariant, {}]
+      const combinedVariants = _.assign({}, ...combinedVariantsArray)
+      const styles = _.assign({}, initialStyles, combinedVariants)
+      combinedVariantsArray.forEach((variant) => {
+        _.keys(variant).forEach((key) => {
+          if (styles[key]) delete styles[key]
+        })
       })
-    })
-    const classString = Object.keys(combinedVariants)
-      .filter((key) => hasProperty(variants, key))
-      .map((key) =>
-        createClassSelector(
-          options.classPrefix,
-          componentName,
-          key,
-          combinedVariants[key]
-        )
-      )
-      .join('')
-    const attributeString = Object.keys(combinedVariants)
-      .filter((key) => hasProperty(variants, key))
-      .map((key) =>
-        createAttributeSelector(
-          options.componentAttributeSelector,
-          componentName,
-          options.variantAttributeSelector,
-          key,
-          combinedVariants[key]
-        )
-      )
-      .join('')
-    return {
-      ...accumulatedStyles,
-      [classString]: styles,
-      [attributeString]: styles
-    }
-  }, {})
+      const classString = _.map(
+        _.keys(combinedVariants).filter((key) => _.has(variants, key)),
+        (key) =>
+          createClassSelector(
+            options.classPrefix,
+            componentName,
+            key,
+            combinedVariants[key]
+          )
+      ).join('')
+      const attributeString = _.map(
+        _.keys(combinedVariants).filter((key) => _.has(variants, key)),
+        (key) =>
+          createAttributeSelector(
+            options.componentAttributeSelector,
+            componentName,
+            options.variantAttributeSelector,
+            key,
+            combinedVariants[key]
+          )
+      ).join('')
+      return _.assign(accumulatedStyles, {
+        [classString]: styles,
+        [attributeString]: styles
+      })
+    },
+    {}
+  )
 
 /**
  * Generates combined styles.
@@ -230,7 +233,7 @@ const generateStyles = (
 })
 
 /**
- * Defines a component with specified styles.
+ * Defines a component with styles.
  *
  * @param {string} componentName
  * @param {Object} styles
