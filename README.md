@@ -91,8 +91,6 @@ You can apply the component styles either using a class or attribute selector, f
 
 ```html
 <h1 data-component="heading">Some Title Wow</h1>
-<h1 data-component="heading" data-size="small">Some Title Wow</h1>
-<h1 data-component="heading" data-size="large">Some Title Wow</h1>
 ```
 
 ### Label
