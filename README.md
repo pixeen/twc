@@ -56,7 +56,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ### `heading`
 
-- **color**: `primary` `secondary` `positive` `negative`
+- **color**: `primary` `secondary` `positive` `negative``dimmed`
 - **size**: `small` `medium` `large`
 
 ```html
@@ -65,13 +65,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ### `label`
 
-- **color**: `primary` `secondary` `positive` `negative`
+- **color**: `primary` `secondary` `positive` `negative``dimmed`
 
 ```html
 <label data-component="label"></label>
 ```
 
-### `lnk`
+### `link`
 
 ```html
 <a data-component="link" href="#"></a>
@@ -79,7 +79,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ### `paragraph`
 
-- **color**: `primary` `secondary` `positive` `negative`
+- **color**: `primary` `secondary` `positive` `negative` `dimmed`
 - **size**: `small` `medium` `large`
 
 ```html

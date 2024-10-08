@@ -35,6 +35,9 @@ export default (theme) => ({
       },
       negative: {
         color: theme('colors.negative.800', colors.red['800'])
+      },
+      dimmed: {
+        color: theme('colors.secondary.600', colors.blue['600'])
       }
     }
   },
