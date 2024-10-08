@@ -10,15 +10,12 @@ import _ from 'lodash'
  * @returns {string} BEM class string.
  */
 export default ({ block, element = '', modifier = '' }) => {
-  const baseClass = `.${block}`
-
   if (!_.isEmpty(element) && !_.isEmpty(modifier)) {
-    return `${baseClass}__${element}--${modifier}`
+    return `.${block}__${element}--${modifier}`
   } else if (!_.isEmpty(element)) {
-    return `${baseClass}__${element}`
+    return `.${block}__${element}`
   } else if (!_.isEmpty(modifier)) {
-    return `${baseClass}--${modifier}`
+    return `.${block}--${modifier}`
   }
-
-  return baseClass
+  return `.${block}`
 }

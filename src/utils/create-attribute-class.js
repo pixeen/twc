@@ -6,6 +6,4 @@
  * @param {string} param.value - The value of the attribute.
  * @returns {string} A string representing a CSS attribute selector.
  */
-export default ({ name, value }) => {
-  return `[${name}="${value}"]`
-}
+export default ({ name, value }) => `[${name}="${value}"]`
