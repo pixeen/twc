@@ -37,7 +37,7 @@ export default (theme) => ({
       small: {
         fontSize: theme('fontSize.sm'),
         paddingInline: theme('spacing.3'),
-        paddingBlock: theme('spacing.1.5')
+        paddingBlock: theme('spacing.1')
       },
       medium: {
         fontSize: theme('fontSize.DEFAULT'),

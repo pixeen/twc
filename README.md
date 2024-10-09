@@ -5,9 +5,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 ## Usage
 
 ```html
-<button data-component="button" data-size="large" data-color="secondary">
-  Click Me!
-</button>
+<button as="button" with-size="large" with-color="secondary">Click Me!</button>
 ```
 
 ## Components
@@ -20,7 +18,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **space**: `full` `auto`
 
 ```html
-<button data-component="button"></button>
+<button as="button"></button>
 ```
 
 ### `button-group`
@@ -29,13 +27,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **space**: `auto`, `full`
 
 ```html
-<div data-component="button-group"></div>
+<div as="button-group"></div>
 ```
 
 ### `checkbox`
 
 ```html
-<input type="checkbox" data-component="checkbox" />
+<input type="checkbox" as="checkbox" />
 ```
 
 ### `divider`
@@ -43,7 +41,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **color**: `primary` `secondary` `positive` `negative`
 
 ```html
-<hr data-component="divider" />
+<hr as="divider" />
 ```
 
 ### `field`
@@ -51,7 +49,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **direction**: `horizontal`, `vertical`
 
 ```html
-<div data-component="field"></div>
+<div as="field"></div>
 ```
 
 ### `heading`
@@ -60,7 +58,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **size**: `small` `medium` `large`
 
 ```html
-<h1 data-component="heading"></h1>
+<h1 as="heading"></h1>
 ```
 
 ### `label`
@@ -68,13 +66,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **color**: `primary` `secondary` `positive` `negative`
 
 ```html
-<label data-component="label"></label>
+<label as="label"></label>
 ```
 
 ### `link`
 
 ```html
-<a data-component="link" href="#"></a>
+<a as="link" href="#"></a>
 ```
 
 ### `paragraph`
@@ -83,13 +81,13 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **size**: `small` `medium` `large`
 
 ```html
-<p data-component="paragraph"></p>
+<p as="paragraph"></p>
 ```
 
 ### `radio`
 
 ```html
-<input type="radio" data-component="radio" />
+<input type="radio" as="radio" />
 ```
 
 ### `text-input`
@@ -99,10 +97,5 @@ A tiny collection of components designed as Tailwind CSS plugins.
 - **color**: `primary` `secondary` `positive` `negative`
 
 ```html
-<input
-  type="text"
-  data-component="text-input"
-  data-size="medium"
-  data-color="primary"
-/>
+<input type="text" as="text-input" size="medium" color="primary" />
 ```

@@ -17,16 +17,16 @@ export default (theme) => ({
   variants: {
     color: {
       primary: {
-        borderColor: theme('colors.primary.300', colors.slate['300'])
+        borderColor: theme('colors.primary.200', colors.slate['200'])
       },
       secondary: {
-        borderColor: theme('colors.secondary.300', colors.blue['300'])
+        borderColor: theme('colors.secondary.200', colors.blue['200'])
       },
       positive: {
-        borderColor: theme('colors.positive.300', colors.green['300'])
+        borderColor: theme('colors.positive.200', colors.green['200'])
       },
       negative: {
-        borderColor: theme('colors.negative.300', colors.red['300'])
+        borderColor: theme('colors.negative.200', colors.red['200'])
       }
     }
   },
