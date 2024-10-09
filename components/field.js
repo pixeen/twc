@@ -14,8 +14,8 @@
 export default (theme) => ({
   base: {
     display: 'flex',
-    marginTop: theme('spacing.6'),
-    marginBottom: theme('spacing.6')
+    marginTop: theme('spacing.8'),
+    marginBottom: theme('spacing.8')
   },
   variants: {
     direction: {

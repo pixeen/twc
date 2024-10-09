@@ -19,19 +19,19 @@ export default (theme) => ({
   variants: {
     color: {
       primary: {
-        color: theme('colors.primary.800', colors.slate['800'])
+        color: theme('colors.primary.700', colors.slate['700'])
       },
       secondary: {
-        color: theme('colors.secondary.800', colors.blue['800'])
+        color: theme('colors.secondary.700', colors.blue['700'])
       },
       positive: {
-        color: theme('colors.positive.800', colors.green['800'])
+        color: theme('colors.positive.700', colors.green['700'])
       },
       negative: {
-        color: theme('colors.negative.800', colors.red['800'])
+        color: theme('colors.negative.700', colors.red['700'])
       },
       dimmed: {
-        color: theme('colors.primary.600', colors.slate['600'])
+        color: theme('colors.primary.500', colors.slate['500'])
       }
     },
     size: {

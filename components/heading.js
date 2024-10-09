@@ -16,7 +16,7 @@ import colors from 'tailwindcss/colors'
 export default (theme) => ({
   base: {
     marginBottom: '.25rem',
-    fontWeight: theme('fontWeight.semibold')
+    fontWeight: theme('fontWeight.medium')
   },
   variants: {
     size: {

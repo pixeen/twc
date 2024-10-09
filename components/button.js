@@ -77,26 +77,26 @@ export default (theme) => ({
     },
     color: {
       primary: {
-        backgroundColor: theme('colors.primary.200', colors.slate['200']),
-        borderColor: theme('colors.primary.400', colors.slate['400']),
-        color: theme('colors.primary.800', colors.slate['800']),
+        backgroundColor: theme('colors.primary.700', colors.slate['700']),
+        borderColor: 'transparent',
+        color: theme('colors.primary.50', colors.slate['50']),
         '&:focus': {
           outline: `${theme('spacing[0.5]')} solid ${theme('colors.primary.400', colors.slate['400'])}`
         },
         '&:hover': {
-          backgroundColor: theme('colors.primary.300', colors.slate['300']),
+          backgroundColor: theme('colors.primary.700', colors.slate['700']),
           borderColor: theme('colors.primary.500', colors.slate['500']),
-          color: theme('colors.primary.900', colors.slate['900'])
+          color: theme('colors.primary.100', colors.slate['100'])
         },
         '&:active': {
-          backgroundColor: theme('colors.primary.100', colors.slate['100']),
-          borderColor: theme('colors.primary.600', colors.slate['600']),
-          color: theme('colors.primary.900', colors.slate['900'])
+          backgroundColor: theme('colors.primary.900', colors.slate['900']),
+          borderColor: theme('colors.primary.400', colors.slate['400']),
+          color: theme('colors.primary.100', colors.slate['100'])
         },
         '&:disabled:active, &:disabled:hover': {
-          color: theme('colors.primary.800', colors.slate['800']),
+          color: theme('colors.primary.200', colors.slate['200']),
           borderColor: theme('colors.primary.500', colors.slate['500']),
-          backgroundColor: theme('colors.primary.200', colors.slate['200'])
+          backgroundColor: theme('colors.primary.800', colors.slate['800'])
         }
       },
       secondary: {

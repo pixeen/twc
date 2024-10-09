@@ -18,7 +18,7 @@ export default (theme) => ({
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    fontSize: theme('fontSize.DEFAULT'),
+    fontSize: theme('fontSize.sm'),
     fontWeight: theme('fontWeight.DEFAULT'),
     whiteSpace: 'nowrap',
     cursor: 'pointer'
@@ -26,16 +26,16 @@ export default (theme) => ({
   variants: {
     color: {
       primary: {
-        color: theme('colors.primary.600', colors.slate['600'])
+        color: theme('colors.primary.700', colors.slate['700'])
       },
       secondary: {
-        color: theme('colors.secondary.600', colors.blue['600'])
+        color: theme('colors.secondary.700', colors.blue['700'])
       },
       positive: {
-        color: theme('colors.positive.600', colors.green['600'])
+        color: theme('colors.positive.700', colors.green['700'])
       },
       negative: {
-        color: theme('colors.negative.600', colors.red['600'])
+        color: theme('colors.negative.700', colors.red['700'])
       }
     }
   },
