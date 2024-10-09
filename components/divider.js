@@ -13,10 +13,7 @@
 import colors from 'tailwindcss/colors'
 
 export default (theme) => ({
-  base: {
-    marginTop: theme('spacing.4'),
-    marginBottom: theme('spacing.4')
-  },
+  base: {},
   variants: {
     color: {
       primary: {

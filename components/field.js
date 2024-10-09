@@ -13,18 +13,20 @@
 
 export default (theme) => ({
   base: {
-    display: 'flex'
+    display: 'flex',
+    marginTop: theme('spacing.6'),
+    marginBottom: theme('spacing.6')
   },
   variants: {
     direction: {
       vertical: {
-        gap: theme('spacing.1'),
+        gap: theme('spacing.2'),
         flexDirection: 'column',
         alignItems: 'start',
         justifyContent: 'center'
       },
       horizontal: {
-        gap: theme('spacing.3'),
+        gap: theme('spacing.4'),
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'start'
@@ -32,7 +34,7 @@ export default (theme) => ({
     }
   },
   defaultVariants: {
-    direction: 'horizontal'
+    direction: 'vertical'
   },
   compoundVariants: []
 })

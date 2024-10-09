@@ -65,7 +65,7 @@ A tiny collection of components designed as Tailwind CSS plugins.
 
 ### `label`
 
-- **color**: `primary` `secondary` `positive` `negative``dimmed`
+- **color**: `primary` `secondary` `positive` `negative`
 
 ```html
 <label data-component="label"></label>

@@ -11,6 +11,7 @@ import divider from './components/divider.js'
 import textInput from './components/text-input.js'
 import field from './components/field.js'
 import heading from './components/heading.js'
+import card from './components/card.js'
 
 export default plugin.withOptions(
   (options) =>
@@ -26,7 +27,8 @@ export default plugin.withOptions(
         ...createComponent('heading', heading(theme), options),
         ...createComponent('divider', divider(theme), options),
         ...createComponent('text-input', textInput(theme), options),
-        ...createComponent('field', field(theme), options)
+        ...createComponent('field', field(theme), options),
+        ...createComponent('card', card(theme), options)
       }),
   (options) => ({
     theme: {

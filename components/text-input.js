@@ -18,7 +18,10 @@ import isAction from './shared/is-action.js'
 
 export default (theme) => ({
   base: {
-    ...isAction(theme)
+    ...isAction(theme),
+    '&::placeholder': {
+      color: theme('colors.primary.400', colors.slate['400'])
+    }
   },
   variants: {
     space: {
@@ -33,33 +36,33 @@ export default (theme) => ({
       small: {
         fontSize: theme('fontSize.sm'),
         paddingInline: theme('spacing.3'),
-        paddingBlock: theme('spacing.1')
+        paddingBlock: theme('spacing.1.5')
       },
       medium: {
         fontSize: theme('fontSize.DEFAULT'),
         paddingInline: theme('spacing.4'),
-        paddingBlock: theme('spacing.2')
+        paddingBlock: theme('spacing.3')
       },
       large: {
         fontSize: theme('fontSize.xl'),
         paddingInline: theme('spacing.5'),
-        paddingBlock: theme('spacing.2')
+        paddingBlock: theme('spacing.3')
       }
     },
     color: {
       primary: {
-        borderColor: theme('colors.primary.400', colors.slate['400'])
+        borderColor: theme('colors.primary.300', colors.slate['300'])
       },
       secondary: {
         borderColor: theme('colors.secondary.300', colors.blue['300'])
       },
       negative: {
         backgroundColor: theme('colors.negative.50', colors.red['50']),
-        borderColor: theme('colors.negative.400', colors.red['400'])
+        borderColor: theme('colors.negative.300', colors.red['300'])
       },
       positive: {
         backgroundColor: theme('colors.positive.50', colors.green['50']),
-        borderColor: theme('colors.positive.400', colors.green['400'])
+        borderColor: theme('colors.positive.300', colors.green['300'])
       }
     }
   },

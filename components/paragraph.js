@@ -31,7 +31,7 @@ export default (theme) => ({
         color: theme('colors.negative.800', colors.red['800'])
       },
       dimmed: {
-        color: theme('colors.secondary.600', colors.blue['600'])
+        color: theme('colors.primary.600', colors.slate['600'])
       }
     },
     size: {
@@ -42,7 +42,7 @@ export default (theme) => ({
         fontSize: theme('fontSize.DEFAULT')
       },
       large: {
-        fontSize: theme('fontSize.xl')
+        fontSize: theme('fontSize.lg')
       }
     }
   },

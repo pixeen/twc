@@ -21,6 +21,7 @@ export default (theme) => ({
   base: {
     ...isAction(theme),
     display: 'inline-flex',
+    fontWeight: theme('fontWeight.semibold'),
     alignItems: 'center',
     justifyContent: 'center',
     gap: theme('spacing.3')
@@ -36,17 +37,17 @@ export default (theme) => ({
       small: {
         fontSize: theme('fontSize.sm'),
         paddingInline: theme('spacing.3'),
-        paddingBlock: theme('spacing.1')
+        paddingBlock: theme('spacing.1.5')
       },
       medium: {
         fontSize: theme('fontSize.DEFAULT'),
         paddingInline: theme('spacing.4'),
-        paddingBlock: theme('spacing.2')
+        paddingBlock: theme('spacing.3')
       },
       large: {
         fontSize: theme('fontSize.xl'),
         paddingInline: theme('spacing.5'),
-        paddingBlock: theme('spacing.2')
+        paddingBlock: theme('spacing.3')
       }
     },
     surface: {

@@ -15,21 +15,19 @@ import colors from 'tailwindcss/colors'
 
 export default (theme) => ({
   base: {
-    marginBottom: '1rem'
+    marginBottom: '.25rem',
+    fontWeight: theme('fontWeight.semibold')
   },
   variants: {
     size: {
       small: {
-        fontSize: theme('fontSize.xl'),
-        fontWeight: theme('fontWeight.semibold')
+        fontSize: theme('fontSize.2xl')
       },
       medium: {
-        fontSize: theme('fontSize.3xl'),
-        fontWeight: theme('fontWeight.DEFAULT')
+        fontSize: theme('fontSize.3xl')
       },
       large: {
-        fontSize: theme('fontSize.5xl'),
-        fontWeight: theme('fontWeight.medium')
+        fontSize: theme('fontSize.5xl')
       }
     },
     color: {
@@ -46,7 +44,7 @@ export default (theme) => ({
         color: theme('colors.negative.800', colors.red['800'])
       },
       dimmed: {
-        color: theme('colors.secondary.600', colors.blue['600'])
+        color: theme('colors.primary.500', colors.slate['500'])
       }
     }
   },
